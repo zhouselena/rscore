@@ -1,0 +1,14 @@
+Node,Type
+Riot Direct,Functional
+RiotSignOn,Functional
+rCluster,Functional
+Matchmaking,Functional
+Player Profile,Functional
+Loot Service,Functional
+Riot Messaging Service,Functional
+OpenContrail SDN,Functional
+Riot-owned provider,Provider
+AWS Region 1,Provider
+AWS Region 2,Provider
+AWS Region 3,Provider
+AWS Region 4,Provider
