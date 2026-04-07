@@ -49,6 +49,14 @@ func CreateGraph(name string, weighted bool) (*Graph, error) {
 	return g, nil
 }
 
+func (g *Graph) NodeCount() int {
+	return len(g.Nodes)
+}
+
+func (g *Graph) EdgeCount() int {
+	return len(g.Edges)
+}
+
 func (g *Graph) AddNode(name, nodeType string) (*Node, error) {
 	if name == "" {
 		return nil, fmt.Errorf("node name cannot be empty")
@@ -121,6 +129,9 @@ func (g *Graph) AddEdge(name, edgeType, from, to string) (*Edge, error) {
 		ToNode: toNode,
 	}
 	g.Edges[name] = e
+
+	fromNode.OutNeighbours[to] = toNode
+	toNode.InNeighbours[from] = fromNode
 
 	log.Printf("Edge %q (%s) added to graph %q", name, edgeType, g.Name)
 	return e, nil
