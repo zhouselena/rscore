@@ -587,3 +587,217 @@ func TestBetweennessCentrality_RiotGraph_Ranking(t *testing.T) {
 		}
 	}
 }
+
+// ── Joint Degree Distribution ─────────────────────────────────────────────────
+
+// buildJointGraph returns a small, hand-crafted graph whose joint degree
+// distribution is easy to verify by inspection.
+//
+//   A ──▶ B ──▶ C
+//         │
+//         ▼
+//         D
+//
+// Degrees:
+//   A: in=0  out=1  → {0,1}
+//   B: in=1  out=2  → {1,2}
+//   C: in=1  out=0  → {1,0}
+//   D: in=1  out=0  → {1,0}   ← same pair as C
+//
+// pairCounts: {0,1}=1  {1,2}=1  {1,0}=2
+// N = 4  →  probabilities: {0,1}=0.25  {1,2}=0.25  {1,0}=0.50
+func buildJointGraph(t *testing.T) *Graph {
+	t.Helper()
+	g, _ := CreateGraph("joint-test", false)
+	for _, n := range []string{"A", "B", "C", "D"} {
+		g.AddNode(n, "functional")
+	}
+	g.AddEdge("A->B", "dependency", "A", "B")
+	g.AddEdge("B->C", "dependency", "B", "C")
+	g.AddEdge("B->D", "dependency", "B", "D")
+	return g
+}
+
+// TestJointDegreeDistrib_ReturnType verifies the function returns a non-nil map.
+func TestJointDegreeDistrib_ReturnType(t *testing.T) {
+	g := buildJointGraph(t)
+	dist := g.JointDegreeDistrib()
+	if dist == nil {
+		t.Fatal("JointDegreeDistrib returned nil")
+	}
+}
+
+// TestJointDegreeDistrib_PairCount checks the correct number of distinct pairs.
+func TestJointDegreeDistrib_PairCount(t *testing.T) {
+	g := buildJointGraph(t)
+	dist := g.JointDegreeDistrib()
+	// {0,1}, {1,2}, {1,0} → 3 distinct pairs
+	if len(dist) != 3 {
+		t.Errorf("expected 3 distinct degree pairs, got %d", len(dist))
+	}
+}
+
+// TestJointDegreeDistrib_Probabilities checks every probability value exactly.
+func TestJointDegreeDistrib_Probabilities(t *testing.T) {
+	g := buildJointGraph(t)
+	dist := g.JointDegreeDistrib()
+
+	cases := []struct {
+		pair DegreePair
+		want float64
+	}{
+		{DegreePair{In: 0, Out: 1}, 0.25}, // A only
+		{DegreePair{In: 1, Out: 2}, 0.25}, // B only
+		{DegreePair{In: 1, Out: 0}, 0.50}, // C and D share this pair
+	}
+
+	for _, tc := range cases {
+		got, ok := dist[tc.pair]
+		if !ok {
+			t.Errorf("pair {In:%d Out:%d} missing from distribution", tc.pair.In, tc.pair.Out)
+			continue
+		}
+		if !approxEqual(got, tc.want, 1e-9) {
+			t.Errorf("pair {In:%d Out:%d}: expected %.4f, got %.4f",
+				tc.pair.In, tc.pair.Out, tc.want, got)
+		}
+	}
+}
+
+// TestJointDegreeDistrib_SumsToOne verifies all probabilities sum to 1.0.
+func TestJointDegreeDistrib_SumsToOne(t *testing.T) {
+	g := buildJointGraph(t)
+	dist := g.JointDegreeDistrib()
+
+	total := 0.0
+	for _, p := range dist {
+		total += p
+	}
+	if !approxEqual(total, 1.0, 1e-9) {
+		t.Errorf("probabilities should sum to 1.0, got %.10f", total)
+	}
+}
+
+// TestJointDegreeDistrib_NoNegativeOrZeroProbability checks all values are positive.
+func TestJointDegreeDistrib_NoNegativeOrZeroProbability(t *testing.T) {
+	g := buildJointGraph(t)
+	dist := g.JointDegreeDistrib()
+
+	for pair, p := range dist {
+		if p <= 0 {
+			t.Errorf("pair {In:%d Out:%d} has non-positive probability %f",
+				pair.In, pair.Out, p)
+		}
+	}
+}
+
+// TestJointDegreeDistrib_SingleNode checks a degenerate one-node graph.
+// The sole node has in=0, out=0, so the distribution must be {{0,0}: 1.0}.
+func TestJointDegreeDistrib_SingleNode(t *testing.T) {
+	g, _ := CreateGraph("single", false)
+	g.AddNode("Alone", "functional")
+
+	dist := g.JointDegreeDistrib()
+
+	if len(dist) != 1 {
+		t.Fatalf("expected 1 pair, got %d", len(dist))
+	}
+	p, ok := dist[DegreePair{In: 0, Out: 0}]
+	if !ok {
+		t.Fatal("expected pair {0,0} to be present")
+	}
+	if !approxEqual(p, 1.0, 1e-9) {
+		t.Errorf("single-node probability: expected 1.0, got %f", p)
+	}
+}
+
+// TestJointDegreeDistrib_AllNodesAccountedFor ensures every node in the graph
+// contributes exactly 1/N total probability across all pairs.
+func TestJointDegreeDistrib_AllNodesAccountedFor(t *testing.T) {
+	g := buildJointGraph(t)
+	dist := g.JointDegreeDistrib()
+	N := float64(g.NodeCount())
+
+	totalWeight := 0.0
+	for _, p := range dist {
+		totalWeight += p * N // recover the raw count contribution
+	}
+	if !approxEqual(totalWeight, N, 1e-9) {
+		t.Errorf("total node weight: expected %.1f, got %.10f", N, totalWeight)
+	}
+}
+
+// TestJointDegreeDistrib_RiotGraph_SumsToOne runs the sum-to-one sanity check
+// on the full Riot infrastructure graph loaded from CSV.
+func TestJointDegreeDistrib_RiotGraph_SumsToOne(t *testing.T) {
+	g := loadGraph(t,
+		"./public/templates/nodes.csv",
+		"./public/templates/edges.csv",
+	)
+
+	dist := g.JointDegreeDistrib()
+
+	total := 0.0
+	for _, p := range dist {
+		total += p
+	}
+	if !approxEqual(total, 1.0, 1e-9) {
+		t.Errorf("Riot graph probabilities should sum to 1.0, got %.10f", total)
+	}
+}
+
+// TestJointDegreeDistrib_RiotGraph_PairCount checks the number of distinct
+// degree pairs in the Riot graph against the value computed by hand:
+//
+//   {7,1}=1  {6,5}=1  {1,4}=1  {3,4}=1  {3,2}=1
+//   {0,3}=1  {2,1}=1  {0,2}=1  {3,0}=1  {1,0}=4
+//
+// → 10 distinct pairs.
+func TestJointDegreeDistrib_RiotGraph_PairCount(t *testing.T) {
+	g := loadGraph(t,
+		"./public/templates/nodes.csv",
+		"./public/templates/edges.csv",
+	)
+
+	dist := g.JointDegreeDistrib()
+
+	if len(dist) != 10 {
+		t.Errorf("expected 10 distinct degree pairs, got %d", len(dist))
+	}
+}
+
+// TestJointDegreeDistrib_RiotGraph_SpecificPairs spot-checks a handful of
+// known pairs and their exact probabilities (k/13).
+func TestJointDegreeDistrib_RiotGraph_SpecificPairs(t *testing.T) {
+	g := loadGraph(t,
+		"./public/templates/nodes.csv",
+		"./public/templates/edges.csv",
+	)
+	dist := g.JointDegreeDistrib()
+
+	const N = 13.0
+	cases := []struct {
+		pair DegreePair
+		k    float64 // expected count
+		desc string
+	}{
+		{DegreePair{In: 1, Out: 0}, 4, "AWS regions 1-4 all share {1,0}"},
+		{DegreePair{In: 7, Out: 1}, 1, "Riot Direct is the only {7,1} node"},
+		{DegreePair{In: 6, Out: 5}, 1, "RiotSignOn is the only {6,5} node"},
+		{DegreePair{In: 0, Out: 4}, 1, "Loot Service is the only {0,4} node"},
+		{DegreePair{In: 3, Out: 0}, 1, "Riot-owned provider is the only {3,0} node"},
+	}
+
+	for _, tc := range cases {
+		want := tc.k / N
+		got, ok := dist[tc.pair]
+		if !ok {
+			t.Errorf("%s: pair {In:%d Out:%d} missing from distribution",
+				tc.desc, tc.pair.In, tc.pair.Out)
+			continue
+		}
+		if !approxEqual(got, want, 1e-9) {
+			t.Errorf("%s: expected %.6f, got %.6f", tc.desc, want, got)
+		}
+	}
+}
