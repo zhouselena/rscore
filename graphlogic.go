@@ -1,8 +1,8 @@
 package rscore
 
 import (
-	"log"
 	"fmt"
+	"log"
 )
 
 type Node struct {
@@ -153,3 +153,102 @@ func (g *Graph) RemoveEdge(name string) error {
 
 	return nil
 }
+
+func (g *Graph) InDegree(name string) (int, error) {
+	node, exists := g.Nodes[name]
+	if !exists {
+		return 0, fmt.Errorf("node %q not found", name)
+	}
+
+	return len(node.InNeighbours), nil
+}
+
+func (g *Graph) OutDegree(name string) (int, error) {
+	node, exists := g.Nodes[name]
+	if !exists {
+		return 0, fmt.Errorf("node %q not found", name)
+	}
+
+	return len(node.OutNeighbours), nil
+}
+
+func (g *Graph) BetweennessCentrality(normal bool) (map[string]float64) {
+
+	betweenScores := make(map[string]float64)
+	for name := range g.Nodes {
+    	betweenScores[name] = 0.0
+	}
+
+	for sourceName, sourceNode := range g.Nodes{
+
+		// forward pass
+
+		var stack []*Node
+		queue := []*Node{sourceNode} // seed BFS with source
+
+		predecessors := make(map[string][]string) // make sure to use append(predecessors[node], "nodeName")
+		sigma := make(map[string]int) // one path to self
+		dist := make(map[string]int)  // dist to self
+		sigma[sourceName] = 1
+		dist[sourceName]  = 0
+
+		for len(queue) > 0 { // while q not empty
+			v := queue[0]
+			queue = queue[1:]
+			stack = append(stack, v)
+
+			for wName, wNode := range v.OutNeighbours{
+				// first time visiting neighbour
+				if _, exists := dist[wName]; !exists {
+					dist[wName] = dist[v.Name] + 1
+					queue = append(queue, wNode)
+				}
+				// is path to w a shortest path
+				if dist[wName] == dist[v.Name] + 1 {
+					sigma[wName] += sigma[v.Name] // count the paths
+					predecessors[wName] = append(predecessors[wName], v.Name) // v is a pred of w
+				}
+			}
+
+		}
+
+		// backward pass
+
+		delta := make(map[string]float64)
+		for s := range g.Nodes {
+			delta[s] = 0.0
+		}
+
+		for len(stack) > 0 {
+			wNode := stack[len(stack)-1]
+			wName := wNode.Name
+			stack = stack[:len(stack)-1]
+
+			for _, vName := range predecessors[wName] {
+				delta[vName] += (float64(sigma[vName])/float64(sigma[wName])) * float64(1+delta[wName])
+			}
+			if wName != sourceName {
+					betweenScores[wName] += delta[wName]
+			}
+		}
+
+	}
+
+	// rescale / normalization
+
+	N := len(g.Nodes)
+	scale := 1.0 // default, no normalisation
+
+	if normal && N > 2 {
+		scale = 1.0 / float64((N-1) * (N-2))
+	}
+
+	for s := range g.Nodes {
+		betweenScores[s] *= scale
+	}
+
+
+	return betweenScores
+
+}
+
