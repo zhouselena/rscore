@@ -252,3 +252,39 @@ func (g *Graph) BetweennessCentrality(normal bool) (map[string]float64) {
 
 }
 
+type DegreePair struct {
+	In 		int
+	Out  	int
+}
+
+func (g *Graph) JointDegreeDistrib() (map[DegreePair]float64) {
+
+	inDegrees := make(map[string]int)
+	outDegrees := make(map[string]int)
+	for vName, _ := range g.Nodes {
+		vIn, _ := g.InDegree(vName)
+		vOut, _ := g.OutDegree(vName)
+		inDegrees[vName] = vIn
+		outDegrees[vName] = vOut
+	}
+
+	// Collect pair counts
+	pairCounts := make(map[DegreePair]int)
+	for vName, _ := range g.Nodes {
+		pair := DegreePair {
+			In: inDegrees[vName],
+			Out: outDegrees[vName],
+		}
+		pairCounts[pair]++
+	}
+
+	// Calc probabilities
+	N := float64(len(g.Nodes))
+	jointDistrib := make(map[DegreePair]float64)
+	for pair, count := range pairCounts {
+		jointDistrib[pair] = float64(count) / N
+	}
+
+	return jointDistrib
+
+}
