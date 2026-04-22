@@ -393,3 +393,197 @@ func (g *Graph) Print() {
 	}
 	fmt.Println("\n" + strings.Repeat("─", 54))
 }
+
+// ── Betweenness Centrality ────────────────────────────────────────────────────
+
+// approxEqual returns true if a and b differ by less than tol.
+func approxEqual(a, b, tol float64) bool {
+	diff := a - b
+	if diff < 0 {
+		diff = -diff
+	}
+	return diff < tol
+}
+
+func TestBetweennessCentrality_Simple(t *testing.T) {
+	// Linear chain: A -> B -> C
+	// Only B lies on the unique shortest path from A to C,
+	// so B should have the only non-zero betweenness score.
+	g, _ := CreateGraph("chain", false)
+	g.AddNode("A", "functional")
+	g.AddNode("B", "functional")
+	g.AddNode("C", "functional")
+	g.AddEdge("A->B", "dependency", "A", "B")
+	g.AddEdge("B->C", "dependency", "B", "C")
+
+	scores := g.BetweennessCentrality(false)
+
+	if !approxEqual(scores["A"], 0.0, 1e-9) {
+		t.Errorf("A: expected 0.0, got %f", scores["A"])
+	}
+	if !approxEqual(scores["B"], 1.0, 1e-9) {
+		t.Errorf("B: expected 1.0, got %f", scores["B"])
+	}
+	if !approxEqual(scores["C"], 0.0, 1e-9) {
+		t.Errorf("C: expected 0.0, got %f", scores["C"])
+	}
+}
+
+func TestBetweennessCentrality_Normalised_Simple(t *testing.T) {
+	// Same chain, but normalised. N=3, scale = 1/((2)*(1)) = 0.5
+	// B raw = 1.0, normalised = 0.5
+	g, _ := CreateGraph("chain", false)
+	g.AddNode("A", "functional")
+	g.AddNode("B", "functional")
+	g.AddNode("C", "functional")
+	g.AddEdge("A->B", "dependency", "A", "B")
+	g.AddEdge("B->C", "dependency", "B", "C")
+
+	scores := g.BetweennessCentrality(true)
+
+	if !approxEqual(scores["B"], 0.5, 1e-9) {
+		t.Errorf("B normalised: expected 0.5, got %f", scores["B"])
+	}
+}
+
+func TestBetweennessCentrality_Disconnected(t *testing.T) {
+	// Two isolated nodes: no paths between them, all scores should be 0.
+	g, _ := CreateGraph("disconnected", false)
+	g.AddNode("A", "functional")
+	g.AddNode("B", "functional")
+
+	scores := g.BetweennessCentrality(false)
+
+	for name, score := range scores {
+		if !approxEqual(score, 0.0, 1e-9) {
+			t.Errorf("%s: expected 0.0 for disconnected node, got %f", name, score)
+		}
+	}
+}
+
+func TestBetweennessCentrality_AllNodesPresent(t *testing.T) {
+	// Every node in the graph must have an entry in the returned map.
+	g := loadGraph(t,
+		"./public/templates/nodes.csv",
+		"./public/templates/edges.csv",
+	)
+
+	scores := g.BetweennessCentrality(false)
+
+	for name := range g.Nodes {
+		if _, ok := scores[name]; !ok {
+			t.Errorf("node %q missing from betweenness scores map", name)
+		}
+	}
+}
+
+func TestBetweennessCentrality_RiotGraph_Unnormalised(t *testing.T) {
+	// Ground-truth values computed independently with NetworkX.
+	g := loadGraph(t,
+		"./public/templates/nodes.csv",
+		"./public/templates/edges.csv",
+	)
+
+	scores := g.BetweennessCentrality(false)
+
+	expected := map[string]float64{
+		"RiotSignOn":              24.0,
+		"Matchmaking":             4.5,
+		"Riot Direct":             4.0,
+		"rCluster":                2.5,
+		"Player Profile":          2.0,
+		"Loot Service":            0.0,
+		"Riot Messaging Service":  0.0,
+		"OpenContrail SDN":        0.0,
+		"Riot-owned provider":     0.0,
+		"AWS Region 1":            0.0,
+		"AWS Region 2":            0.0,
+		"AWS Region 3":            0.0,
+		"AWS Region 4":            0.0,
+	}
+
+	const tol = 1e-4
+	for name, want := range expected {
+		got, ok := scores[name]
+		if !ok {
+			t.Errorf("node %q missing from scores map", name)
+			continue
+		}
+		if !approxEqual(got, want, tol) {
+			t.Errorf("%-25s expected %.6f, got %.6f", name, want, got)
+		}
+	}
+}
+
+func TestBetweennessCentrality_RiotGraph_Normalised(t *testing.T) {
+	// Same ground truth divided by (N-1)*(N-2) = 12*11 = 132.
+	g := loadGraph(t,
+		"./public/templates/nodes.csv",
+		"./public/templates/edges.csv",
+	)
+
+	scores := g.BetweennessCentrality(true)
+
+	expected := map[string]float64{
+		"RiotSignOn":              0.181818,
+		"Matchmaking":             0.034091,
+		"Riot Direct":             0.030303,
+		"rCluster":                0.018939,
+		"Player Profile":          0.015152,
+		"Loot Service":            0.0,
+		"Riot Messaging Service":  0.0,
+		"OpenContrail SDN":        0.0,
+		"Riot-owned provider":     0.0,
+		"AWS Region 1":            0.0,
+		"AWS Region 2":            0.0,
+		"AWS Region 3":            0.0,
+		"AWS Region 4":            0.0,
+	}
+
+	const tol = 1e-4
+	for name, want := range expected {
+		got, ok := scores[name]
+		if !ok {
+			t.Errorf("node %q missing from scores map", name)
+			continue
+		}
+		if !approxEqual(got, want, tol) {
+			t.Errorf("%-25s expected %.6f, got %.6f", name, want, got)
+		}
+	}
+}
+
+func TestBetweennessCentrality_RiotGraph_Ranking(t *testing.T) {
+	// The top 5 nodes by betweenness should appear in this exact order.
+	g := loadGraph(t,
+		"./public/templates/nodes.csv",
+		"./public/templates/edges.csv",
+	)
+
+	scores := g.BetweennessCentrality(false)
+
+	type kv struct {
+		Name  string
+		Score float64
+	}
+	ranked := make([]kv, 0, len(scores))
+	for name, score := range scores {
+		ranked = append(ranked, kv{name, score})
+	}
+	sort.Slice(ranked, func(i, j int) bool {
+		return ranked[i].Score > ranked[j].Score
+	})
+
+	expectedOrder := []string{
+		"RiotSignOn",
+		"Matchmaking",
+		"Riot Direct",
+		"rCluster",
+		"Player Profile",
+	}
+	for i, want := range expectedOrder {
+		if ranked[i].Name != want {
+			t.Errorf("rank %d: expected %q, got %q (score=%.4f)", i+1, want, ranked[i].Name, ranked[i].Score)
+		}
+	}
+}
