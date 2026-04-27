@@ -3,6 +3,8 @@ package rscore
 import (
 	"fmt"
 	"log"
+	"maps"
+	"slices"
 )
 
 type Node struct {
@@ -261,7 +263,7 @@ func (g *Graph) JointDegreeDistrib() (map[DegreePair]float64) {
 
 	inDegrees := make(map[string]int)
 	outDegrees := make(map[string]int)
-	for vName, _ := range g.Nodes {
+	for vName := range g.Nodes {
 		vIn, _ := g.InDegree(vName)
 		vOut, _ := g.OutDegree(vName)
 		inDegrees[vName] = vIn
@@ -270,7 +272,7 @@ func (g *Graph) JointDegreeDistrib() (map[DegreePair]float64) {
 
 	// Collect pair counts
 	pairCounts := make(map[DegreePair]int)
-	for vName, _ := range g.Nodes {
+	for vName := range g.Nodes {
 		pair := DegreePair {
 			In: inDegrees[vName],
 			Out: outDegrees[vName],
@@ -287,4 +289,132 @@ func (g *Graph) JointDegreeDistrib() (map[DegreePair]float64) {
 
 	return jointDistrib
 
+}
+
+func helperUnionMaps(map1 map[string]*Node, map2 map[string]*Node) (map[string]int) {
+
+	union := make(map[string]int)
+	for key, _ := range map1 {
+		union[key] = 1
+	}
+
+	for key, _ := range map2 {
+		union[key] = 1
+	}
+
+	return union
+
+}
+
+func helperIntersectMaps(map1 map[string]*Node, map2 map[string]*Node) (map[string]int) {
+
+	intersect := make(map[string]int)
+	for key, _ := range map1 {
+		if _, ok := map2[key]; ok {
+			intersect[key] = 1
+		}
+	}
+
+	return intersect
+
+}
+
+func (g *Graph) CountDirectedTriangles(nodes []string) (map[string][]int) {
+
+	if nodes == nil {
+		nodes = slices.Collect(maps.Keys(g.Nodes))
+	}
+	var nodes_list []*Node
+	for _, key := range nodes {
+		if node, ok := g.Nodes[key]; ok {
+			nodes_list = append(nodes_list, node)
+		}
+	}
+
+	results := make(map[string][]int)
+
+	for _, i := range nodes_list {
+
+		triangle_count := 0
+
+		for jName := range helperUnionMaps(i.InNeighbours, i.OutNeighbours) {
+			j := g.Nodes[jName]
+			triangle_count += len(helperIntersectMaps(i.InNeighbours, j.InNeighbours)) // k→i and k→j
+			triangle_count += len(helperIntersectMaps(i.InNeighbours, j.OutNeighbours)) // k→i and j→k
+			triangle_count += len(helperIntersectMaps(i.OutNeighbours, j.InNeighbours)) // i→k and k→j
+			triangle_count += len(helperIntersectMaps(i.OutNeighbours, j.OutNeighbours)) // i→k and j→k
+		}
+
+		degTotal := len(i.InNeighbours) + len(i.OutNeighbours)
+		degBidirect := len(helperIntersectMaps(i.InNeighbours, i.OutNeighbours))
+		results[i.Name] = []int{triangle_count, degTotal, degBidirect}
+
+	}
+
+	return results
+
+}
+
+func (g *Graph) LocalClusteringCoeff(nodes []string) (map[string]float64) {
+
+	if nodes == nil {
+		nodes = slices.Collect(maps.Keys(g.Nodes))
+	}
+	var nodes_list []*Node
+	for _, key := range nodes {
+		if node, ok := g.Nodes[key]; ok {
+			nodes_list = append(nodes_list, node)
+		}
+	}
+
+	trianglesInfo := g.CountDirectedTriangles(nil)
+	results := make(map[string]float64)
+
+	for _, i := range nodes_list {
+
+		iInfo := trianglesInfo[i.Name]
+		tcount, dtot, dbi := iInfo[0], iInfo[1], iInfo[2]
+
+		if tcount == 0 {
+			results[i.Name] = 0.0
+		} else {
+			denom := (dtot * (dtot - 1) - 2 * dbi) * 2
+			results[i.Name] = float64(tcount) / float64(denom)
+		}
+	}
+
+	return results
+
+}
+
+func (g *Graph) GlobalTransitivity() float64 {
+
+	trianglesInfo := g.CountDirectedTriangles(nil)
+
+	totalTriangles := 0
+	totalPossible := 0
+
+	for _, iInfo := range trianglesInfo {
+		tCount, dtot, dbi := iInfo[0], iInfo[1], iInfo[2]
+		totalTriangles += tCount
+		totalPossible += (dtot * (dtot - 1) - 2 * dbi) * 2
+	}
+
+	if totalPossible == 0 {
+		return 0.0
+	}
+
+	return float64(totalTriangles) / float64(totalPossible)
+
+}
+
+func (g *Graph) AvgClusteringCoeff() float64 {
+	coeffs := g.LocalClusteringCoeff(nil)
+	sum := 0.0
+
+	for i := range coeffs {
+		sum = coeffs[i]
+	}
+
+	return sum / float64(len(coeffs))
 }
