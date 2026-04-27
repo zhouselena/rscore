@@ -14,6 +14,12 @@ bash run-rscore.sh
 
 ## Run tests
 
+From `/rscore/`...
+
+```bash
+go test -v ./...
+```
+
 ## Notes
 
 ```go
