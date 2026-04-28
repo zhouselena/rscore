@@ -57,9 +57,8 @@ func check(t *testing.T, cond bool, label, failMsg string) {
 
 func loadGraph(t *testing.T, nodesPath, edgesPath string) *Graph {
 	t.Helper()
-    log.SetOutput(io.Discard)
-    t.Cleanup(func() { log.SetOutput(os.Stderr) })
-	
+	log.SetOutput(io.Discard)
+	t.Cleanup(func() { log.SetOutput(os.Stderr) })
 	init_(fmt.Sprintf("graph from %s + %s", nodesPath, edgesPath))
 
 	g, err := CreateGraph("Riot Infrastructure", false)
@@ -644,4 +643,289 @@ func TestJointDegreeDistrib_RiotGraph(t *testing.T) {
 			check(t, approxEqual(got, want, 1e-9), tc.desc, fmt.Sprintf("got %.6f, want %.6f", got, want))
 		}
 	}
+}
+
+// ── Clustering Coefficients ───────────────────────────────────────────────────
+
+// buildClusterGraph returns a hand-crafted graph whose clustering values are
+// easy to verify by inspection:
+//
+//	A ──▶ B ──▶ C
+//	 ╲         ╱
+//	  ╲──────▶╱
+//
+// Triangles (directed, per node using the Watts-Strogatz generalisation):
+//   A: i→B, i→C; B is not a neighbour of C in the direction that closes a
+//      triangle through A, but A→B→C and A→C gives one cycle. Computed below.
+//   B: receives from A, sends to C; A also sends to C → triangle A,B,C.
+//   C: pure sink, no outgoing edges → 0 triangles.
+//
+// We use this graph to spot-check CountDirectedTriangles and
+// LocalClusteringCoeff; GlobalTransitivity and AvgClusteringCoeff are
+// sanity-checked (non-negative, in [0,1]) rather than pinned to exact values
+// because they depend on the full triangle/denominator formula in the
+// implementation.
+func buildClusterGraph(t *testing.T) *Graph {
+	t.Helper()
+	init_("cluster graph: A->B, B->C, A->C (one directed triangle)")
+	g, _ := CreateGraph("cluster-test", false)
+	log.SetOutput(io.Discard)
+	t.Cleanup(func() { log.SetOutput(os.Stderr) })
+	for _, n := range []string{"A", "B", "C"} {
+		g.AddNode(n, "functional")
+	}
+	g.AddEdge("A->B", "dependency", "A", "B")
+	g.AddEdge("B->C", "dependency", "B", "C")
+	g.AddEdge("A->C", "dependency", "A", "C")
+	return g
+}
+
+// buildIsolatedGraph returns three nodes with no edges — every clustering
+// metric should be 0.
+func buildIsolatedGraph(t *testing.T) *Graph {
+	t.Helper()
+	init_("isolated graph: three nodes, no edges")
+	g, _ := CreateGraph("isolated-test", false)
+	log.SetOutput(io.Discard)
+	t.Cleanup(func() { log.SetOutput(os.Stderr) })
+	for _, n := range []string{"X", "Y", "Z"} {
+		g.AddNode(n, "functional")
+	}
+	return g
+}
+
+// ── CountDirectedTriangles ────────────────────────────────────────────────────
+
+func TestCountDirectedTriangles_Simple(t *testing.T) {
+	section("CountDirectedTriangles — Simple Triangle Graph")
+	g := buildClusterGraph(t)
+
+	results := g.CountDirectedTriangles(nil)
+
+	// Every node must appear in the result map.
+	for _, name := range []string{"A", "B", "C"} {
+		_, ok := results[name]
+		check(t, ok, fmt.Sprintf("%s present in results map", name), "missing")
+	}
+
+	// All three nodes participate in the A→B→C / A→C cycle. The algorithm
+	// counts triangles at i by checking shared neighbours across all four
+	// in/out combinations, so even C (a sink) gets a non-zero count because
+	// A and B are both its in-neighbours and are themselves connected.
+	check(t, results["C"][0] > 0, "C has > 0 triangles (in-neighbours A and B are connected)", fmt.Sprintf("got %d", results["C"][0]))
+
+	// A and B both participate in the A→B→C / A→C cycle, so each must have > 0.
+	check(t, results["A"][0] > 0, "A has at least 1 triangle", fmt.Sprintf("got %d", results["A"][0]))
+	check(t, results["B"][0] > 0, "B has at least 1 triangle", fmt.Sprintf("got %d", results["B"][0]))
+}
+
+func TestCountDirectedTriangles_Isolated(t *testing.T) {
+	section("CountDirectedTriangles — Isolated Nodes")
+	g := buildIsolatedGraph(t)
+
+	results := g.CountDirectedTriangles(nil)
+
+	for name, info := range results {
+		check(t, info[0] == 0, fmt.Sprintf("%s has 0 triangles (no edges)", name), fmt.Sprintf("got %d", info[0]))
+	}
+}
+
+func TestCountDirectedTriangles_SubsetFilter(t *testing.T) {
+	section("CountDirectedTriangles — Subset Node Filter")
+	g := buildClusterGraph(t)
+
+	// Request results for only ["A", "B"] — C must not appear in the map.
+	results := g.CountDirectedTriangles([]string{"A", "B"})
+
+	check(t, len(results) == 2, "result contains exactly 2 nodes", fmt.Sprintf("got %d", len(results)))
+	_, hasA := results["A"]
+	_, hasB := results["B"]
+	_, hasC := results["C"]
+	check(t, hasA, "A present in filtered results", "missing")
+	check(t, hasB, "B present in filtered results", "missing")
+	check(t, !hasC, "C absent from filtered results", "unexpectedly present")
+}
+
+func TestCountDirectedTriangles_RiotGraph(t *testing.T) {
+	section("CountDirectedTriangles — Riot Graph")
+	g := loadGraph(t,
+		"./public/templates/nodes.csv",
+		"./public/templates/edges.csv",
+	)
+
+	results := g.CountDirectedTriangles(nil)
+
+	// Every node must appear.
+	for name := range g.Nodes {
+		_, ok := results[name]
+		check(t, ok, fmt.Sprintf("%s present in results map", name), "missing")
+	}
+
+	// Leaf provider nodes (AWS regions, Riot-owned provider) are pure sinks or
+	// sources with no shared neighbours → 0 triangles.
+	for _, name := range []string{"AWS Region 1", "AWS Region 2", "AWS Region 3", "AWS Region 4"} {
+		info, ok := results[name]
+		if ok {
+			check(t, info[0] == 0, fmt.Sprintf("%s has 0 triangles (leaf provider)", name), fmt.Sprintf("got %d", info[0]))
+		}
+	}
+
+	// RiotSignOn sits at the centre of many paths and must have > 0 triangles.
+	check(t, results["RiotSignOn"][0] > 0, "RiotSignOn has at least 1 triangle", fmt.Sprintf("got %d", results["RiotSignOn"][0]))
+}
+
+// ── LocalClusteringCoeff ──────────────────────────────────────────────────────
+
+func TestLocalClusteringCoeff_Simple(t *testing.T) {
+	section("LocalClusteringCoeff — Simple Triangle Graph")
+	g := buildClusterGraph(t)
+
+	coeffs := g.LocalClusteringCoeff(nil)
+
+	// All nodes must be present.
+	for _, name := range []string{"A", "B", "C"} {
+		_, ok := coeffs[name]
+		check(t, ok, fmt.Sprintf("%s present in coeffs map", name), "missing")
+	}
+
+	// C has non-zero triangles (its in-neighbours A and B are connected), so
+	// its clustering coefficient is also non-zero despite having no out-edges.
+	check(t, coeffs["C"] > 0.0, "C > 0.0 (in-neighbours form a triangle)", fmt.Sprintf("got %f", coeffs["C"]))
+
+	// All coefficients must be in [0, 1].
+	for name, c := range coeffs {
+		check(t, c >= 0.0 && c <= 1.0, fmt.Sprintf("%s coeff in [0,1]", name), fmt.Sprintf("got %f", c))
+	}
+}
+
+func TestLocalClusteringCoeff_Isolated(t *testing.T) {
+	section("LocalClusteringCoeff — Isolated Nodes")
+	g := buildIsolatedGraph(t)
+
+	coeffs := g.LocalClusteringCoeff(nil)
+
+	for name, c := range coeffs {
+		check(t, approxEqual(c, 0.0, 1e-9), fmt.Sprintf("%s = 0.0 (no edges)", name), fmt.Sprintf("got %f", c))
+	}
+}
+
+func TestLocalClusteringCoeff_RiotGraph(t *testing.T) {
+	section("LocalClusteringCoeff — Riot Graph")
+	g := loadGraph(t,
+		"./public/templates/nodes.csv",
+		"./public/templates/edges.csv",
+	)
+
+	coeffs := g.LocalClusteringCoeff(nil)
+
+	// Every node must have an entry.
+	for name := range g.Nodes {
+		_, ok := coeffs[name]
+		check(t, ok, fmt.Sprintf("%s present in coeffs map", name), "missing")
+	}
+
+	// All values must be in [0, 1].
+	for name, c := range coeffs {
+		check(t, c >= 0.0 && c <= 1.0, fmt.Sprintf("%s coeff in [0,1]", name), fmt.Sprintf("got %f", c))
+	}
+
+	// Pure sink nodes with a single provider parent form no triangles → 0.
+	for _, name := range []string{"AWS Region 1", "AWS Region 2", "AWS Region 3", "AWS Region 4"} {
+		c, ok := coeffs[name]
+		if ok {
+			check(t, approxEqual(c, 0.0, 1e-9), fmt.Sprintf("%s = 0.0 (leaf)", name), fmt.Sprintf("got %f", c))
+		}
+	}
+}
+
+// ── GlobalTransitivity ────────────────────────────────────────────────────────
+
+func TestGlobalTransitivity_Simple(t *testing.T) {
+	section("GlobalTransitivity — Simple Triangle Graph")
+	g := buildClusterGraph(t)
+
+	gt := g.GlobalTransitivity()
+
+	check(t, gt >= 0.0 && gt <= 1.0, "transitivity in [0,1]", fmt.Sprintf("got %f", gt))
+	// The graph has a closed triangle so transitivity must be strictly positive.
+	check(t, gt > 0.0, "transitivity > 0 (closed triangle exists)", fmt.Sprintf("got %f", gt))
+}
+
+func TestGlobalTransitivity_Isolated(t *testing.T) {
+	section("GlobalTransitivity — Isolated Nodes")
+	g := buildIsolatedGraph(t)
+
+	gt := g.GlobalTransitivity()
+
+	check(t, approxEqual(gt, 0.0, 1e-9), "transitivity = 0.0 (no edges)", fmt.Sprintf("got %f", gt))
+}
+
+func TestGlobalTransitivity_RiotGraph(t *testing.T) {
+	section("GlobalTransitivity — Riot Graph")
+	g := loadGraph(t,
+		"./public/templates/nodes.csv",
+		"./public/templates/edges.csv",
+	)
+
+	gt := g.GlobalTransitivity()
+
+	check(t, gt >= 0.0 && gt <= 1.0, "transitivity in [0,1]", fmt.Sprintf("got %f", gt))
+	// The Riot graph has cycles (e.g. through RiotSignOn), so > 0 is expected.
+	check(t, gt > 0.0, "transitivity > 0 (cycles present in Riot graph)", fmt.Sprintf("got %f", gt))
+}
+
+// ── AvgClusteringCoeff ────────────────────────────────────────────────────────
+
+// NOTE: AvgClusteringCoeff in graphlogic.go contains a bug on the accumulation
+// line: `sum = coeffs[i]` should be `sum += coeffs[i]`. The tests below are
+// written against the correct behaviour; they will fail until that is fixed.
+
+func TestAvgClusteringCoeff_Simple(t *testing.T) {
+	section("AvgClusteringCoeff — Simple Triangle Graph")
+	g := buildClusterGraph(t)
+
+	avg := g.AvgClusteringCoeff()
+
+	check(t, avg >= 0.0 && avg <= 1.0, "avg coeff in [0,1]", fmt.Sprintf("got %f", avg))
+	// At least A and B have non-zero coefficients, so the average must be > 0.
+	check(t, avg > 0.0, "avg coeff > 0 (triangle graph)", fmt.Sprintf("got %f", avg))
+
+	// Cross-check: avg must equal the mean of LocalClusteringCoeff values.
+	coeffs := g.LocalClusteringCoeff(nil)
+	sum := 0.0
+	for _, c := range coeffs {
+		sum += c
+	}
+	want := sum / float64(len(coeffs))
+	check(t, approxEqual(avg, want, 1e-9), fmt.Sprintf("avg matches manual mean (%.6f)", want), fmt.Sprintf("got %f", avg))
+}
+
+func TestAvgClusteringCoeff_Isolated(t *testing.T) {
+	section("AvgClusteringCoeff — Isolated Nodes")
+	g := buildIsolatedGraph(t)
+
+	avg := g.AvgClusteringCoeff()
+
+	check(t, approxEqual(avg, 0.0, 1e-9), "avg coeff = 0.0 (no edges)", fmt.Sprintf("got %f", avg))
+}
+
+func TestAvgClusteringCoeff_RiotGraph(t *testing.T) {
+	section("AvgClusteringCoeff — Riot Graph")
+	g := loadGraph(t,
+		"./public/templates/nodes.csv",
+		"./public/templates/edges.csv",
+	)
+
+	avg := g.AvgClusteringCoeff()
+
+	check(t, avg >= 0.0 && avg <= 1.0, "avg coeff in [0,1]", fmt.Sprintf("got %f", avg))
+
+	// Cross-check against the mean of LocalClusteringCoeff.
+	coeffs := g.LocalClusteringCoeff(nil)
+	sum := 0.0
+	for _, c := range coeffs {
+		sum += c
+	}
+	want := sum / float64(len(coeffs))
+	check(t, approxEqual(avg, want, 1e-9), fmt.Sprintf("avg matches manual mean (%.6f)", want), fmt.Sprintf("got %f", avg))
 }

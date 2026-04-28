@@ -294,11 +294,11 @@ func (g *Graph) JointDegreeDistrib() (map[DegreePair]float64) {
 func helperUnionMaps(map1 map[string]*Node, map2 map[string]*Node) (map[string]int) {
 
 	union := make(map[string]int)
-	for key, _ := range map1 {
+	for key := range map1 {
 		union[key] = 1
 	}
 
-	for key, _ := range map2 {
+	for key := range map2 {
 		union[key] = 1
 	}
 
@@ -413,7 +413,7 @@ func (g *Graph) AvgClusteringCoeff() float64 {
 	sum := 0.0
 
 	for i := range coeffs {
-		sum = coeffs[i]
+		sum += coeffs[i]
 	}
 
 	return sum / float64(len(coeffs))
