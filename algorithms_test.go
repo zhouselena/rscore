@@ -531,3 +531,175 @@ func TestAvgClusteringCoeff_RiotGraph(t *testing.T) {
 	want := sum / float64(len(coeffs))
 	check(t, approxEqual(avg, want, 1e-9), fmt.Sprintf("avg matches manual mean (%.6f)", want), fmt.Sprintf("got %f", avg))
 }
+
+// ── Articulation Points ───────────────────────────────────────────────────────
+
+func TestFindArticulationPoints_Chain(t *testing.T) {
+	section("FindArticulationPoints — Linear Chain (A→B→C)")
+	init_("linear chain: A->B->C")
+	g, _ := CreateGraph("chain", false)
+	log.SetOutput(io.Discard)
+	t.Cleanup(func() { log.SetOutput(os.Stderr) })
+	for _, n := range []string{"A", "B", "C"} {
+		g.AddNode(n, "functional")
+	}
+	g.AddEdge("A->B", "dependency", "A", "B")
+	g.AddEdge("B->C", "dependency", "B", "C")
+
+	// Only B bridges A from C; A is an endpoint with no in-neighbours, not an AP.
+	got := FindArticulationPoints(g)
+	sort.Strings(got)
+
+	gotSet := make(map[string]bool)
+	for _, ap := range got {
+		gotSet[ap] = true
+	}
+	check(t, gotSet["B"], "B is an articulation point (sole bridge)", fmt.Sprintf("got %v", got))
+	check(t, !gotSet["A"], "A is not an articulation point (source endpoint)", fmt.Sprintf("got %v", got))
+	check(t, !gotSet["C"], "C is not an articulation point (sink)", fmt.Sprintf("got %v", got))
+}
+
+func TestFindArticulationPoints_Cycle(t *testing.T) {
+	section("FindArticulationPoints — Simple Cycle (A→B→C→A)")
+	init_("directed cycle: A->B->C->A")
+	g, _ := CreateGraph("cycle", false)
+	log.SetOutput(io.Discard)
+	t.Cleanup(func() { log.SetOutput(os.Stderr) })
+	for _, n := range []string{"A", "B", "C"} {
+		g.AddNode(n, "functional")
+	}
+	g.AddEdge("A->B", "dependency", "A", "B")
+	g.AddEdge("B->C", "dependency", "B", "C")
+	g.AddEdge("C->A", "dependency", "C", "A")
+
+	// The back edge C→A propagates low all the way to disc[A], so no node's
+	// subtree is stranded — zero articulation points.
+	got := FindArticulationPoints(g)
+
+	check(t, len(got) == 0, "0 articulation points (fully cyclic)", fmt.Sprintf("got %v", got))
+}
+
+func TestFindArticulationPoints_Isolated(t *testing.T) {
+	section("FindArticulationPoints — Isolated Nodes")
+	init_("three isolated nodes, no edges")
+	g, _ := CreateGraph("isolated", false)
+	log.SetOutput(io.Discard)
+	t.Cleanup(func() { log.SetOutput(os.Stderr) })
+	for _, n := range []string{"X", "Y", "Z"} {
+		g.AddNode(n, "functional")
+	}
+
+	// No edges — removing any node changes nothing.
+	got := FindArticulationPoints(g)
+
+	check(t, len(got) == 0, "0 articulation points (no edges)", fmt.Sprintf("got %v", got))
+}
+
+func TestFindArticulationPoints_SingleNode(t *testing.T) {
+	section("FindArticulationPoints — Single Node")
+	init_("graph with a single node")
+	g, _ := CreateGraph("single", false)
+	log.SetOutput(io.Discard)
+	t.Cleanup(func() { log.SetOutput(os.Stderr) })
+	g.AddNode("A", "functional")
+
+	got := FindArticulationPoints(g)
+
+	check(t, len(got) == 0, "0 articulation points (single node)", fmt.Sprintf("got %v", got))
+}
+
+func TestFindArticulationPoints_LongChain(t *testing.T) {
+	section("FindArticulationPoints — Long Chain (A→B→C→D)")
+	init_("chain: A->B->C->D")
+	g, _ := CreateGraph("long-chain", false)
+	log.SetOutput(io.Discard)
+	t.Cleanup(func() { log.SetOutput(os.Stderr) })
+	for _, n := range []string{"A", "B", "C", "D"} {
+		g.AddNode(n, "functional")
+	}
+	g.AddEdge("A->B", "dependency", "A", "B")
+	g.AddEdge("B->C", "dependency", "B", "C")
+	g.AddEdge("C->D", "dependency", "C", "D")
+
+	// B and C each bridge the chain; A (source) and D (sink) are not APs.
+	got := FindArticulationPoints(g)
+
+	gotSet := make(map[string]bool)
+	for _, ap := range got {
+		gotSet[ap] = true
+	}
+	check(t, gotSet["B"], "B is an articulation point", fmt.Sprintf("got %v", got))
+	check(t, gotSet["C"], "C is an articulation point", fmt.Sprintf("got %v", got))
+	check(t, !gotSet["A"], "A is not an articulation point (source endpoint)", fmt.Sprintf("got %v", got))
+	check(t, !gotSet["D"], "D is not an articulation point (sink)", fmt.Sprintf("got %v", got))
+}
+
+func TestFindArticulationPoints_NoDuplicates(t *testing.T) {
+	section("FindArticulationPoints — No Duplicate Entries in Result")
+	init_("chain A->B->C: B is an AP for multiple downstream nodes")
+	g, _ := CreateGraph("no-dups", false)
+	log.SetOutput(io.Discard)
+	t.Cleanup(func() { log.SetOutput(os.Stderr) })
+	for _, n := range []string{"A", "B", "C"} {
+		g.AddNode(n, "functional")
+	}
+	g.AddEdge("A->B", "dependency", "A", "B")
+	g.AddEdge("B->C", "dependency", "B", "C")
+
+	// artPts is a map[string]int so each node can only appear once,
+	// but the final slice must also contain no repeats.
+	got := FindArticulationPoints(g)
+
+	seen := make(map[string]int)
+	for _, ap := range got {
+		seen[ap]++
+	}
+	for node, count := range seen {
+		check(t, count == 1,
+			fmt.Sprintf("%s appears exactly once", node),
+			fmt.Sprintf("appeared %d times", count))
+	}
+}
+
+func TestFindArticulationPoints_RiotGraph(t *testing.T) {
+	section("FindArticulationPoints — Riot Graph")
+	g := loadGraph(t,
+		nodesCSV,
+		edgesCSV,
+	)
+
+	got := FindArticulationPoints(g)
+	sort.Strings(got)
+
+	gotSet := make(map[string]bool)
+	for _, ap := range got {
+		gotSet[ap] = true
+	}
+
+	// RiotSignOn is the structural hub connecting all functional services to
+	// the AWS hosting layer; its removal fragments the graph and is the one
+	// AP that holds regardless of DFS traversal order.
+	check(t, gotSet["RiotSignOn"],
+		"RiotSignOn is an articulation point (central hub)",
+		fmt.Sprintf("missing from result %v", got))
+
+	// Pure provider leaf nodes are never articulation points — they have no
+	// out-neighbours (or only one in-neighbour) so removing them cannot
+	// increase the number of connected components.
+	for _, name := range []string{"AWS Region 1", "AWS Region 2", "AWS Region 3", "AWS Region 4", "Riot-owned provider"} {
+		check(t, !gotSet[name],
+			fmt.Sprintf("%q is not an articulation point (leaf provider)", name),
+			fmt.Sprintf("unexpectedly present in %v", got))
+	}
+
+	// Result must contain no duplicates.
+	seen := make(map[string]int)
+	for _, ap := range got {
+		seen[ap]++
+	}
+	for node, count := range seen {
+		check(t, count == 1,
+			fmt.Sprintf("%s appears exactly once in Riot result", node),
+			fmt.Sprintf("appeared %d times", count))
+	}
+}
