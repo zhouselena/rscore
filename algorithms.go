@@ -250,24 +250,30 @@ func AvgClusteringCoeff(g *Graph) float64 {
 	return sum / float64(len(coeffs))
 }
 
-func artPtsDFS(g *Graph, v string, visited map[string]bool, onStack map[string]bool, discovery map[string]int, low map[string]int, artPts []string, timer int) {
+func artPtsDFS(g *Graph, v string, isRoot bool, visited map[string]bool, onStack map[string]bool, discovery map[string]int, low map[string]int, artPts map[string]int, timer *int) {
 
 	visited[v] = true
 	onStack[v] = true
-	discovery[v] = timer
-	low[v] = timer
-	timer += 1
+	discovery[v] = *timer
+	low[v] = *timer
+	*timer += 1
 
+	childCount := 0
 	for u := range g.Nodes[v].OutNeighbours {
 		if !visited[u] {
-			artPtsDFS(g, u, visited, onStack, discovery, low, artPts, timer)
+			childCount++
+			artPtsDFS(g, u, false, visited, onStack, discovery, low, artPts, timer)
 			low[v] = min(low[v], low[u])
-			// if removing v disconnects u, v is art pt
-			if low[u] >= discovery[v] {
-				artPts = append(artPts, v)
+			if isRoot {
+				if childCount >= 2 { // root is AP only if it has 2+ DFS children
+					artPts[v] = 1
+				}
+			} else {
+				if low[u] >= discovery[v] {
+					artPts[v] = 1
+				}
 			}
 		} else if onStack[u] {
-			// back edge u is an ancestor still on the DFS stack
 			low[v] = min(low[v], discovery[u])
 		}
 	}
@@ -281,7 +287,7 @@ func FindArticulationPoints(g *Graph) []string {
 	onStack := make(map[string]bool)
 	discovery := make(map[string]int)
 	low := make(map[string]int)
-	var artPts []string
+	artPts := make(map[string]int)
 	timer := 0
 
 	for node := range g.Nodes {
@@ -294,10 +300,14 @@ func FindArticulationPoints(g *Graph) []string {
 	// handle disconnected graphs
 	for node := range g.Nodes {
 		if !visited[node] {
-			artPtsDFS(g, node, visited, onStack, discovery, low, artPts, timer)
+			artPtsDFS(g, node, true, visited, onStack, discovery, low, artPts, &timer)
 		}
 	}
 
-	return artPts
+	var artPtsList []string
+	for node := range artPts {
+		artPtsList = append(artPtsList, node)
+	}
+	return artPtsList
 
 }
