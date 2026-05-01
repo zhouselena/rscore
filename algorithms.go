@@ -249,3 +249,55 @@ func AvgClusteringCoeff(g *Graph) float64 {
 
 	return sum / float64(len(coeffs))
 }
+
+func artPtsDFS(g *Graph, v string, visited map[string]bool, onStack map[string]bool, discovery map[string]int, low map[string]int, artPts []string, timer int) {
+
+	visited[v] = true
+	onStack[v] = true
+	discovery[v] = timer
+	low[v] = timer
+	timer += 1
+
+	for u := range g.Nodes[v].OutNeighbours {
+		if !visited[u] {
+			artPtsDFS(g, u, visited, onStack, discovery, low, artPts, timer)
+			low[v] = min(low[v], low[u])
+			// if removing v disconnects u, v is art pt
+			if low[u] >= discovery[v] {
+				artPts = append(artPts, v)
+			}
+		} else if onStack[u] {
+			// back edge u is an ancestor still on the DFS stack
+			low[v] = min(low[v], discovery[u])
+		}
+	}
+
+	onStack[v] = false
+}
+
+func FindArticulationPoints(g *Graph) []string {
+
+	visited := make(map[string]bool)
+	onStack := make(map[string]bool)
+	discovery := make(map[string]int)
+	low := make(map[string]int)
+	var artPts []string
+	timer := 0
+
+	for node := range g.Nodes {
+		visited[node] = false
+		onStack[node] = false
+		discovery[node] = -1
+		low[node] = -1
+	}
+
+	// handle disconnected graphs
+	for node := range g.Nodes {
+		if !visited[node] {
+			artPtsDFS(g, node, visited, onStack, discovery, low, artPts, timer)
+		}
+	}
+
+	return artPts
+
+}
