@@ -703,3 +703,114 @@ func TestFindArticulationPoints_RiotGraph(t *testing.T) {
 			fmt.Sprintf("appeared %d times", count))
 	}
 }
+
+// ── Algebraic Connectivity ────────────────────────────────────────────────────
+
+// buildPathGraph returns the undirected path A — B — C represented as a
+// directed graph with edges in both directions.
+// Laplacian eigenvalues: 0, 2−√2 ≈ 0.5858, 2+√2 ≈ 3.4142 → λ₂ = 2−√2.
+func buildPathGraph(t *testing.T) *Graph {
+    t.Helper()
+    init_("path graph A—B—C (one-directional, symmetrised internally)")
+    g, _ := CreateGraph("path", false)
+    log.SetOutput(io.Discard)
+    t.Cleanup(func() { log.SetOutput(os.Stderr) })
+    for _, n := range []string{"A", "B", "C"} {
+        g.AddNode(n, "functional")
+    }
+    g.AddEdge("A->B", "dependency", "A", "B")
+    g.AddEdge("B->C", "dependency", "B", "C")
+    return g
+}
+
+func TestAlgebraicConnectivity_SingleNode(t *testing.T) {
+	section("AlgebraicConnectivity — Single Node")
+	init_("graph with one node, no edges")
+	g, _ := CreateGraph("single", false)
+	log.SetOutput(io.Discard)
+	t.Cleanup(func() { log.SetOutput(os.Stderr) })
+	g.AddNode("A", "functional")
+
+	// 1×1 Laplacian has no second eigenvalue — expect 0.
+	ac := AlgebraicConnectivity(g)
+	check(t, approxEqual(ac, 0.0, 1e-9), "single node → λ₂ = 0.0", fmt.Sprintf("got %f", ac))
+}
+
+func TestAlgebraicConnectivity_Disconnected(t *testing.T) {
+	section("AlgebraicConnectivity — Disconnected Graph")
+	init_("two isolated nodes: A, B (no edges)")
+	g, _ := CreateGraph("disconnected", false)
+	log.SetOutput(io.Discard)
+	t.Cleanup(func() { log.SetOutput(os.Stderr) })
+	g.AddNode("A", "functional")
+	g.AddNode("B", "functional")
+
+	// Disconnected graph has ≥2 zero eigenvalues → λ₂ = 0.
+	ac := AlgebraicConnectivity(g)
+	check(t, approxEqual(ac, 0.0, 1e-9), "disconnected → λ₂ = 0.0", fmt.Sprintf("got %f", ac))
+}
+
+func TestAlgebraicConnectivity_PathGraph(t *testing.T) {
+    section("AlgebraicConnectivity — Path Graph A—B—C")
+    g := buildPathGraph(t)
+
+    // λ₂ of P₃ is exactly 1.0
+    ac := AlgebraicConnectivity(g)
+
+    check(t, ac > 0.0, "path graph is connected → λ₂ > 0", fmt.Sprintf("got %f", ac))
+    check(t, approxEqual(ac, 1.0, 1e-6),
+        "λ₂ = 1.0 (P₃ exact)",
+        fmt.Sprintf("got %.10f", ac))
+}
+
+func TestAlgebraicConnectivity_CompleteGraph(t *testing.T) {
+	section("AlgebraicConnectivity — Complete Graph K₃")
+	init_("complete graph K3: all six directed edges")
+	g, _ := CreateGraph("K3", false)
+	log.SetOutput(io.Discard)
+	t.Cleanup(func() { log.SetOutput(os.Stderr) })
+	for _, n := range []string{"A", "B", "C"} {
+		g.AddNode(n, "functional")
+	}
+	g.AddEdge("A->B", "dependency", "A", "B")
+	g.AddEdge("B->A", "dependency", "B", "A")
+	g.AddEdge("B->C", "dependency", "B", "C")
+	g.AddEdge("C->B", "dependency", "C", "B")
+	g.AddEdge("A->C", "dependency", "A", "C")
+	g.AddEdge("C->A", "dependency", "C", "A")
+
+	// Every node has degree 2; both non-zero eigenvalues equal 3 → λ₂ = 3.
+	ac := AlgebraicConnectivity(g)
+	check(t, approxEqual(ac, 3.0, 1e-6), "K₃ → λ₂ = 3.0", fmt.Sprintf("got %f", ac))
+}
+
+func TestAlgebraicConnectivity_RiotGraph(t *testing.T) {
+	section("AlgebraicConnectivity — Riot Graph")
+	g := loadGraph(t, nodesCSV, edgesCSV)
+
+	ac := AlgebraicConnectivity(g)
+
+	check(t, ac >= 0.0, "λ₂ ≥ 0 (Laplacian is positive semi-definite)", fmt.Sprintf("got %f", ac))
+	// The Riot graph is connected through RiotSignOn when symmetrised → λ₂ > 0.
+	check(t, ac > 0.0, "Riot graph is connected → λ₂ > 0", fmt.Sprintf("got %f", ac))
+	// λ₂ is bounded above by n for any simple graph.
+	check(t, ac < float64(len(g.Nodes)),
+		"λ₂ < n (upper bound for simple graph)",
+		fmt.Sprintf("got %f, n=%d", ac, len(g.Nodes)))
+}
+
+func TestAlgebraicConnectivity_RiotGraph_RemoveHub(t *testing.T) {
+	section("AlgebraicConnectivity — Riot Graph λ₂ drops after hub removal")
+	g := loadGraph(t, nodesCSV, edgesCSV)
+
+	before := AlgebraicConnectivity(g)
+
+	// RiotSignOn is the central articulation point; removing it must reduce
+	// connectivity (lower λ₂) or fully disconnect the graph (λ₂ = 0).
+	g.RemoveNode("RiotSignOn")
+	after := AlgebraicConnectivity(g)
+
+	check(t, after <= before,
+		fmt.Sprintf("λ₂ drops after hub removal (%.6f → %.6f)", before, after),
+		fmt.Sprintf("before=%.6f  after=%.6f", before, after))
+}
