@@ -3,6 +3,9 @@ package rscore
 import (
 	"maps"
 	"slices"
+	"sort"
+
+	"gonum.org/v1/gonum/mat"
 )
 
 func BetweennessCentrality(g *Graph, normal bool) (map[string]float64) {
@@ -310,4 +313,60 @@ func FindArticulationPoints(g *Graph) []string {
 	}
 	return artPtsList
 
+}
+
+func AlgebraicConnectivity(g *Graph) float64 {
+
+	n := len(g.Nodes)
+	adjMat := make([][]float64, n)
+	degMat := make([][]float64, n)
+	for i := range adjMat {
+		adjMat[i] = make([]float64, n)
+		degMat[i] = make([]float64, n)
+	}
+
+	// stable index mapping
+	nodeIndex := make(map[string]int)
+	idx := 0
+	for id := range g.Nodes {
+		nodeIndex[id] = idx
+		idx++
+	}
+
+	// process directed graph to undirected
+	for i, iNode := range g.Nodes {
+		for j := range g.Nodes {
+			if _, hasJ := iNode.OutNeighbours[j]; hasJ {
+				adjMat[nodeIndex[i]][n+nodeIndex[j]] = 1
+			}
+		}
+	}
+
+	// calculate degree matrix
+	for i := 0; i < n; i++ {
+		for j := 0; j < n; j++ {
+			degMat[i][i] += adjMat[i][j]
+		}
+	}
+
+	// calculate L
+	subtract := make([]float64, n*n)
+	for i := 0; i < n; i++ {
+		for j := 0; j < n; j++ {
+			subtract[i*j] = degMat[i][j] - adjMat[i][j]
+		}
+	}
+
+	// compute eigenvalues
+	L := mat.NewSymDense(n, subtract)
+	var eig mat.EigenSym
+	ok := eig.Factorize(L, false) // false = don't compute eigenvectors
+	if !ok {
+		panic("eigendecomp failed")
+	}
+
+	eigenvalues := eig.Values(nil)
+	sort.Float64s(eigenvalues)
+
+	return eigenvalues[1] // second smallest eigenvalue	
 }
