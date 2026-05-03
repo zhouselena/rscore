@@ -260,9 +260,17 @@ func artPtsDFS(g *Graph, v string, isRoot bool, visited map[string]bool, onStack
 	discovery[v] = *timer
 	low[v] = *timer
 	*timer += 1
+	// combine in and out neighbours
+	allNeighbours := make(map[string]int)
+	for u := range g.Nodes[v].OutNeighbours {
+		allNeighbours[u] = 1
+	}
+	for u := range g.Nodes[v].InNeighbours {
+		allNeighbours[u] = 1
+	}
 
 	childCount := 0
-	for u := range g.Nodes[v].OutNeighbours {
+	for u := range allNeighbours {
 		if !visited[u] {
 			childCount++
 			artPtsDFS(g, u, false, visited, onStack, discovery, low, artPts, timer)
@@ -337,7 +345,8 @@ func AlgebraicConnectivity(g *Graph) float64 {
 	for i, iNode := range g.Nodes {
 		for j := range g.Nodes {
 			if _, hasJ := iNode.OutNeighbours[j]; hasJ {
-				adjMat[nodeIndex[i]][n+nodeIndex[j]] = 1
+				adjMat[nodeIndex[i]][nodeIndex[j]] = 1  // forward
+				adjMat[nodeIndex[j]][nodeIndex[i]] = 1  // reverse — makes it symmetric
 			}
 		}
 	}
@@ -353,7 +362,7 @@ func AlgebraicConnectivity(g *Graph) float64 {
 	subtract := make([]float64, n*n)
 	for i := 0; i < n; i++ {
 		for j := 0; j < n; j++ {
-			subtract[i*j] = degMat[i][j] - adjMat[i][j]
+			subtract[i*n + j] = degMat[i][j] - adjMat[i][j]
 		}
 	}
 
@@ -366,7 +375,11 @@ func AlgebraicConnectivity(g *Graph) float64 {
 	}
 
 	eigenvalues := eig.Values(nil)
+	if len(eigenvalues) <= 1 {
+		return 0.0
+	}
 	sort.Float64s(eigenvalues)
 
-	return eigenvalues[1] // second smallest eigenvalue	
+	return eigenvalues[1] // second smallest eigenvalue
+
 }
