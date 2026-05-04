@@ -72,7 +72,7 @@ func BetweennessCentrality(g *Graph, normal bool) (map[string]float64) {
 
 	// rescale / normalization
 
-	N := len(g.Nodes)
+	N := g.NodeCount()
 	scale := 1.0 // default, no normalisation
 
 	if normal && N > 2 {
@@ -115,7 +115,7 @@ func JointDegreeDistrib(g *Graph) (map[DegreePair]float64) {
 	}
 
 	// Calc probabilities
-	N := float64(len(g.Nodes))
+	N := float64(g.NodeCount())
 	jointDistrib := make(map[DegreePair]float64)
 	for pair, count := range pairCounts {
 		jointDistrib[pair] = float64(count) / N
@@ -325,7 +325,7 @@ func FindArticulationPoints(g *Graph) []string {
 
 func AlgebraicConnectivity(g *Graph) float64 {
 
-	n := len(g.Nodes)
+	n := g.NodeCount()
 	adjMat := make([][]float64, n)
 	degMat := make([][]float64, n)
 	for i := range adjMat {
