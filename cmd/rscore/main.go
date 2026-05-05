@@ -14,7 +14,8 @@ func main() {
         Long:  "r(esilience)score is a tool that takes in the infrastructure of your app, and runs calculations to evaluate the resilience based on dependence on features, service providers, and layout.",
     }
 
-    cmd.AddCommand(newLoadCommand())
+    // cmd.AddCommand(newLoadCommand())
+    cmd.AddCommand(newScoreCommand())
 
     if err := cmd.Execute(); err != nil {
         fmt.Println(err)

@@ -1,8 +1,10 @@
 package main
 
 import (
+	"cmp"
 	"fmt"
 	"log"
+	"slices"
 
 	"github.com/spf13/cobra"
 	"github.com/zhouselena/rscore"
@@ -11,8 +13,8 @@ import (
 func newScoreCommand() *cobra.Command {
 
     cmd := &cobra.Command{
-        Use:   "load",
-        Short: "Load application infrastructure from files.",
+        Use:   "score",
+        Short: "Calculate resilience score for application infrastructure, and node criticality.",
     }
 
     // optional flags
@@ -21,9 +23,9 @@ func newScoreCommand() *cobra.Command {
     cmd.Flags().StringVarP(&edgespath, "edges-path", "e", "", `specify path to edges csv file, e.g. "public/templates/edges.csv"`)
 
     cmd.Run = func(cmd *cobra.Command, args []string) {
-        err := runLoadCommand(cmd, args, nodespath, edgespath)
+        err := runScoreCommand(cmd, args, nodespath, edgespath)
         if err != nil {
-            log.Fatalf("failed to load infrastructure: %v", err)
+            log.Fatalf("failed to calculate score: %v", err)
         }
     }
 
@@ -39,6 +41,34 @@ func runScoreCommand(cmd *cobra.Command, args []string, nodespath string, edgesp
     }
 
 	// run resilience score
+	if rscore.LoadAllAlgorithms() != nil {
+		return fmt.Errorf("was unable to calculate scores: %q", err)
+	}
+
+	// calculate scores
+	rScore, recommendation := rscore.CalculateGraphResiliency()
+	nodeScores := rscore.CalculateNodeCriticalness()
+
+	// display results
+	fmt.Printf("=== Infrastructure Resilience Score: %.4f ===\n", rScore)
+    fmt.Printf("Recommendation: %s\n\n", recommendation)
+
+    fmt.Println("=== Node Criticality Scores ===")
+    // sort nodes by criticality descending for readability
+    type nodeScore struct {
+        name  string
+        score float64
+    }
+    ranked := make([]nodeScore, 0, len(nodeScores))
+    for node, score := range nodeScores {
+        ranked = append(ranked, nodeScore{node, score})
+    }
+    slices.SortFunc(ranked, func(a, b nodeScore) int {
+        return cmp.Compare(b.score, a.score) // descending
+    })
+    for _, ns := range ranked {
+        fmt.Printf("  %-30s %.4f\n", ns.name, ns.score)
+    }
 
     return nil
 }

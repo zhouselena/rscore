@@ -3,25 +3,28 @@ package rscore
 import (
 	"math"
 	"slices"
+	"fmt"
 )
 
-func LoadAllAlgorithms(nodespath string, edgespath string) {
+func LoadAllAlgorithms() error {
 	if AppInfraGraph == nil {
-		Load(nodespath, edgespath)
+		return fmt.Errorf("no graph found, run Load first")
 	}
-
+	
 	AppInfraGraph.Betweenness = BetweennessCentrality(AppInfraGraph, true)
 	AppInfraGraph.Entropy = DegreeEntropy(AppInfraGraph)
 	AppInfraGraph.LocalClustering = LocalClusteringCoeff(AppInfraGraph, nil)
 	AppInfraGraph.Transitivity = GlobalTransitivity(AppInfraGraph)
 	AppInfraGraph.AvgClustering = AvgClusteringCoeff(AppInfraGraph)
 	AppInfraGraph.ArtPoints = FindArticulationPoints(AppInfraGraph)
+
 	AppInfraGraph.FielderValue = AlgebraicConnectivity(AppInfraGraph)
+	return nil
 }
 
-func CalculateGraphResiliency(g *Graph) (float64, string) {
+func CalculateGraphResiliency() (float64, string) {
 	if AppInfraGraph.Betweenness == nil {
-		LoadAllAlgorithms("", "")
+		LoadAllAlgorithms()
 	}
 	n := AppInfraGraph.NodeCount()
 
@@ -38,14 +41,14 @@ func CalculateGraphResiliency(g *Graph) (float64, string) {
 	c_degree := AppInfraGraph.Entropy
 
 	w1, w2, w3, w4, w5 := 0.30, 0.25, 0.20, 0.15, 0.10
-	rScore := w1 * c_connectivity + w2 * c_artpts * w3 * c_clustering + w4 * c_betweenness + w5 * c_degree
+	rScore := w1 * c_connectivity + w2 * c_artpts + w3 * c_clustering + w4 * c_betweenness + w5 * c_degree
 
 	return rScore, "placeholder for recommendation"
 }
 
-func CalculateNodeCriticalness(g *Graph) map[string]float64 {
+func CalculateNodeCriticalness() map[string]float64 {
 	if AppInfraGraph.Betweenness == nil {
-		LoadAllAlgorithms("", "")
+		LoadAllAlgorithms()
 	}
 
 	scores := make(map[string]float64)
