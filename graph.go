@@ -29,7 +29,7 @@ type Graph struct {
 	Edges 				map[string]*Edge
 	Weighted 			bool					// unused for now
 	Betweenness 		map[string]float64		// betweenness centrality
-	DegreeDistrib 		map[DegreePair]float64	// degree distribution
+	Entropy 			float64					// degree entropy from degree distribution
 	LocalClustering		map[string]float64		// local clustering coefficients
 	Transitivity		float64					// global transitivity
 	AvgClustering 		float64 				// global average clustering coefficient
@@ -160,20 +160,20 @@ func (g *Graph) RemoveEdge(name string) error {
 	return nil
 }
 
-func (g *Graph) InDegree(name string) (int, error) {
+func (g *Graph) InDegree(name string) int {
 	node, exists := g.Nodes[name]
 	if !exists {
-		return 0, fmt.Errorf("node %q not found", name)
+		return -1
 	}
 
-	return len(node.InNeighbours), nil
+	return len(node.InNeighbours)
 }
 
-func (g *Graph) OutDegree(name string) (int, error) {
+func (g *Graph) OutDegree(name string) int {
 	node, exists := g.Nodes[name]
 	if !exists {
-		return 0, fmt.Errorf("node %q not found", name)
+		return -1
 	}
 
-	return len(node.OutNeighbours), nil
+	return len(node.OutNeighbours)
 }

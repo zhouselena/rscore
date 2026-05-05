@@ -2,6 +2,7 @@ package rscore
 
 import (
 	"maps"
+	"math"
 	"slices"
 	"sort"
 
@@ -98,8 +99,8 @@ func JointDegreeDistrib(g *Graph) (map[DegreePair]float64) {
 	inDegrees := make(map[string]int)
 	outDegrees := make(map[string]int)
 	for vName := range g.Nodes {
-		vIn, _ := g.InDegree(vName)
-		vOut, _ := g.OutDegree(vName)
+		vIn := g.InDegree(vName)
+		vOut  := g.OutDegree(vName)
 		inDegrees[vName] = vIn
 		outDegrees[vName] = vOut
 	}
@@ -123,6 +124,29 @@ func JointDegreeDistrib(g *Graph) (map[DegreePair]float64) {
 
 	return jointDistrib
 
+}
+
+// untested
+func DegreeEntropy(g *Graph) float64 {
+	dist := JointDegreeDistrib(g)
+	n := float64(g.NodeCount())
+	if n <= 1 {
+		return 1.0
+	}
+
+	h := 0.0
+	for _, p := range dist {
+		if p > 0 {
+			h -= p * math.Log(p)
+		}
+	}
+
+	hMax := math.Log(n)
+	if hMax == 0 {
+		return 1.0
+	}
+
+	return h / hMax
 }
 
 func helperUnionMaps(map1 map[string]*Node, map2 map[string]*Node) (map[string]int) {
