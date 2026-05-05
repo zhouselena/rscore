@@ -24,10 +24,17 @@ type Edge struct {
 
 // Directed graph
 type Graph struct {
-	Name 		string // application name
-	Nodes		map[string]*Node
-	Edges 		map[string]*Edge
-	Weighted 	bool
+	Name 				string 					// application name
+	Nodes				map[string]*Node
+	Edges 				map[string]*Edge
+	Weighted 			bool					// unused for now
+	Betweenness 		map[string]float64		// betweenness centrality
+	DegreeDistrib 		map[DegreePair]float64	// degree distribution
+	LocalClustering		map[string]float64		// local clustering coefficients
+	Transitivity		float64					// global transitivity
+	AvgClustering 		float64 				// global average clustering coefficient
+	ArtPoints 			[]string 				// articulation points
+	FielderValue		float64					// algebraic connectivity
 }
 
 // Initialise and return new Graph
@@ -42,7 +49,6 @@ func CreateGraph(name string, weighted bool) (*Graph, error) {
 		Nodes: make(map[string]*Node),
 		Edges: make(map[string]*Edge),
 		Weighted: weighted,
-
 	}
 
 	log.Printf("Graph %q created (weighted=%v)", name, weighted)

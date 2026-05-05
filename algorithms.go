@@ -153,7 +153,7 @@ func helperIntersectMaps(map1 map[string]*Node, map2 map[string]*Node) (map[stri
 
 }
 
-func CountDirectedTriangles(g *Graph, nodes []string) (map[string][]int) {
+func countDirectedTriangles(g *Graph, nodes []string) (map[string][]int) {
 
 	if nodes == nil {
 		nodes = slices.Collect(maps.Keys(g.Nodes))
@@ -201,7 +201,7 @@ func LocalClusteringCoeff(g *Graph, nodes []string) (map[string]float64) {
 		}
 	}
 
-	trianglesInfo := CountDirectedTriangles(g, nil)
+	trianglesInfo := countDirectedTriangles(g, nil)
 	results := make(map[string]float64)
 
 	for _, i := range nodes_list {
@@ -223,7 +223,7 @@ func LocalClusteringCoeff(g *Graph, nodes []string) (map[string]float64) {
 
 func GlobalTransitivity(g *Graph) float64 {
 
-	trianglesInfo := CountDirectedTriangles(g, nil)
+	trianglesInfo := countDirectedTriangles(g, nil)
 
 	totalTriangles := 0
 	totalPossible := 0
