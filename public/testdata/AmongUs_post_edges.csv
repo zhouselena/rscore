@@ -1,0 +1,20 @@
+Type,From,To
+Dependency,Account / Guest Login Service,Among Us Client
+Dependency,Game Lobby Server,Among Us Client
+Dependency,Matchmaking Service,Among Us Client
+Dependency,Player Cosmetics / Store,Among Us Client
+Dependency,Chat Service,Among Us Client
+Dependency,DDoS Protection (Cloudflare),Among Us Client
+Dependency,Game Lobby Server,Account / Guest Login Service
+Dependency,Matchmaking Service,Account / Guest Login Service
+Dependency,Chat Service,Game Lobby Server
+Hosted-on,Account / Guest Login Service,AWS EC2 (Unlimited Mode)
+Hosted-on,Game Lobby Server,AWS EC2 (Unlimited Mode)
+Hosted-on,Matchmaking Service,AWS EC2 (Unlimited Mode)
+Hosted-on,Player Cosmetics / Store,AWS EC2 (Unlimited Mode)
+Hosted-on,Chat Service,AWS EC2 (Unlimited Mode)
+Hosted-on,AWS EC2 (Unlimited Mode),AWS Region us-east-1
+Hosted-on,Account / Guest Login Service,AWS Region eu-west-1
+Hosted-on,Game Lobby Server,AWS Region eu-west-1
+Hosted-on,Game Lobby Server,AWS Region ap-southeast-1
+Hosted-on,DDoS Protection (Cloudflare),Cloudflare

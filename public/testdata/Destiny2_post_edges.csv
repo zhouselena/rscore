@@ -1,0 +1,34 @@
+Type,From,To
+Dependency,Destiny 2 Authentication Service,Bungie.net / Companion App
+Dependency,Destiny 2 Game Server,Bungie.net / Companion App
+Dependency,Matchmaking Service (Crucible / Strikes),Bungie.net / Companion App
+Dependency,Player Character & Inventory,Bungie.net / Companion App
+Dependency,Trials of Osiris / Ranked PvP,Bungie.net / Companion App
+Dependency,Seasonal Content Service,Bungie.net / Companion App
+Dependency,Expansion / DLC Delivery,Bungie.net / Companion App
+Dependency,Bungie API (Third-Party Integration),Bungie.net / Companion App
+Dependency,Social / Clan Service,Bungie.net / Companion App
+Dependency,DDoS Protection Layer,Bungie.net / Companion App
+Dependency,Matchmaking Service (Crucible / Strikes),Destiny 2 Authentication Service
+Dependency,Player Character & Inventory,Destiny 2 Authentication Service
+Dependency,Destiny 2 Game Server,Matchmaking Service (Crucible / Strikes)
+Dependency,Trials of Osiris / Ranked PvP,Matchmaking Service (Crucible / Strikes)
+Dependency,Seasonal Content Service,Player Character & Inventory
+Dependency,Bungie API (Third-Party Integration),Player Character & Inventory
+Dependency,Destiny 2 Game Server,Blue-Green Deployment System
+Hosted-on,Destiny 2 Game Server,AWS EC2 (Game Servers)
+Hosted-on,Player Character & Inventory,AWS RDS (Character DB)
+Hosted-on,Destiny 2 Authentication Service,AWS Region us-east-1
+Hosted-on,Destiny 2 Authentication Service,AWS Region eu-west-1
+Hosted-on,Matchmaking Service (Crucible / Strikes),AWS Region us-east-1
+Hosted-on,Matchmaking Service (Crucible / Strikes),AWS Region eu-west-1
+Hosted-on,Trials of Osiris / Ranked PvP,AWS Region us-east-1
+Hosted-on,Seasonal Content Service,AWS Region us-east-1
+Hosted-on,Expansion / DLC Delivery,AWS Region us-east-1
+Hosted-on,Bungie API (Third-Party Integration),AWS Region us-east-1
+Hosted-on,Social / Clan Service,AWS Region us-east-1
+Hosted-on,DDoS Protection Layer,AWS Region us-east-1
+Hosted-on,Blue-Green Deployment System,AWS Region us-east-1
+Hosted-on,AWS EC2 (Game Servers),AWS Region us-east-1
+Hosted-on,AWS EC2 (Game Servers),AWS Region eu-west-1
+Hosted-on,AWS EC2 (Game Servers),AWS Region ap-northeast-1

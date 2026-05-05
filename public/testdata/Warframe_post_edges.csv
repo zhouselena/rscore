@@ -1,0 +1,33 @@
+Type,From,To
+Dependency,Login Server,Warframe Launcher
+Dependency,Cross-Platform Account Service,Warframe Launcher
+Dependency,World State Server (Star Chart),Warframe Launcher
+Dependency,Session / Relay Server (Dedicated),Warframe Launcher
+Dependency,Player Inventory & Progression,Warframe Launcher
+Dependency,Trade & Market Service,Warframe Launcher
+Dependency,Clan & Dojo Service,Warframe Launcher
+Dependency,VoIP Service,Warframe Launcher
+Dependency,Content Delivery / Patch Server,Warframe Launcher
+Dependency,Session / Relay Server (Dedicated),Login Server
+Dependency,Player Inventory & Progression,Login Server
+Dependency,Trade & Market Service,Login Server
+Dependency,Clan & Dojo Service,Login Server
+Dependency,Cross-Platform Account Service,Login Server
+Dependency,Cross-Platform Account Service,PlayStation Network
+Dependency,Cross-Platform Account Service,Xbox Live
+Dependency,Cross-Platform Account Service,Nintendo Network
+Dependency,World State Server (Star Chart),Session / Relay Server (Dedicated)
+Dependency,Redundant Infrastructure Partner,Session / Relay Server (Dedicated)
+Hosted-on,Login Server,Digital Extremes-Owned Data Centers (Primary)
+Hosted-on,Login Server,Digital Extremes-Owned Data Centers (Secondary)
+Hosted-on,World State Server (Star Chart),Digital Extremes-Owned Data Centers (Primary)
+Hosted-on,World State Server (Star Chart),Digital Extremes-Owned Data Centers (Secondary)
+Hosted-on,Session / Relay Server (Dedicated),Digital Extremes-Owned Data Centers (Primary)
+Hosted-on,Session / Relay Server (Dedicated),Digital Extremes-Owned Data Centers (Secondary)
+Hosted-on,Player Inventory & Progression,Digital Extremes-Owned Data Centers (Primary)
+Hosted-on,Trade & Market Service,Digital Extremes-Owned Data Centers (Primary)
+Hosted-on,Clan & Dojo Service,Digital Extremes-Owned Data Centers (Primary)
+Hosted-on,VoIP Service,Digital Extremes-Owned Data Centers (Primary)
+Hosted-on,Cross-Platform Account Service,Digital Extremes-Owned Data Centers (Primary)
+Hosted-on,Content Delivery / Patch Server,Akamai CDN
+Hosted-on,Redundant Infrastructure Partner,Digital Extremes-Owned Data Centers (Secondary)

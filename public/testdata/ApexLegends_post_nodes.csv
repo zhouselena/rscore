@@ -1,0 +1,17 @@
+Node,Type
+EA App / Origin Launcher,Functional
+EA Account & Auth (OAuth),Functional
+Apex Game Server,Functional
+Matchmaking Service,Functional
+Player Account & Inventory,Functional
+Anti-Cheat (Upgraded EAC + Server-Side),Functional
+EA Novafusion Backend,Functional
+In-Game Store,Functional
+Analytics Service,Functional
+Server-Side Cheat Detection,Functional
+AWS EKS Orchestration,Functional
+AWS Region us-east-1,Provider
+AWS Region eu-west-1,Provider
+AWS Region ap-southeast-1,Provider
+AWS Region sa-east-1,Provider
+Amazon DynamoDB,Provider

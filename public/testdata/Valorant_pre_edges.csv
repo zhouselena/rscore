@@ -1,0 +1,27 @@
+Type,From,To
+Dependency,Valorant Game Server,Riot Client
+Dependency,RiotSignOn (RSO),Riot Client
+Dependency,Matchmaking Service,Riot Client
+Dependency,Player Profile Service,Riot Client
+Dependency,Inventory / Store Service,Riot Client
+Dependency,Anti-Cheat (Vanguard),Riot Client
+Dependency,Riot Messaging Service (Chat),Riot Client
+Dependency,Patch / CDN Delivery,Riot Client
+Dependency,Matchmaking Service,RiotSignOn (RSO)
+Dependency,Player Profile Service,RiotSignOn (RSO)
+Dependency,Inventory / Store Service,RiotSignOn (RSO)
+Dependency,Valorant Game Server,RiotSignOn (RSO)
+Dependency,Matchmaking Service,Player Profile Service
+Dependency,Inventory / Store Service,Player Profile Service
+Dependency,Valorant Game Server,Matchmaking Service
+Dependency,Analytics Pipeline,Valorant Game Server
+Hosted-on,Valorant Game Server,Riot-Owned Data Centers
+Hosted-on,RiotSignOn (RSO),AWS Region us-east-1
+Hosted-on,RiotSignOn (RSO),AWS Region eu-west-1
+Hosted-on,RiotSignOn (RSO),AWS Region ap-southeast-1
+Hosted-on,Matchmaking Service,Riot-Owned Data Centers
+Hosted-on,Player Profile Service,AWS Region us-east-1
+Hosted-on,Inventory / Store Service,AWS Region us-east-1
+Hosted-on,Riot Messaging Service (Chat),AWS Region us-east-1
+Hosted-on,Patch / CDN Delivery,AWS Region us-east-1
+Hosted-on,Analytics Pipeline,AWS Region us-east-1

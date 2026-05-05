@@ -1,0 +1,24 @@
+Type,From,To
+Dependency,Battle.net Authentication Service,Battle.net Launcher
+Dependency,Overwatch Game Server,Battle.net Launcher
+Dependency,Matchmaking Service,Battle.net Launcher
+Dependency,Player Profile & Stats,Battle.net Launcher
+Dependency,Battle Pass / Store Service,Battle.net Launcher
+Dependency,In-Game Voice Chat,Battle.net Launcher
+Dependency,CDN / Patch Delivery,Battle.net Launcher
+Dependency,DDoS Mitigation / Shield Service,Battle.net Launcher
+Dependency,Matchmaking Service,Battle.net Authentication Service
+Dependency,Player Profile & Stats,Battle.net Authentication Service
+Dependency,Overwatch Game Server,Matchmaking Service
+Dependency,Battle Pass / Store Service,Player Profile & Stats
+Hosted-on,Overwatch Game Server,Blizzard-Owned Data Centers (US)
+Hosted-on,Overwatch Game Server,Blizzard-Owned Data Centers (EU)
+Hosted-on,Battle.net Authentication Service,Blizzard-Owned Data Centers (US)
+Hosted-on,Battle.net Authentication Service,Google Cloud Platform (GCP)
+Hosted-on,Matchmaking Service,Blizzard-Owned Data Centers (US)
+Hosted-on,Matchmaking Service,Blizzard-Owned Data Centers (EU)
+Hosted-on,Player Profile & Stats,Blizzard-Owned Data Centers (US)
+Hosted-on,Battle Pass / Store Service,Blizzard-Owned Data Centers (US)
+Hosted-on,In-Game Voice Chat,Blizzard-Owned Data Centers (US)
+Hosted-on,CDN / Patch Delivery,Akamai CDN
+Hosted-on,DDoS Mitigation / Shield Service,Google Cloud Platform (GCP)

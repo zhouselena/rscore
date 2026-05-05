@@ -1,0 +1,24 @@
+Type,From,To
+Dependency,Microsoft Account Auth (Xbox Live),Minecraft Launcher
+Dependency,Minecraft Session Server,Minecraft Launcher
+Dependency,Minecraft Realms,Minecraft Launcher
+Dependency,Multiplayer Game Server,Minecraft Launcher
+Dependency,Player Profile / Skin Service,Minecraft Launcher
+Dependency,Marketplace / DLC Service,Minecraft Launcher
+Dependency,Minecraft Session Server,Microsoft Account Auth (Xbox Live)
+Dependency,Minecraft Realms,Microsoft Account Auth (Xbox Live)
+Dependency,Multiplayer Game Server,Microsoft Account Auth (Xbox Live)
+Dependency,Marketplace / DLC Service,Microsoft Account Auth (Xbox Live)
+Dependency,Minecraft Realms,Multiplayer Game Server
+Dependency,Multiplayer Game Server,Azure Kubernetes Service (AKS)
+Dependency,Minecraft Realms,Azure Kubernetes Service (AKS)
+Hosted-on,Azure Kubernetes Service (AKS),Azure Region East US
+Hosted-on,Azure Kubernetes Service (AKS),Azure Region West Europe
+Hosted-on,Azure Kubernetes Service (AKS),Azure Region Southeast Asia
+Hosted-on,Minecraft Realms,Azure Blob Storage (World Data)
+Hosted-on,Player Profile / Skin Service,Azure Cosmos DB (Player Data)
+Hosted-on,Microsoft Account Auth (Xbox Live),Azure SQL (Subscription DB)
+Hosted-on,Minecraft Realms,Azure SQL (Subscription DB)
+Hosted-on,Minecraft Session Server,Azure Traffic Manager
+Hosted-on,Microsoft Account Auth (Xbox Live),Azure Region East US
+Hosted-on,Marketplace / DLC Service,Azure Region East US

@@ -1,0 +1,15 @@
+Node,Type
+Riot Client,Functional
+RiotSignOn (RSO),Functional
+Valorant Game Server,Functional
+Matchmaking Service,Functional
+Player Profile Service,Functional
+Inventory / Store Service,Functional
+Anti-Cheat (Vanguard),Functional
+Riot Messaging Service (Chat),Functional
+Patch / CDN Delivery,Functional
+Analytics Pipeline,Functional
+Riot-Owned Data Centers,Provider
+AWS Region us-east-1,Provider
+AWS Region eu-west-1,Provider
+AWS Region ap-southeast-1,Provider

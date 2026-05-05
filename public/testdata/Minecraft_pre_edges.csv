@@ -1,0 +1,19 @@
+Type,From,To
+Dependency,Mojang Authentication Service,Minecraft Launcher
+Dependency,Minecraft Session Server,Minecraft Launcher
+Dependency,Minecraft Realms,Minecraft Launcher
+Dependency,Multiplayer Game Server,Minecraft Launcher
+Dependency,Player Profile / Skin Service,Minecraft Launcher
+Dependency,Marketplace / DLC Service,Minecraft Launcher
+Dependency,Minecraft Session Server,Mojang Authentication Service
+Dependency,Minecraft Realms,Mojang Authentication Service
+Dependency,Multiplayer Game Server,Mojang Authentication Service
+Dependency,Marketplace / DLC Service,Mojang Authentication Service
+Dependency,Minecraft Realms,Multiplayer Game Server
+Hosted-on,Minecraft Realms,AWS EC2 (Realms Game Servers)
+Hosted-on,Multiplayer Game Server,AWS EC2 (Realms Game Servers)
+Hosted-on,Minecraft Realms,AWS S3 (World Storage)
+Hosted-on,Mojang Authentication Service,AWS RDS (Subscription DB)
+Hosted-on,Minecraft Realms,AWS RDS (Subscription DB)
+Hosted-on,Minecraft Realms,AWS ELB (Load Balancer)
+Hosted-on,Mojang Authentication Service,AWS ELB (Load Balancer)

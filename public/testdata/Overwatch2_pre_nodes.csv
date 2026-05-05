@@ -1,0 +1,12 @@
+Node,Type
+Battle.net Launcher,Functional
+Battle.net Authentication Service,Functional
+Overwatch Game Server,Functional
+Matchmaking Service,Functional
+Player Profile & Stats,Functional
+Battle Pass / Store Service,Functional
+In-Game Voice Chat,Functional
+SMS Phone Verification Service,Functional
+CDN / Patch Delivery,Functional
+Blizzard-Owned Data Centers,Provider
+Akamai CDN,Provider

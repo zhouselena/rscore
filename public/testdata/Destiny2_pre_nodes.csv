@@ -1,0 +1,14 @@
+Node,Type
+Bungie.net / Companion App,Functional
+Destiny 2 Authentication Service,Functional
+Destiny 2 Game Server,Functional
+Matchmaking Service (Crucible / Strikes),Functional
+Player Character & Inventory,Functional
+Trials of Osiris / Ranked PvP,Functional
+Seasonal Content Service,Functional
+Expansion / DLC Delivery,Functional
+Bungie API (Third-Party Integration),Functional
+Social / Clan Service,Functional
+AWS EC2 (Game Servers),Provider
+AWS Region us-east-1,Provider
+AWS Region eu-west-1,Provider

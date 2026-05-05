@@ -1,0 +1,15 @@
+Node,Type
+EA App / Origin Launcher,Functional
+EA Account & Auth (OAuth),Functional
+Apex Game Server,Functional
+Matchmaking Service,Functional
+Player Account & Inventory,Functional
+Anti-Cheat (Easy Anti-Cheat),Functional
+EA Novafusion Backend,Functional
+In-Game Store,Functional
+Analytics Service,Functional
+Multiplay Orchestration Layer,Functional
+Google Compute Engine (GCE),Provider
+AWS Region us-east-1,Provider
+Azure Region East US,Provider
+Multiplay Bare Metal Data Centers,Provider
