@@ -1,6 +1,7 @@
 package rscore
 
 import (
+	"fmt"
 	"maps"
 	"math"
 	"slices"
@@ -365,12 +366,23 @@ func AlgebraicConnectivity(g *Graph) float64 {
 		idx++
 	}
 
-	// process directed graph to undirected
+	// process directed graph to undirected (excluding provider nodes and hosted-on edges)
 	for i, iNode := range g.Nodes {
+		if iNode.Type == "provider" {
+			continue
+		}
 		for j := range g.Nodes {
+			if g.Nodes[j].Type == "provider" {
+				continue
+			}
 			if _, hasJ := iNode.OutNeighbours[j]; hasJ {
-				adjMat[nodeIndex[i]][nodeIndex[j]] = 1  // forward
-				adjMat[nodeIndex[j]][nodeIndex[i]] = 1  // reverse — makes it symmetric
+				// find the edge between i and j and skip hosted-on edges
+				edgeKey := fmt.Sprintf("%s->%s", i, j)
+				if edge, exists := g.Edges[edgeKey]; exists && edge.Type == "hosted-on" {
+					continue
+				}
+				adjMat[nodeIndex[i]][nodeIndex[j]] = 1
+				adjMat[nodeIndex[j]][nodeIndex[i]] = 1
 			}
 		}
 	}
