@@ -1,5 +1,11 @@
 === SeaOfThieves PRE ===
-=== Infrastructure Resilience Score: 0.5412 ===
+=== Infrastructure Resilience Score: 0.6080 ===
+  Bounded Fielder Value          0.2669
+  Articulation Points Ratio      0.7692
+  Average Clustering Coefficient 0.2033
+  Average Tech Score             0.9346
+  Overall Betweenness Centrality 0.9167
+  Degree Entropy                 0.7921
 Recommendation: placeholder for recommendation
 
 === Node Criticality Scores ===
@@ -12,13 +18,19 @@ Recommendation: placeholder for recommendation
   Xbox Live / Microsoft Account (Azure) 0.1000
   Azure Cache for Redis (single-region) 0.1000
   Inventory & Cosmetics          0.0400
-  Telemetry & Analytics          0.0000
-  Patch & Asset CDN              0.0000
-  Gold & Doubloon Economy        0.0000
   Crews & Social Service         0.0000
+  Telemetry & Analytics          0.0000
+  Gold & Doubloon Economy        0.0000
+  Patch & Asset CDN              0.0000
 
 === SeaOfThieves POST ===
-=== Infrastructure Resilience Score: 0.5359 ===
+=== Infrastructure Resilience Score: 0.5884 ===
+  Average Clustering Coefficient 0.1850
+  Average Tech Score             0.9780
+  Overall Betweenness Centrality 0.9203
+  Degree Entropy                 0.7678
+  Bounded Fielder Value          0.2099
+  Articulation Points Ratio      0.7333
 Recommendation: placeholder for recommendation
 
 === Node Criticality Scores ===
@@ -29,11 +41,11 @@ Recommendation: placeholder for recommendation
   Azure Cosmos DB (multi-region writes) 0.1453
   Azure Kubernetes Service (AKS) 0.1375
   Azure PlayFab                  0.1333
-  Azure Data Explorer            0.1000
   Azure CDN                      0.1000
-  Xbox Live / Microsoft Account (Azure) 0.1000
+  Azure Data Explorer            0.1000
   Azure Cache for Redis (zone-redundant) 0.1000
+  Xbox Live / Microsoft Account (Azure) 0.1000
   Inventory & Cosmetics          0.0400
-  Patch & Asset CDN              0.0000
   Crews & Social Service         0.0000
   Gold & Doubloon Economy        0.0000
+  Patch & Asset CDN              0.0000

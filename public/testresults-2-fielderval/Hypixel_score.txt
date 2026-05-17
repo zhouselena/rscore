@@ -1,5 +1,11 @@
 === Hypixel PRE ===
 === Infrastructure Resilience Score: 0.5940 ===
+  Average Clustering Coefficient 0.1519
+  Average Tech Score             0.9155
+  Overall Betweenness Centrality 0.8889
+  Degree Entropy                 0.8949
+  Bounded Fielder Value          0.2623
+  Articulation Points Ratio      0.7273
 Recommendation: placeholder for recommendation
 
 === Node Criticality Scores ===
@@ -17,6 +23,12 @@ Recommendation: placeholder for recommendation
 
 === Hypixel POST ===
 === Infrastructure Resilience Score: 0.5902 ===
+  Bounded Fielder Value          0.2473
+  Articulation Points Ratio      0.7500
+  Average Clustering Coefficient 0.1254
+  Average Tech Score             0.9417
+  Overall Betweenness Centrality 0.8818
+  Degree Entropy                 0.8605
 Recommendation: placeholder for recommendation
 
 === Node Criticality Scores ===

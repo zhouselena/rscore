@@ -1,5 +1,11 @@
 === Valorant PRE ===
-=== Infrastructure Resilience Score: 0.5153 ===
+=== Infrastructure Resilience Score: 0.5545 ===
+  Degree Entropy                 0.5222
+  Bounded Fielder Value          0.1565
+  Articulation Points Ratio      0.8667
+  Average Clustering Coefficient 0.0897
+  Average Tech Score             0.9247
+  Overall Betweenness Centrality 0.9176
 Recommendation: placeholder for recommendation
 
 === Node Criticality Scores ===
@@ -10,17 +16,23 @@ Recommendation: placeholder for recommendation
   AWS Networking & Edge Route 53 (Standard) 0.1270
   Matchmaking Service            0.1238
   AWS Networking & Edge CloudFront CDN 0.1225
+  On-Premises Data Center (Brazil) 0.1000
   On-Premises Data Center (Las Vegas) 0.1000
   On-Premises Data Center (Chile) 0.1000
   Vanguard Anti-Cheat            0.1000
-  On-Premises Data Center (Brazil) 0.1000
+  Social & Friends Service       0.0000
   Telemetry & Observability      0.0000
   Inventory & Store              0.0000
-  Social & Friends Service       0.0000
   Patch & Asset CDN              0.0000
 
 === Valorant POST ===
-=== Infrastructure Resilience Score: 0.5274 ===
+=== Infrastructure Resilience Score: 0.5816 ===
+  Average Clustering Coefficient 0.1360
+  Average Tech Score             0.9300
+  Overall Betweenness Centrality 0.8846
+  Degree Entropy                 0.6340
+  Bounded Fielder Value          0.2166
+  Articulation Points Ratio      0.8571
 Recommendation: placeholder for recommendation
 
 === Node Criticality Scores ===
@@ -35,6 +47,6 @@ Recommendation: placeholder for recommendation
   AWS Database Aurora Global Database 0.1150
   Vanguard Anti-Cheat            0.1000
   Inventory & Store              0.0000
-  Social & Friends Service       0.0000
   Patch & Asset CDN              0.0000
   Telemetry & Observability      0.0000
+  Social & Friends Service       0.0000

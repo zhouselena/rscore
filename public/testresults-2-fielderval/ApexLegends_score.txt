@@ -1,5 +1,11 @@
 === ApexLegends PRE ===
-=== Infrastructure Resilience Score: 0.5096 ===
+=== Infrastructure Resilience Score: 0.5603 ===
+  Overall Betweenness Centrality 0.8681
+  Degree Entropy                 0.5494
+  Bounded Fielder Value          0.2028
+  Articulation Points Ratio      0.8667
+  Average Clustering Coefficient 0.1261
+  Average Tech Score             0.8813
 Recommendation: placeholder for recommendation
 
 === Node Criticality Scores ===
@@ -13,30 +19,36 @@ Recommendation: placeholder for recommendation
   Matchmaking Service            0.1248
   AWS Networking & Edge CloudFront CDN 0.1225
   Easy Anti-Cheat                0.1000
-  Patch & Asset CDN              0.0000
-  Social & Friends Service       0.0000
-  Telemetry & Observability      0.0000
-  Inventory & Cosmetics          0.0000
   Ranked & Competitive Service   0.0000
+  Inventory & Cosmetics          0.0000
+  Telemetry & Observability      0.0000
+  Social & Friends Service       0.0000
+  Patch & Asset CDN              0.0000
 
 === ApexLegends POST ===
-=== Infrastructure Resilience Score: 0.5137 ===
+=== Infrastructure Resilience Score: 0.5588 ===
+  Average Clustering Coefficient 0.1164
+  Average Tech Score             0.9094
+  Overall Betweenness Centrality 0.8857
+  Degree Entropy                 0.5195
+  Bounded Fielder Value          0.1803
+  Articulation Points Ratio      0.8750
 Recommendation: placeholder for recommendation
 
 === Node Criticality Scores ===
   EA Account Service             0.4400
   Game Server                    0.3658
   AWS Database ElastiCache (cluster mode) 0.1450
-  AWS Compute EC2 Auto Scaling Group (multi-AZ) 0.1375
   AWS Database RDS Multi-AZ Cluster (2 readable standbys) 0.1375
+  AWS Compute EC2 Auto Scaling Group (multi-AZ) 0.1375
   AWS Networking & Edge Application Load Balancer 0.1300
   AWS Networking & Edge Route 53 (Standard) 0.1270
   Matchmaking Service            0.1242
   AWS Networking & Edge CloudFront CDN 0.1225
   Cloudflare Enterprise          0.1180
   Easy Anti-Cheat + Layered Security 0.1000
-  Ranked & Competitive Service   0.0000
   Patch & Asset CDN              0.0000
-  Social & Friends Service       0.0000
   Inventory & Cosmetics          0.0000
+  Social & Friends Service       0.0000
   Telemetry & Observability      0.0000
+  Ranked & Competitive Service   0.0000
