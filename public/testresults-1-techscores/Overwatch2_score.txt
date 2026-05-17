@@ -1,0 +1,35 @@
+=== Overwatch2 PRE ===
+=== Infrastructure Resilience Score: 0.6126 ===
+Recommendation: placeholder for recommendation
+
+=== Node Criticality Scores ===
+  Battle.net Launcher            0.4778
+  CDN / Patch Delivery           0.3000
+  Blizzard-Owned Data Centers    0.1714
+  Akamai CDN                     0.1225
+  Battle.net Authentication Service 0.1039
+  Matchmaking Service            0.0439
+  Player Profile & Stats         0.0439
+  SMS Phone Verification Service 0.0000
+  Overwatch Game Server          0.0000
+  Battle Pass / Store Service    0.0000
+  In-Game Voice Chat             0.0000
+
+=== Overwatch2 POST ===
+=== Infrastructure Resilience Score: 0.6067 ===
+Recommendation: placeholder for recommendation
+
+=== Node Criticality Scores ===
+  Battle.net Launcher            0.4778
+  CDN / Patch Delivery           0.3000
+  Google Cloud Platform (GCP)    0.2083
+  Blizzard-Owned Data Centers (US) 0.1714
+  Blizzard-Owned Data Centers (EU) 0.1333
+  Akamai CDN                     0.1225
+  Battle.net Authentication Service 0.0773
+  Player Profile & Stats         0.0453
+  Matchmaking Service            0.0386
+  DDoS Mitigation / Shield Service 0.0000
+  Overwatch Game Server          0.0000
+  In-Game Voice Chat             0.0000
+  Battle Pass / Store Service    0.0000

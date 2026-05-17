@@ -1,0 +1,37 @@
+=== Minecraft PRE ===
+=== Infrastructure Resilience Score: 0.6454 ===
+Recommendation: placeholder for recommendation
+
+=== Node Criticality Scores ===
+  Minecraft Launcher             0.4714
+  Minecraft Realms               0.3000
+  AWS RDS (Subscription DB)      0.2233
+  AWS EC2 (Realms Game Servers)  0.2008
+  AWS ELB (Load Balancer)        0.1633
+  Mojang Authentication Service  0.1233
+  AWS S3 (World Storage)         0.1000
+  Multiplayer Game Server        0.0400
+  Minecraft Session Server       0.0000
+  Player Profile / Skin Service  0.0000
+  Marketplace / DLC Service      0.0000
+
+=== Minecraft POST ===
+=== Infrastructure Resilience Score: 0.5539 ===
+Recommendation: placeholder for recommendation
+
+=== Node Criticality Scores ===
+  Minecraft Launcher             0.4714
+  Azure Kubernetes Service (AKS) 0.3763
+  Minecraft Realms               0.3000
+  Player Profile / Skin Service  0.3000
+  Minecraft Session Server       0.3000
+  Azure SQL (Subscription DB)    0.1858
+  Azure Region East US           0.1500
+  Azure Cosmos DB (Player Data)  0.1330
+  Microsoft Account Auth (Xbox Live) 0.1096
+  Azure Traffic Manager          0.1000
+  Azure Region Southeast Asia    0.1000
+  Azure Blob Storage (World Data) 0.1000
+  Azure Region West Europe       0.1000
+  Multiplayer Game Server        0.0400
+  Marketplace / DLC Service      0.0000

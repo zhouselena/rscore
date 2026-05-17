@@ -1,0 +1,41 @@
+=== Destiny2 PRE ===
+=== Infrastructure Resilience Score: 0.6311 ===
+Recommendation: placeholder for recommendation
+
+=== Node Criticality Scores ===
+  AWS EC2 (Game Servers)         0.4215
+  AWS Region us-east-1           0.1800
+  Bungie.net / Companion App     0.1800
+  AWS Region eu-west-1           0.1000
+  Destiny 2 Authentication Service 0.0800
+  Matchmaking Service (Crucible / Strikes) 0.0733
+  Player Character & Inventory   0.0720
+  Bungie API (Third-Party Integration) 0.0000
+  Social / Clan Service          0.0000
+  Expansion / DLC Delivery       0.0000
+  Trials of Osiris / Ranked PvP  0.0000
+  Seasonal Content Service       0.0000
+  Destiny 2 Game Server          0.0000
+
+=== Destiny2 POST ===
+=== Infrastructure Resilience Score: 0.6108 ===
+Recommendation: placeholder for recommendation
+
+=== Node Criticality Scores ===
+  AWS EC2 (Game Servers)         0.4102
+  Player Character & Inventory   0.3754
+  AWS RDS (Character DB)         0.1900
+  Bungie.net / Companion App     0.1818
+  AWS Region us-east-1           0.1818
+  AWS Region eu-west-1           0.1500
+  AWS Region ap-northeast-1      0.1000
+  Destiny 2 Authentication Service 0.0725
+  Blue-Green Deployment System   0.0672
+  Matchmaking Service (Crucible / Strikes) 0.0627
+  Seasonal Content Service       0.0000
+  Trials of Osiris / Ranked PvP  0.0000
+  Bungie API (Third-Party Integration) 0.0000
+  Destiny 2 Game Server          0.0000
+  Expansion / DLC Delivery       0.0000
+  Social / Clan Service          0.0000
+  DDoS Protection Layer          0.0000

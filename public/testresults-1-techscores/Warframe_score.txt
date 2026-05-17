@@ -1,0 +1,40 @@
+=== Warframe PRE ===
+=== Infrastructure Resilience Score: 0.5858 ===
+Recommendation: placeholder for recommendation
+
+=== Node Criticality Scores ===
+  Warframe Launcher              0.4778
+  Session / Relay Server         0.3794
+  Content Delivery / Patch Server 0.3000
+  Digital Extremes-Owned Data Centers 0.1750
+  Akamai CDN                     0.1225
+  Login Server                   0.1143
+  VoIP Service                   0.0000
+  Clan & Dojo Service            0.0000
+  Peer-to-Peer Host (Player-Hosted) 0.0000
+  Player Inventory & Progression 0.0000
+  World State Server (Star Chart) 0.0000
+  Trade & Market Service         0.0000
+
+=== Warframe POST ===
+=== Infrastructure Resilience Score: 0.5928 ===
+Recommendation: placeholder for recommendation
+
+=== Node Criticality Scores ===
+  Warframe Launcher              0.4800
+  Content Delivery / Patch Server 0.3000
+  Cross-Platform Account Service 0.3000
+  Digital Extremes-Owned Data Centers (Primary) 0.1778
+  Digital Extremes-Owned Data Centers (Secondary) 0.1600
+  Akamai CDN                     0.1225
+  Login Server                   0.1169
+  PlayStation Network            0.1000
+  Nintendo Network               0.1000
+  Xbox Live                      0.1000
+  Session / Relay Server (Dedicated) 0.0630
+  Redundant Infrastructure Partner 0.0000
+  Player Inventory & Progression 0.0000
+  Clan & Dojo Service            0.0000
+  World State Server (Star Chart) 0.0000
+  VoIP Service                   0.0000
+  Trade & Market Service         0.0000
