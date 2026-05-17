@@ -17,12 +17,12 @@ func LoadAllAlgorithms() error {
 	AppInfraGraph.Transitivity = GlobalTransitivity(AppInfraGraph)
 	AppInfraGraph.AvgClustering = AvgClusteringCoeff(AppInfraGraph)
 	AppInfraGraph.ArtPoints = FindArticulationPoints(AppInfraGraph)
-
 	AppInfraGraph.FielderValue = AlgebraicConnectivity(AppInfraGraph)
+	
 	return nil
 }
 
-func CalculateGraphResiliency() (float64, string) {
+func CalculateGraphResiliency() (float64, map[string]float64, string) {
 	if AppInfraGraph.Betweenness == nil {
 		LoadAllAlgorithms()
 	}
@@ -45,7 +45,15 @@ func CalculateGraphResiliency() (float64, string) {
     w1, w2, w3, w4, w5, w6 := 0.25, 0.20, 0.15, 0.15, 0.10, 0.15
     rScore := w1*c_connectivity + w2*c_artpts + w3*c_clustering + w4*c_betweenness + w5*c_degree + w6*c_tech
 
-	return rScore, "placeholder for recommendation"
+	normalizedInfo := make(map[string]float64)
+	normalizedInfo["Bounded Fielder Value"] = c_connectivity
+	normalizedInfo["Articulation Points Ratio"] = c_artpts
+	normalizedInfo["Average Clustering Coefficient"] = c_clustering
+	normalizedInfo["Average Tech Score"] = c_tech
+	normalizedInfo["Overall Betweenness Centrality"] = c_betweenness
+	normalizedInfo["Degree Entropy"] = c_degree
+
+	return rScore, normalizedInfo, "placeholder for recommendation"
 }
 
 func CalculateNodeCriticalness() map[string]float64 {

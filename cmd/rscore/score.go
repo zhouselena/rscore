@@ -46,11 +46,14 @@ func runScoreCommand(cmd *cobra.Command, args []string, nodespath string, edgesp
 	}
 
 	// calculate scores
-	rScore, recommendation := rscore.CalculateGraphResiliency()
+	rScore, normalizedInfo, recommendation := rscore.CalculateGraphResiliency()
 	nodeScores := rscore.CalculateNodeCriticalness()
 
 	// display results
 	fmt.Printf("=== Infrastructure Resilience Score: %.4f ===\n", rScore)
+    for key, val := range normalizedInfo {
+        fmt.Printf("  %-30s %.4f\n", key, val)
+    }
     fmt.Printf("Recommendation: %s\n\n", recommendation)
 
     fmt.Println("=== Node Criticality Scores ===")
