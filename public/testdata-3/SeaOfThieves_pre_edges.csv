@@ -1,0 +1,29 @@
+Type,From,To
+Hosted-on,Game World Server,Azure VM (single instance)
+Hosted-on,Xbox Live Authentication,Xbox Live / Microsoft Account (Azure)
+Hosted-on,Matchmaking & Session Service,Azure VM (single instance)
+Hosted-on,Matchmaking & Session Service,Azure Cache for Redis (single-region)
+Hosted-on,Inventory & Cosmetics,Azure SQL (General Purpose)
+Hosted-on,Gold & Doubloon Economy,Azure SQL (General Purpose)
+Hosted-on,Crews & Social Service,Azure VM (single instance)
+Hosted-on,Telemetry & Analytics,Azure VM (single instance)
+Hosted-on,Patch & Asset CDN,Azure CDN
+Dependency,Azure VM (single instance),Game World Server
+Dependency,Azure VM (single instance),Matchmaking & Session Service
+Dependency,Azure VM (single instance),Crews & Social Service
+Dependency,Azure VM (single instance),Telemetry & Analytics
+Dependency,Xbox Live / Microsoft Account (Azure),Xbox Live Authentication
+Dependency,Azure Cache for Redis (single-region),Matchmaking & Session Service
+Dependency,Azure SQL (General Purpose),Inventory & Cosmetics
+Dependency,Azure SQL (General Purpose),Gold & Doubloon Economy
+Dependency,Azure CDN,Patch & Asset CDN
+Dependency,Xbox Live Authentication,Matchmaking & Session Service
+Dependency,Xbox Live Authentication,Inventory & Cosmetics
+Dependency,Xbox Live Authentication,Gold & Doubloon Economy
+Dependency,Xbox Live Authentication,Crews & Social Service
+Dependency,Matchmaking & Session Service,Game World Server
+Dependency,Game World Server,Inventory & Cosmetics
+Dependency,Game World Server,Gold & Doubloon Economy
+Dependency,Game World Server,Crews & Social Service
+Dependency,Game World Server,Telemetry & Analytics
+Dependency,Game World Server,Patch & Asset CDN

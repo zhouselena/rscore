@@ -1,0 +1,46 @@
+=== Hypixel PRE ===
+=== Infrastructure Resilience Score: 0.5381 ===
+  Bounded Fielder Value          0.2479
+  Articulation Points Ratio      0.8182
+  Average Clustering Coefficient 0.3971
+  Average Tech Score             0.9155
+  Overall Betweenness Centrality 0.2222
+  Degree Entropy                 0.8225
+Recommendation: placeholder for recommendation
+
+=== Node Criticality Scores ===
+  SkyBlock Economy & Progression 0.4700
+  Authentication & Session Service 0.4144
+  INAP Dedicated Hosting         0.3663
+  AWS Database ElastiCache (single node) 0.1642
+  Public API                     0.1200
+  MongoDB Atlas M30+ replica set 0.1087
+  Forums & Community Website     0.1000
+  Hypixel Store                  0.1000
+  Watchdog Anti-Cheat            0.1000
+  Lobby & Hub Service            0.0839
+  Game Mode Servers              0.0649
+
+=== Hypixel POST ===
+=== Infrastructure Resilience Score: 0.5339 ===
+  Degree Entropy                 0.9070
+  Bounded Fielder Value          0.2370
+  Articulation Points Ratio      0.8333
+  Average Clustering Coefficient 0.2360
+  Average Tech Score             0.9417
+  Overall Betweenness Centrality 0.2706
+Recommendation: placeholder for recommendation
+
+=== Node Criticality Scores ===
+  SkyBlock Economy & Progression 0.4636
+  Authentication & Session Service 0.4081
+  Managed Dedicated Servers (post-INAP) 0.3494
+  Public API                     0.1376
+  Lobby & Hub Service            0.1301
+  Forums & Community Website     0.1243
+  Hypixel Store                  0.1243
+  AWS Database ElastiCache (cluster mode) 0.1117
+  MongoDB Atlas M30+ replica set 0.1087
+  Watchdog Anti-Cheat            0.1000
+  Game Mode Servers              0.0649
+  Cloudflare Enterprise          0.0556

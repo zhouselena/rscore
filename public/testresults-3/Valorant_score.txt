@@ -1,0 +1,52 @@
+=== Valorant PRE ===
+=== Infrastructure Resilience Score: 0.4740 ===
+  Articulation Points Ratio      0.8000
+  Average Clustering Coefficient 0.1341
+  Average Tech Score             0.9247
+  Overall Betweenness Centrality 0.5082
+  Degree Entropy                 0.5647
+  Bounded Fielder Value          0.0901
+Recommendation: placeholder for recommendation
+
+=== Node Criticality Scores ===
+  Game Server                    0.5630
+  Authentication Service         0.4446
+  Patch & Asset CDN              0.4250
+  AWS Compute EC2 M/C/R class (single AZ) 0.3017
+  Telemetry & Observability      0.1673
+  Matchmaking Service            0.1608
+  AWS Database RDS Multi-AZ (Standby) 0.1192
+  Social & Friends Service       0.1000
+  Inventory & Store              0.1000
+  AWS Networking & Edge Route 53 (Standard) 0.0937
+  AWS Networking & Edge CloudFront CDN 0.0892
+  On-Premises Data Center (Chile) 0.0667
+  On-Premises Data Center (Las Vegas) 0.0667
+  On-Premises Data Center (Brazil) 0.0667
+  Vanguard Anti-Cheat            0.0000
+
+=== Valorant POST ===
+=== Infrastructure Resilience Score: 0.5130 ===
+  Average Tech Score             0.9300
+  Overall Betweenness Centrality 0.5470
+  Degree Entropy                 0.7232
+  Bounded Fielder Value          0.1174
+  Articulation Points Ratio      0.7857
+  Average Clustering Coefficient 0.2172
+Recommendation: placeholder for recommendation
+
+=== Node Criticality Scores ===
+  Game Server                    0.5022
+  Authentication Service         0.4770
+  Patch & Asset CDN              0.4269
+  AWS Compute ECS/EKS (Fargate multi-AZ) 0.2839
+  Inventory & Store              0.1131
+  Telemetry & Observability      0.1000
+  Social & Friends Service       0.1000
+  AWS Database Aurora Global Database 0.0984
+  AWS Networking & Edge Application Load Balancer 0.0967
+  Matchmaking Service            0.0965
+  AWS Networking & Edge Route 53 (Standard) 0.0937
+  AWS Networking & Edge CloudFront CDN 0.0892
+  AWS Networking & Edge AWS Global Accelerator 0.0862
+  Vanguard Anti-Cheat            0.0000

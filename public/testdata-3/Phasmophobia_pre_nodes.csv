@@ -1,0 +1,11 @@
+Node,Type,Service Tier
+Lobby & Room Service,Functional,
+Game Session Server,Functional,
+Steam Authentication,Functional,
+Equipment & Cosmetics Inventory,Functional,
+Leaderboard & Stats,Functional,
+Patch & Asset CDN,Functional,
+Photon Unity Networking (PUN),Provider,
+Steam / Valve Infrastructure,Provider,
+VPS UK (single region),Provider,
+Fastly CDN (Steam),Provider,CDN

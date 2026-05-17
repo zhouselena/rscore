@@ -1,0 +1,15 @@
+Node,Type,Service Tier
+Game Server,Functional,
+Authentication Service,Functional,
+Matchmaking Service,Functional,
+Vanguard Anti-Cheat,Functional,
+Inventory & Store,Functional,
+Social & Friends Service,Functional,
+Telemetry & Observability,Functional,
+Patch & Asset CDN,Functional,
+AWS Compute ECS/EKS (Fargate multi-AZ),Provider,ECS/EKS (Fargate multi-AZ)
+AWS Database Aurora Global Database,Provider,Aurora Global Database
+AWS Networking & Edge AWS Global Accelerator,Provider,AWS Global Accelerator
+AWS Networking & Edge CloudFront CDN,Provider,CloudFront CDN
+AWS Networking & Edge Route 53 (Standard),Provider,Route 53 (Standard)
+AWS Networking & Edge Application Load Balancer,Provider,Application Load Balancer

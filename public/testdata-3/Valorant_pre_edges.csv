@@ -1,0 +1,30 @@
+Type,From,To
+Hosted-on,Game Server,On-Premises Data Center (Las Vegas)
+Hosted-on,Game Server,On-Premises Data Center (Chile)
+Hosted-on,Game Server,On-Premises Data Center (Brazil)
+Hosted-on,Authentication Service,AWS Database RDS Multi-AZ (Standby)
+Hosted-on,Authentication Service,AWS Compute EC2 M/C/R class (single AZ)
+Hosted-on,Authentication Service,AWS Networking & Edge Route 53 (Standard)
+Hosted-on,Matchmaking Service,AWS Compute EC2 M/C/R class (single AZ)
+Hosted-on,Inventory & Store,AWS Compute EC2 M/C/R class (single AZ)
+Hosted-on,Social & Friends Service,AWS Compute EC2 M/C/R class (single AZ)
+Hosted-on,Telemetry & Observability,AWS Compute EC2 M/C/R class (single AZ)
+Hosted-on,Patch & Asset CDN,AWS Networking & Edge CloudFront CDN
+Dependency,On-Premises Data Center (Las Vegas),Game Server
+Dependency,On-Premises Data Center (Chile),Game Server
+Dependency,On-Premises Data Center (Brazil),Game Server
+Dependency,AWS Database RDS Multi-AZ (Standby),Authentication Service
+Dependency,AWS Compute EC2 M/C/R class (single AZ),Authentication Service
+Dependency,AWS Compute EC2 M/C/R class (single AZ),Matchmaking Service
+Dependency,AWS Compute EC2 M/C/R class (single AZ),Inventory & Store
+Dependency,AWS Compute EC2 M/C/R class (single AZ),Social & Friends Service
+Dependency,AWS Compute EC2 M/C/R class (single AZ),Telemetry & Observability
+Dependency,AWS Networking & Edge Route 53 (Standard),Authentication Service
+Dependency,AWS Networking & Edge CloudFront CDN,Patch & Asset CDN
+Dependency,Authentication Service,Matchmaking Service
+Dependency,Authentication Service,Inventory & Store
+Dependency,Authentication Service,Social & Friends Service
+Dependency,Matchmaking Service,Game Server
+Dependency,Vanguard Anti-Cheat,Game Server
+Dependency,Game Server,Telemetry & Observability
+Dependency,Game Server,Patch & Asset CDN

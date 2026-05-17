@@ -1,0 +1,34 @@
+Type,From,To
+Hosted-on,Game Server,Roblox On-Prem Data Center (Primary)
+Hosted-on,Game Server,HashiCorp Nomad
+Hosted-on,Game Server,HashiCorp Consul (single cluster)
+Hosted-on,Authentication Service,HashiCorp Vault
+Hosted-on,Authentication Service,HashiCorp Nomad
+Hosted-on,Avatar & Catalog Service,HashiCorp Nomad
+Hosted-on,Social & Friends Service,HashiCorp Nomad
+Hosted-on,Economy & Trading Service,HashiCorp Nomad
+Hosted-on,Public API,HashiCorp Nomad
+Hosted-on,Analytics & Telemetry,HashiCorp Consul (single cluster)
+Hosted-on,Asset CDN,Fastly CDN
+Dependency,Roblox On-Prem Data Center (Primary),Game Server
+Dependency,Roblox On-Prem Data Center (Primary),Authentication Service
+Dependency,Roblox On-Prem Data Center (Primary),Avatar & Catalog Service
+Dependency,Roblox On-Prem Data Center (Primary),Social & Friends Service
+Dependency,Roblox On-Prem Data Center (Primary),Economy & Trading Service
+Dependency,Roblox On-Prem Data Center (Primary),Public API
+Dependency,Roblox On-Prem Data Center (Primary),Analytics & Telemetry
+Dependency,HashiCorp Nomad,Game Server
+Dependency,HashiCorp Nomad,Authentication Service
+Dependency,HashiCorp Nomad,Avatar & Catalog Service
+Dependency,HashiCorp Nomad,Social & Friends Service
+Dependency,HashiCorp Nomad,Economy & Trading Service
+Dependency,HashiCorp Nomad,Public API
+Dependency,HashiCorp Consul (single cluster),Game Server
+Dependency,HashiCorp Consul (single cluster),Analytics & Telemetry
+Dependency,HashiCorp Vault,Authentication Service
+Dependency,Fastly CDN,Asset CDN
+Dependency,Authentication Service,Avatar & Catalog Service
+Dependency,Authentication Service,Social & Friends Service
+Dependency,Authentication Service,Economy & Trading Service
+Dependency,Game Server,Public API
+Dependency,Game Server,Asset CDN

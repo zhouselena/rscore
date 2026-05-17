@@ -1,0 +1,33 @@
+Type,From,To
+Hosted-on,Game Server,AWS Compute EC2 Auto Scaling Group (multi-AZ)
+Hosted-on,Game Server,Cloudflare Enterprise
+Hosted-on,EA Account Service,AWS Database RDS Multi-AZ Cluster (2 readable standbys)
+Hosted-on,EA Account Service,AWS Database ElastiCache (cluster mode)
+Hosted-on,EA Account Service,AWS Networking & Edge Application Load Balancer
+Hosted-on,EA Account Service,AWS Networking & Edge Route 53 (Standard)
+Hosted-on,Matchmaking Service,AWS Compute EC2 Auto Scaling Group (multi-AZ)
+Hosted-on,Inventory & Cosmetics,AWS Database RDS Multi-AZ Cluster (2 readable standbys)
+Hosted-on,Ranked & Competitive Service,AWS Database RDS Multi-AZ Cluster (2 readable standbys)
+Hosted-on,Social & Friends Service,AWS Compute EC2 Auto Scaling Group (multi-AZ)
+Hosted-on,Telemetry & Observability,AWS Compute EC2 Auto Scaling Group (multi-AZ)
+Hosted-on,Patch & Asset CDN,AWS Networking & Edge CloudFront CDN
+Dependency,AWS Compute EC2 Auto Scaling Group (multi-AZ),Game Server
+Dependency,AWS Compute EC2 Auto Scaling Group (multi-AZ),Matchmaking Service
+Dependency,AWS Compute EC2 Auto Scaling Group (multi-AZ),Social & Friends Service
+Dependency,AWS Compute EC2 Auto Scaling Group (multi-AZ),Telemetry & Observability
+Dependency,Cloudflare Enterprise,Game Server
+Dependency,AWS Database RDS Multi-AZ Cluster (2 readable standbys),EA Account Service
+Dependency,AWS Database RDS Multi-AZ Cluster (2 readable standbys),Inventory & Cosmetics
+Dependency,AWS Database RDS Multi-AZ Cluster (2 readable standbys),Ranked & Competitive Service
+Dependency,AWS Database ElastiCache (cluster mode),EA Account Service
+Dependency,AWS Networking & Edge Application Load Balancer,EA Account Service
+Dependency,AWS Networking & Edge Route 53 (Standard),EA Account Service
+Dependency,AWS Networking & Edge CloudFront CDN,Patch & Asset CDN
+Dependency,EA Account Service,Matchmaking Service
+Dependency,EA Account Service,Inventory & Cosmetics
+Dependency,EA Account Service,Social & Friends Service
+Dependency,Matchmaking Service,Game Server
+Dependency,Easy Anti-Cheat + Layered Security,Game Server
+Dependency,Game Server,Ranked & Competitive Service
+Dependency,Game Server,Telemetry & Observability
+Dependency,Game Server,Patch & Asset CDN

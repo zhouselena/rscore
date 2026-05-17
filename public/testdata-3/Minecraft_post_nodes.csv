@@ -1,0 +1,13 @@
+Node,Type,Service Tier
+Microsoft Account Authentication,Functional,
+Session Server,Functional,
+Profile & Username Service,Functional,
+Minecraft Launcher Backend,Functional,
+Multiplayer Game Servers,Functional,
+Marketplace & DLC,Functional,
+Parental Controls & Family Safety,Functional,
+Patch & Asset CDN,Functional,
+Azure Active Directory B2C,Provider,
+Azure Cosmos DB (multi-region writes),Provider,Cosmos DB (multi-region writes)
+Azure App Service (Standard+),Provider,App Service (Standard+)
+Azure,Provider,

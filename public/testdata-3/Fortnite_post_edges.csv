@@ -1,0 +1,39 @@
+Type,From,To
+Hosted-on,Account Service,MongoDB Atlas Global Clusters
+Hosted-on,Account Service,AWS Database ElastiCache (cluster mode)
+Hosted-on,Account Service,AWS Compute ECS/EKS (Fargate multi-AZ)
+Hosted-on,Account Service,AWS Networking & Edge Application Load Balancer
+Hosted-on,Account Service,AWS Networking & Edge Route 53 (Standard)
+Hosted-on,MCP (Profiles & Inventory),AWS Database Aurora (Provisioned single region)
+Hosted-on,MCP (Profiles & Inventory),AWS Compute ECS/EKS (Fargate multi-AZ)
+Hosted-on,Matchmaking Service,AWS Compute ECS/EKS (Fargate multi-AZ)
+Hosted-on,Game Server,AWS Compute EC2 Auto Scaling Group (multi-AZ)
+Hosted-on,Epic Games Store,AWS Database Aurora (Provisioned single region)
+Hosted-on,Epic Games Store,AWS Compute ECS/EKS (Fargate multi-AZ)
+Hosted-on,Friends & Social Service,AWS Compute ECS/EKS (Fargate multi-AZ)
+Hosted-on,Notification Service,AWS Messaging & Queuing Kinesis (multi-shard enhanced fanout)
+Hosted-on,Notification Service,AWS Compute ECS/EKS (Fargate multi-AZ)
+Hosted-on,Patch & Asset CDN,AWS Networking & Edge CloudFront CDN
+Dependency,MongoDB Atlas Global Clusters,Account Service
+Dependency,MongoDB Atlas Global Clusters,MCP (Profiles & Inventory)
+Dependency,AWS Database ElastiCache (cluster mode),Account Service
+Dependency,AWS Compute ECS/EKS (Fargate multi-AZ),Account Service
+Dependency,AWS Compute ECS/EKS (Fargate multi-AZ),MCP (Profiles & Inventory)
+Dependency,AWS Compute ECS/EKS (Fargate multi-AZ),Matchmaking Service
+Dependency,AWS Compute ECS/EKS (Fargate multi-AZ),Epic Games Store
+Dependency,AWS Compute ECS/EKS (Fargate multi-AZ),Friends & Social Service
+Dependency,AWS Compute ECS/EKS (Fargate multi-AZ),Notification Service
+Dependency,AWS Database Aurora (Provisioned single region),MCP (Profiles & Inventory)
+Dependency,AWS Database Aurora (Provisioned single region),Epic Games Store
+Dependency,AWS Compute EC2 Auto Scaling Group (multi-AZ),Game Server
+Dependency,AWS Messaging & Queuing Kinesis (multi-shard enhanced fanout),Notification Service
+Dependency,AWS Networking & Edge Application Load Balancer,Account Service
+Dependency,AWS Networking & Edge Route 53 (Standard),Account Service
+Dependency,AWS Networking & Edge CloudFront CDN,Patch & Asset CDN
+Dependency,Account Service,MCP (Profiles & Inventory)
+Dependency,Account Service,Matchmaking Service
+Dependency,Account Service,Friends & Social Service
+Dependency,Account Service,Notification Service
+Dependency,Account Service,Epic Games Store
+Dependency,Matchmaking Service,Game Server
+Dependency,Game Server,Patch & Asset CDN

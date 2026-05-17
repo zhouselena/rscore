@@ -1,0 +1,13 @@
+Node,Type,Service Tier
+Lobby & Hub Service,Functional,
+Game Mode Servers,Functional,
+Authentication & Session Service,Functional,
+SkyBlock Economy & Progression,Functional,
+Hypixel Store,Functional,
+Public API,Functional,
+Forums & Community Website,Functional,
+Watchdog Anti-Cheat,Functional,
+Cloudflare Enterprise,Provider,Enterprise
+Managed Dedicated Servers (post-INAP),Provider,
+MongoDB Atlas M30+ replica set,Provider,M30+ replica set
+AWS Database ElastiCache (cluster mode),Provider,ElastiCache (cluster mode)

@@ -1,0 +1,16 @@
+Node,Type,Service Tier
+Game Server,Functional,
+EA Account Service,Functional,
+Matchmaking Service,Functional,
+Inventory & Cosmetics,Functional,
+Easy Anti-Cheat,Functional,
+Ranked & Competitive Service,Functional,
+Social & Friends Service,Functional,
+Telemetry & Observability,Functional,
+Patch & Asset CDN,Functional,
+AWS Compute EC2 Auto Scaling Group (multi-AZ),Provider,EC2 Auto Scaling Group (multi-AZ)
+AWS Database RDS Multi-AZ (Standby),Provider,RDS Multi-AZ (Standby)
+AWS Database ElastiCache (single node),Provider,ElastiCache (single node)
+AWS Networking & Edge CloudFront CDN,Provider,CloudFront CDN
+AWS Networking & Edge Application Load Balancer,Provider,Application Load Balancer
+AWS Networking & Edge Route 53 (Standard),Provider,Route 53 (Standard)

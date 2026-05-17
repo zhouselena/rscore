@@ -1,0 +1,54 @@
+=== ApexLegends PRE ===
+=== Infrastructure Resilience Score: 0.4885 ===
+  Degree Entropy                 0.6654
+  Bounded Fielder Value          0.1100
+  Articulation Points Ratio      0.8000
+  Average Clustering Coefficient 0.1431
+  Average Tech Score             0.8813
+  Overall Betweenness Centrality 0.5385
+Recommendation: placeholder for recommendation
+
+=== Node Criticality Scores ===
+  EA Account Service             0.5282
+  Game Server                    0.5016
+  Patch & Asset CDN              0.4250
+  AWS Database RDS Multi-AZ (Standby) 0.2498
+  AWS Compute EC2 Auto Scaling Group (multi-AZ) 0.1921
+  Ranked & Competitive Service   0.1692
+  AWS Database ElastiCache (single node) 0.1642
+  Matchmaking Service            0.1361
+  Social & Friends Service       0.1112
+  Inventory & Cosmetics          0.1000
+  Telemetry & Observability      0.1000
+  AWS Networking & Edge Application Load Balancer 0.0967
+  AWS Networking & Edge Route 53 (Standard) 0.0937
+  AWS Networking & Edge CloudFront CDN 0.0892
+  Easy Anti-Cheat                0.0000
+
+=== ApexLegends POST ===
+=== Infrastructure Resilience Score: 0.4920 ===
+  Average Tech Score             0.9094
+  Overall Betweenness Centrality 0.5571
+  Degree Entropy                 0.6372
+  Bounded Fielder Value          0.1051
+  Articulation Points Ratio      0.8125
+  Average Clustering Coefficient 0.1303
+Recommendation: placeholder for recommendation
+
+=== Node Criticality Scores ===
+  Game Server                    0.5314
+  EA Account Service             0.5217
+  Patch & Asset CDN              0.4233
+  AWS Database RDS Multi-AZ Cluster (2 readable standbys) 0.2315
+  AWS Compute EC2 Auto Scaling Group (multi-AZ) 0.1900
+  Ranked & Competitive Service   0.1700
+  Matchmaking Service            0.1403
+  AWS Database ElastiCache (cluster mode) 0.1117
+  Social & Friends Service       0.1097
+  Telemetry & Observability      0.1000
+  Inventory & Cosmetics          0.1000
+  AWS Networking & Edge Application Load Balancer 0.0967
+  AWS Networking & Edge Route 53 (Standard) 0.0937
+  AWS Networking & Edge CloudFront CDN 0.0892
+  Cloudflare Enterprise          0.0847
+  Easy Anti-Cheat + Layered Security 0.0000

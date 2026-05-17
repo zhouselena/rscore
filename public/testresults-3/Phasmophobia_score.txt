@@ -1,0 +1,47 @@
+=== Phasmophobia PRE ===
+=== Infrastructure Resilience Score: 0.5338 ===
+  Bounded Fielder Value          0.1668
+  Articulation Points Ratio      0.7000
+  Average Clustering Coefficient 0.0657
+  Average Tech Score             0.9850
+  Overall Betweenness Centrality 0.8056
+  Degree Entropy                 0.7365
+Recommendation: placeholder for recommendation
+
+=== Node Criticality Scores ===
+  Game Session Server            0.4252
+  Patch & Asset CDN              0.4243
+  Steam Authentication           0.3722
+  Leaderboard & Stats            0.1322
+  Equipment & Cosmetics Inventory 0.1322
+  Lobby & Room Service           0.1189
+  VPS UK (single region)         0.0897
+  Fastly CDN (Steam)             0.0892
+  Photon Unity Networking (PUN)  0.0849
+  Steam / Valve Infrastructure   0.0667
+
+=== Phasmophobia POST ===
+=== Infrastructure Resilience Score: 0.5046 ===
+  Average Tech Score             0.9229
+  Overall Betweenness Centrality 0.7500
+  Degree Entropy                 0.7465
+  Bounded Fielder Value          0.1245
+  Articulation Points Ratio      0.7143
+  Average Clustering Coefficient 0.0338
+Recommendation: placeholder for recommendation
+
+=== Node Criticality Scores ===
+  Platform Authentication        0.4764
+  Lobby & Room Service           0.4620
+  Patch & Asset CDN              0.4202
+  Game Session Server            0.4132
+  Equipment & Cosmetics Inventory 0.1301
+  Leaderboard & Stats            0.1301
+  GCP Cloud Run                  0.1175
+  GCP Firestore                  0.1115
+  Auth0 B2C                      0.1087
+  Cloudflare Business            0.1042
+  Fastly CDN (Steam)             0.0892
+  Xbox Live (Azure)              0.0000
+  PlayStation Network (Azure)    0.0000
+  Steam / Valve Infrastructure   0.0000

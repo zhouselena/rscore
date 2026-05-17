@@ -1,0 +1,34 @@
+Type,From,To
+Hosted-on,Lobby & Hub Service,Cloudflare Enterprise
+Hosted-on,Lobby & Hub Service,Managed Dedicated Servers (post-INAP)
+Hosted-on,Game Mode Servers,Managed Dedicated Servers (post-INAP)
+Hosted-on,Authentication & Session Service,Managed Dedicated Servers (post-INAP)
+Hosted-on,Authentication & Session Service,AWS Database ElastiCache (cluster mode)
+Hosted-on,SkyBlock Economy & Progression,Managed Dedicated Servers (post-INAP)
+Hosted-on,SkyBlock Economy & Progression,MongoDB Atlas M30+ replica set
+Hosted-on,Hypixel Store,Managed Dedicated Servers (post-INAP)
+Hosted-on,Public API,Managed Dedicated Servers (post-INAP)
+Hosted-on,Forums & Community Website,Managed Dedicated Servers (post-INAP)
+Hosted-on,Watchdog Anti-Cheat,Managed Dedicated Servers (post-INAP)
+Dependency,Cloudflare Enterprise,Lobby & Hub Service
+Dependency,Cloudflare Enterprise,Hypixel Store
+Dependency,Cloudflare Enterprise,Public API
+Dependency,Cloudflare Enterprise,Forums & Community Website
+Dependency,Managed Dedicated Servers (post-INAP),Lobby & Hub Service
+Dependency,Managed Dedicated Servers (post-INAP),Game Mode Servers
+Dependency,Managed Dedicated Servers (post-INAP),Authentication & Session Service
+Dependency,Managed Dedicated Servers (post-INAP),SkyBlock Economy & Progression
+Dependency,Managed Dedicated Servers (post-INAP),Hypixel Store
+Dependency,Managed Dedicated Servers (post-INAP),Public API
+Dependency,Managed Dedicated Servers (post-INAP),Forums & Community Website
+Dependency,Managed Dedicated Servers (post-INAP),Watchdog Anti-Cheat
+Dependency,AWS Database ElastiCache (cluster mode),Authentication & Session Service
+Dependency,MongoDB Atlas M30+ replica set,SkyBlock Economy & Progression
+Dependency,Authentication & Session Service,Lobby & Hub Service
+Dependency,Authentication & Session Service,Hypixel Store
+Dependency,Authentication & Session Service,Public API
+Dependency,Authentication & Session Service,Forums & Community Website
+Dependency,Lobby & Hub Service,Game Mode Servers
+Dependency,Game Mode Servers,SkyBlock Economy & Progression
+Dependency,Game Mode Servers,Watchdog Anti-Cheat
+Dependency,Game Mode Servers,Public API

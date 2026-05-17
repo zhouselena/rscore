@@ -1,0 +1,18 @@
+Type,From,To
+Hosted-on,Lobby & Matchmaking Service,Photon Cloud (Exit Games)
+Hosted-on,Game Session Server,Custom Hazel .NET Server
+Hosted-on,Game Session Server,VPS Texas (NA)
+Hosted-on,Game Session Server,VPS Germany (EU)
+Hosted-on,Game Session Server,VPS Japan (Asia)
+Hosted-on,Account & Auth Service,Custom Hazel .NET Server
+Dependency,Photon Cloud (Exit Games),Lobby & Matchmaking Service
+Dependency,Photon Cloud (Exit Games),Game Session Server
+Dependency,Custom Hazel .NET Server,Game Session Server
+Dependency,Custom Hazel .NET Server,Account & Auth Service
+Dependency,VPS Texas (NA),Game Session Server
+Dependency,VPS Germany (EU),Game Session Server
+Dependency,VPS Japan (Asia),Game Session Server
+Dependency,Account & Auth Service,Lobby & Matchmaking Service
+Dependency,Lobby & Matchmaking Service,Game Session Server
+Dependency,Game Session Server,In-Game Chat
+Dependency,Game Session Server,Reporting & Moderation

@@ -1,0 +1,37 @@
+Type,From,To
+Hosted-on,Game Server,Roblox On-Prem Data Center (Primary)
+Hosted-on,Game Server,Roblox On-Prem Data Center (Secondary geo-distinct)
+Hosted-on,Game Server,HashiCorp Nomad (upgraded)
+Hosted-on,Game Server,HashiCorp Consul (multi-cluster upgraded)
+Hosted-on,Authentication Service,HashiCorp Vault
+Hosted-on,Authentication Service,HashiCorp Nomad (upgraded)
+Hosted-on,Avatar & Catalog Service,HashiCorp Nomad (upgraded)
+Hosted-on,Social & Friends Service,HashiCorp Nomad (upgraded)
+Hosted-on,Economy & Trading Service,HashiCorp Nomad (upgraded)
+Hosted-on,Public API,HashiCorp Nomad (upgraded)
+Hosted-on,Analytics & Telemetry,HashiCorp Consul (multi-cluster upgraded)
+Hosted-on,Asset CDN,Fastly CDN
+Dependency,Roblox On-Prem Data Center (Primary),Game Server
+Dependency,Roblox On-Prem Data Center (Primary),Authentication Service
+Dependency,Roblox On-Prem Data Center (Primary),Avatar & Catalog Service
+Dependency,Roblox On-Prem Data Center (Primary),Social & Friends Service
+Dependency,Roblox On-Prem Data Center (Primary),Economy & Trading Service
+Dependency,Roblox On-Prem Data Center (Primary),Public API
+Dependency,Roblox On-Prem Data Center (Primary),Analytics & Telemetry
+Dependency,Roblox On-Prem Data Center (Secondary geo-distinct),Game Server
+Dependency,Roblox On-Prem Data Center (Secondary geo-distinct),Authentication Service
+Dependency,HashiCorp Nomad (upgraded),Game Server
+Dependency,HashiCorp Nomad (upgraded),Authentication Service
+Dependency,HashiCorp Nomad (upgraded),Avatar & Catalog Service
+Dependency,HashiCorp Nomad (upgraded),Social & Friends Service
+Dependency,HashiCorp Nomad (upgraded),Economy & Trading Service
+Dependency,HashiCorp Nomad (upgraded),Public API
+Dependency,HashiCorp Consul (multi-cluster upgraded),Game Server
+Dependency,HashiCorp Consul (multi-cluster upgraded),Analytics & Telemetry
+Dependency,HashiCorp Vault,Authentication Service
+Dependency,Fastly CDN,Asset CDN
+Dependency,Authentication Service,Avatar & Catalog Service
+Dependency,Authentication Service,Social & Friends Service
+Dependency,Authentication Service,Economy & Trading Service
+Dependency,Game Server,Public API
+Dependency,Game Server,Asset CDN

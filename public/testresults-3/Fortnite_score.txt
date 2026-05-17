@@ -1,0 +1,56 @@
+=== Fortnite PRE ===
+=== Infrastructure Resilience Score: 0.4757 ===
+  Degree Entropy                 0.6700
+  Bounded Fielder Value          0.0609
+  Articulation Points Ratio      0.7500
+  Average Clustering Coefficient 0.1700
+  Average Tech Score             0.8413
+  Overall Betweenness Centrality 0.6119
+Recommendation: placeholder for recommendation
+
+=== Node Criticality Scores ===
+  Account Service                0.4983
+  Matchmaking Service            0.4533
+  Game Server                    0.4433
+  Patch & Asset CDN              0.4233
+  AWS Compute ECS/EKS (EC2-backed multi-AZ) 0.2593
+  AWS Database ElastiCache (single node) 0.1642
+  MCP (Profiles & Inventory)     0.1343
+  AWS Database RDS Multi-AZ (Standby) 0.1342
+  AWS Compute EC2 M/C/R class (single AZ) 0.1342
+  Epic Games Store               0.1175
+  Notification Service           0.1000
+  Friends & Social Service       0.1000
+  AWS Networking & Edge Application Load Balancer 0.0967
+  AWS Networking & Edge Route 53 (Standard) 0.0937
+  MongoDB Atlas M30+ replica set 0.0920
+  AWS Networking & Edge CloudFront CDN 0.0892
+
+=== Fortnite POST ===
+=== Infrastructure Resilience Score: 0.4644 ===
+  Overall Betweenness Centrality 0.6083
+  Degree Entropy                 0.6508
+  Bounded Fielder Value          0.0581
+  Articulation Points Ratio      0.7059
+  Average Clustering Coefficient 0.1269
+  Average Tech Score             0.8888
+Recommendation: placeholder for recommendation
+
+=== Node Criticality Scores ===
+  Account Service                0.4930
+  Matchmaking Service            0.4500
+  Game Server                    0.4398
+  Notification Service           0.4379
+  Patch & Asset CDN              0.4219
+  AWS Compute ECS/EKS (Fargate multi-AZ) 0.2624
+  MCP (Profiles & Inventory)     0.1332
+  Epic Games Store               0.1168
+  AWS Database Aurora (Provisioned single region) 0.1145
+  AWS Database ElastiCache (cluster mode) 0.1117
+  AWS Messaging & Queuing Kinesis (multi-shard enhanced fanout) 0.1042
+  AWS Compute EC2 Auto Scaling Group (multi-AZ) 0.1042
+  Friends & Social Service       0.1000
+  AWS Networking & Edge Application Load Balancer 0.0967
+  AWS Networking & Edge Route 53 (Standard) 0.0937
+  AWS Networking & Edge CloudFront CDN 0.0892
+  MongoDB Atlas Global Clusters  0.0680

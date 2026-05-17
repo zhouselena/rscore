@@ -1,0 +1,46 @@
+=== Minecraft PRE ===
+=== Infrastructure Resilience Score: 0.4905 ===
+  Bounded Fielder Value          0.1251
+  Articulation Points Ratio      0.5455
+  Average Clustering Coefficient 0.0597
+  Average Tech Score             0.9391
+  Overall Betweenness Centrality 0.8222
+  Degree Entropy                 0.7699
+Recommendation: placeholder for recommendation
+
+=== Node Criticality Scores ===
+  Profile & Username Service     0.4467
+  Minecraft Launcher Backend     0.4383
+  Patch & Asset CDN              0.4311
+  Session Server                 0.3878
+  Mojang Authentication Service  0.3830
+  Azure App Service (Standard+)  0.1959
+  Azure SQL (General Purpose)    0.1192
+  Mojang Auth Server (self-hosted) 0.1111
+  Marketplace & DLC              0.1039
+  Multiplayer Game Servers       0.1000
+  Azure                          0.0667
+
+=== Minecraft POST ===
+=== Infrastructure Resilience Score: 0.5049 ===
+  Overall Betweenness Centrality 0.8091
+  Degree Entropy                 0.7500
+  Bounded Fielder Value          0.1191
+  Articulation Points Ratio      0.5833
+  Average Clustering Coefficient 0.1139
+  Average Tech Score             0.9667
+Recommendation: placeholder for recommendation
+
+=== Node Criticality Scores ===
+  Profile & Username Service     0.4424
+  Minecraft Launcher Backend     0.4352
+  Patch & Asset CDN              0.4286
+  Microsoft Account Authentication 0.3918
+  Session Server                 0.3895
+  Azure App Service (Standard+)  0.1846
+  Azure Active Directory B2C     0.1462
+  Marketplace & DLC              0.1042
+  Multiplayer Game Servers       0.1000
+  Parental Controls & Family Safety 0.1000
+  Azure Cosmos DB (multi-region writes) 0.0787
+  Azure                          0.0667
