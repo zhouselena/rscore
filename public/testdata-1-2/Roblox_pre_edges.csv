@@ -1,0 +1,27 @@
+Type,From,To
+Dependency,Authentication Service,Roblox Client
+Dependency,Game Server (Place Instance),Roblox Client
+Dependency,Matchmaking / Discovery Service,Roblox Client
+Dependency,Player Inventory / Avatar,Roblox Client
+Dependency,Roblox Chat Service,Roblox Client
+Dependency,Roblox Marketplace,Roblox Client
+Dependency,Authentication Service,Consul Cluster (Service Discovery)
+Dependency,Game Server (Place Instance),Consul Cluster (Service Discovery)
+Dependency,Matchmaking / Discovery Service,Consul Cluster (Service Discovery)
+Dependency,Player Inventory / Avatar,Consul Cluster (Service Discovery)
+Dependency,Roblox Chat Service,Consul Cluster (Service Discovery)
+Dependency,Roblox Marketplace,Consul Cluster (Service Discovery)
+Dependency,Nomad Scheduler,Consul Cluster (Service Discovery)
+Dependency,Vault (Secrets Management),Consul Cluster (Service Discovery)
+Dependency,Game Server (Place Instance),Nomad Scheduler
+Dependency,Monitoring / Telemetry,Consul Cluster (Service Discovery)
+Hosted-on,Consul Cluster (Service Discovery),Roblox-Owned Data Center (Primary)
+Hosted-on,Nomad Scheduler,Roblox-Owned Data Center (Primary)
+Hosted-on,Vault (Secrets Management),Roblox-Owned Data Center (Primary)
+Hosted-on,Authentication Service,Roblox-Owned Data Center (Primary)
+Hosted-on,Game Server (Place Instance),Roblox-Owned Data Center (Primary)
+Hosted-on,Matchmaking / Discovery Service,Roblox-Owned Data Center (Primary)
+Hosted-on,Player Inventory / Avatar,Roblox-Owned Data Center (Primary)
+Hosted-on,Roblox Chat Service,Roblox-Owned Data Center (Primary)
+Hosted-on,Roblox Marketplace,Roblox-Owned Data Center (Primary)
+Hosted-on,Monitoring / Telemetry,Roblox-Owned Data Center (Primary)

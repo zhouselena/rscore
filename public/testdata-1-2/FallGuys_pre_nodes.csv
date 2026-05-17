@@ -1,0 +1,12 @@
+Node,Type,ServiceTier
+Fall Guys Client (Steam / PS4),Functional,
+Mediatonic Auth Service,Functional,
+Game Session Server,Functional,
+Matchmaking Service,Functional,
+Player Profile & Kudos,Functional,
+Cosmetics / Store,Functional,
+Season Pass Service,Functional,
+Analytics Service,Functional,
+Mediatonic-Managed Game Servers,Provider,
+PlayStation Network,Provider,
+Steam / Valve Backend,Provider,

@@ -1,0 +1,12 @@
+Node,Type,ServiceTier
+Minecraft Launcher,Functional,
+Mojang Authentication Service,Functional,
+Minecraft Session Server,Functional,
+Minecraft Realms,Functional,
+Multiplayer Game Server,Functional,
+Player Profile / Skin Service,Functional,
+Marketplace / DLC Service,Functional,
+AWS EC2 (Realms Game Servers),Provider,EC2 M/C/R class (single AZ)
+AWS S3 (World Storage),Provider,
+AWS RDS (Subscription DB),Provider,RDS Single-AZ (any engine)
+AWS ELB (Load Balancer),Provider,Application Load Balancer

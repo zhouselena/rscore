@@ -1,0 +1,37 @@
+Type,From,To
+Dependency,Valorant Game Server,Riot Client
+Dependency,RiotSignOn (RSO),Riot Client
+Dependency,Matchmaking Service,Riot Client
+Dependency,Player Profile Service,Riot Client
+Dependency,Inventory / Store Service,Riot Client
+Dependency,Anti-Cheat (Vanguard),Riot Client
+Dependency,Riot Messaging Service (Chat),Riot Client
+Dependency,Patch / CDN Delivery,Riot Client
+Dependency,DDoS Mitigation Layer,Riot Client
+Dependency,Matchmaking Service,RiotSignOn (RSO)
+Dependency,Player Profile Service,RiotSignOn (RSO)
+Dependency,Inventory / Store Service,RiotSignOn (RSO)
+Dependency,Valorant Game Server,RiotSignOn (RSO)
+Dependency,Matchmaking Service,Player Profile Service
+Dependency,Inventory / Store Service,Player Profile Service
+Dependency,Valorant Game Server,Matchmaking Service
+Dependency,Analytics Pipeline,Valorant Game Server
+Dependency,Valorant Game Server,AWS EKS Cluster
+Dependency,Valorant Game Server,AWS Local Zone (Edge)
+Hosted-on,AWS EKS Cluster,AWS Region us-east-1
+Hosted-on,AWS EKS Cluster,AWS Region eu-west-1
+Hosted-on,AWS EKS Cluster,AWS Region ap-southeast-1
+Hosted-on,AWS EKS Cluster,AWS Region sa-east-1
+Hosted-on,AWS Local Zone (Edge),AWS Region us-east-1
+Hosted-on,AWS Local Zone (Edge),AWS Region eu-west-1
+Hosted-on,RiotSignOn (RSO),AWS Region us-east-1
+Hosted-on,RiotSignOn (RSO),AWS Region eu-west-1
+Hosted-on,RiotSignOn (RSO),AWS Region ap-southeast-1
+Hosted-on,RiotSignOn (RSO),AWS Region sa-east-1
+Hosted-on,Player Profile Service,AWS Aurora (Player DB)
+Hosted-on,Inventory / Store Service,AWS Aurora (Player DB)
+Hosted-on,Matchmaking Service,AWS Region us-east-1
+Hosted-on,Riot Messaging Service (Chat),AWS Region us-east-1
+Hosted-on,Patch / CDN Delivery,AWS Region us-east-1
+Hosted-on,Analytics Pipeline,AWS Region us-east-1
+Hosted-on,DDoS Mitigation Layer,AWS Region us-east-1

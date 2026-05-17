@@ -1,0 +1,13 @@
+Node,Type,ServiceTier
+Warframe Launcher,Functional,
+Login Server,Functional,
+World State Server (Star Chart),Functional,
+Session / Relay Server,Functional,
+Player Inventory & Progression,Functional,
+Trade & Market Service,Functional,
+Clan & Dojo Service,Functional,
+VoIP Service,Functional,
+Peer-to-Peer Host (Player-Hosted),Functional,
+Content Delivery / Patch Server,Functional,
+Digital Extremes-Owned Data Centers,Provider,
+Akamai CDN,Provider,CDN

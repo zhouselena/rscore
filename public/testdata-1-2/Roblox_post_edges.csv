@@ -1,0 +1,33 @@
+Type,From,To
+Dependency,Authentication Service,Roblox Client
+Dependency,Game Server (Place Instance),Roblox Client
+Dependency,Matchmaking / Discovery Service,Roblox Client
+Dependency,Player Inventory / Avatar,Roblox Client
+Dependency,Roblox Chat Service,Roblox Client
+Dependency,Roblox Marketplace,Roblox Client
+Dependency,Authentication Service,Consul Cluster A (Primary)
+Dependency,Authentication Service,Consul Cluster B (Secondary)
+Dependency,Game Server (Place Instance),Consul Cluster A (Primary)
+Dependency,Game Server (Place Instance),Consul Cluster B (Secondary)
+Dependency,Matchmaking / Discovery Service,Consul Cluster A (Primary)
+Dependency,Player Inventory / Avatar,Consul Cluster A (Primary)
+Dependency,Roblox Chat Service,Consul Cluster A (Primary)
+Dependency,Roblox Marketplace,Consul Cluster A (Primary)
+Dependency,Nomad Scheduler,Consul Cluster A (Primary)
+Dependency,Nomad Scheduler,Consul Cluster B (Secondary)
+Dependency,Vault (Secrets Management),Consul Cluster A (Primary)
+Dependency,Vault (Secrets Management),Consul Cluster B (Secondary)
+Dependency,Game Server (Place Instance),Nomad Scheduler
+Dependency,Monitoring / Telemetry (Decoupled),Game Server (Place Instance)
+Dependency,Monitoring / Telemetry (Decoupled),Consul Cluster A (Primary)
+Hosted-on,Consul Cluster A (Primary),Roblox-Owned Data Center (Primary)
+Hosted-on,Consul Cluster B (Secondary),Roblox-Owned Data Center (Secondary)
+Hosted-on,Nomad Scheduler,Roblox-Owned Data Center (Primary)
+Hosted-on,Vault (Secrets Management),Roblox-Owned Data Center (Primary)
+Hosted-on,Authentication Service,Roblox-Owned Data Center (Primary)
+Hosted-on,Game Server (Place Instance),Roblox-Owned Data Center (Primary)
+Hosted-on,Matchmaking / Discovery Service,Roblox-Owned Data Center (Primary)
+Hosted-on,Player Inventory / Avatar,Roblox-Owned Data Center (Primary)
+Hosted-on,Roblox Chat Service,Roblox-Owned Data Center (Primary)
+Hosted-on,Roblox Marketplace,Roblox-Owned Data Center (Primary)
+Hosted-on,Monitoring / Telemetry (Decoupled),Roblox-Owned Data Center (Secondary)

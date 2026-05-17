@@ -1,0 +1,21 @@
+Type,From,To
+Dependency,Battle.net Authentication Service,Battle.net Launcher
+Dependency,Overwatch Game Server,Battle.net Launcher
+Dependency,Matchmaking Service,Battle.net Launcher
+Dependency,Player Profile & Stats,Battle.net Launcher
+Dependency,Battle Pass / Store Service,Battle.net Launcher
+Dependency,In-Game Voice Chat,Battle.net Launcher
+Dependency,SMS Phone Verification Service,Battle.net Launcher
+Dependency,CDN / Patch Delivery,Battle.net Launcher
+Dependency,Matchmaking Service,Battle.net Authentication Service
+Dependency,Player Profile & Stats,Battle.net Authentication Service
+Dependency,Overwatch Game Server,Matchmaking Service
+Dependency,Battle Pass / Store Service,Player Profile & Stats
+Dependency,SMS Phone Verification Service,Battle.net Authentication Service
+Hosted-on,Overwatch Game Server,Blizzard-Owned Data Centers
+Hosted-on,Battle.net Authentication Service,Blizzard-Owned Data Centers
+Hosted-on,Matchmaking Service,Blizzard-Owned Data Centers
+Hosted-on,Player Profile & Stats,Blizzard-Owned Data Centers
+Hosted-on,Battle Pass / Store Service,Blizzard-Owned Data Centers
+Hosted-on,In-Game Voice Chat,Blizzard-Owned Data Centers
+Hosted-on,CDN / Patch Delivery,Akamai CDN

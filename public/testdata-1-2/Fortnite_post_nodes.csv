@@ -1,0 +1,19 @@
+Node,Type,ServiceTier
+Epic Games Launcher,Functional,
+Account Service,Functional,
+MCP (Matchmaking Control Plane),Functional,
+Game Server Fleet,Functional,
+Matchmaking Service,Functional,
+Player Inventory / Locker,Functional,
+XMPP Messaging Service (Refactored),Functional,
+Redis Cache Layer,Functional,
+DynamoDB Player Data,Functional,
+Analytics / Kinesis Pipeline,Functional,
+AWS Config Monitoring,Functional,
+AWS EKS Orchestration,Functional,
+AWS Region us-east-1,Provider,
+AWS Region eu-west-1,Provider,
+AWS Region ap-northeast-1,Provider,
+AWS Region us-west-2,Provider,
+AWS DynamoDB,Provider,DynamoDB (On-Demand)
+Amazon Kinesis,Provider,Kinesis (1 shard)

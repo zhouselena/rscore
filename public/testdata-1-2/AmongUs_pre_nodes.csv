@@ -1,0 +1,8 @@
+Node,Type,ServiceTier
+Among Us Client,Functional,
+Account / Guest Login Service,Functional,
+Game Lobby Server,Functional,
+Matchmaking Service,Functional,
+Player Cosmetics / Store,Functional,
+Chat Service,Functional,
+AWS EC2 (Burstable T-class),Provider,EC2 T-class (Burstable standard)

@@ -1,0 +1,20 @@
+Type,From,To
+Dependency,Mediatonic Auth Service,Fall Guys Client (Steam / PS4)
+Dependency,Game Session Server,Fall Guys Client (Steam / PS4)
+Dependency,Matchmaking Service,Fall Guys Client (Steam / PS4)
+Dependency,Player Profile & Kudos,Fall Guys Client (Steam / PS4)
+Dependency,Cosmetics / Store,Fall Guys Client (Steam / PS4)
+Dependency,Season Pass Service,Fall Guys Client (Steam / PS4)
+Dependency,Mediatonic Auth Service,PlayStation Network
+Dependency,Mediatonic Auth Service,Steam / Valve Backend
+Dependency,Game Session Server,Matchmaking Service
+Dependency,Player Profile & Kudos,Mediatonic Auth Service
+Dependency,Cosmetics / Store,Player Profile & Kudos
+Dependency,Analytics Service,Game Session Server
+Hosted-on,Game Session Server,Mediatonic-Managed Game Servers
+Hosted-on,Matchmaking Service,Mediatonic-Managed Game Servers
+Hosted-on,Mediatonic Auth Service,Mediatonic-Managed Game Servers
+Hosted-on,Player Profile & Kudos,Mediatonic-Managed Game Servers
+Hosted-on,Cosmetics / Store,Mediatonic-Managed Game Servers
+Hosted-on,Season Pass Service,Mediatonic-Managed Game Servers
+Hosted-on,Analytics Service,Mediatonic-Managed Game Servers

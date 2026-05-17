@@ -1,0 +1,34 @@
+Type,From,To
+Dependency,Account Service,Epic Games Launcher
+Dependency,MCP (Matchmaking Control Plane),Epic Games Launcher
+Dependency,Game Server Fleet,Epic Games Launcher
+Dependency,Player Inventory / Locker,Epic Games Launcher
+Dependency,XMPP Messaging Service (Refactored),Epic Games Launcher
+Dependency,Matchmaking Service,MCP (Matchmaking Control Plane)
+Dependency,Player Inventory / Locker,MCP (Matchmaking Control Plane)
+Dependency,MCP (Matchmaking Control Plane),Account Service
+Dependency,Matchmaking Service,Account Service
+Dependency,MCP (Matchmaking Control Plane),DynamoDB Player Data
+Dependency,Account Service,Redis Cache Layer
+Dependency,Game Server Fleet,Matchmaking Service
+Dependency,Analytics / Kinesis Pipeline,Game Server Fleet
+Dependency,AWS Config Monitoring,Game Server Fleet
+Dependency,AWS Config Monitoring,MCP (Matchmaking Control Plane)
+Dependency,Game Server Fleet,AWS EKS Orchestration
+Hosted-on,Account Service,AWS Region us-east-1
+Hosted-on,Account Service,AWS Region eu-west-1
+Hosted-on,MCP (Matchmaking Control Plane),AWS Region us-east-1
+Hosted-on,MCP (Matchmaking Control Plane),AWS Region us-west-2
+Hosted-on,Game Server Fleet,AWS Region us-east-1
+Hosted-on,Game Server Fleet,AWS Region eu-west-1
+Hosted-on,Game Server Fleet,AWS Region ap-northeast-1
+Hosted-on,Game Server Fleet,AWS Region us-west-2
+Hosted-on,Matchmaking Service,AWS Region us-east-1
+Hosted-on,Matchmaking Service,AWS Region eu-west-1
+Hosted-on,Player Inventory / Locker,AWS Region us-east-1
+Hosted-on,XMPP Messaging Service (Refactored),AWS Region us-east-1
+Hosted-on,Redis Cache Layer,AWS Region us-east-1
+Hosted-on,DynamoDB Player Data,AWS DynamoDB
+Hosted-on,Analytics / Kinesis Pipeline,Amazon Kinesis
+Hosted-on,AWS Config Monitoring,AWS Region us-east-1
+Hosted-on,AWS EKS Orchestration,AWS Region us-east-1

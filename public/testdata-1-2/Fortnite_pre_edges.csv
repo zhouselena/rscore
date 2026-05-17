@@ -1,0 +1,25 @@
+Type,From,To
+Dependency,Account Service,Epic Games Launcher
+Dependency,MCP (Matchmaking Control Plane),Epic Games Launcher
+Dependency,Game Server Fleet,Epic Games Launcher
+Dependency,Player Inventory / Locker,Epic Games Launcher
+Dependency,XMPP Messaging Service,Epic Games Launcher
+Dependency,Matchmaking Service,MCP (Matchmaking Control Plane)
+Dependency,Player Inventory / Locker,MCP (Matchmaking Control Plane)
+Dependency,MCP (Matchmaking Control Plane),Account Service
+Dependency,Matchmaking Service,Account Service
+Dependency,MCP (Matchmaking Control Plane),MongoDB Shard Cluster
+Dependency,Account Service,Memcached Cache Layer
+Dependency,Game Server Fleet,Matchmaking Service
+Dependency,Analytics / Kinesis Pipeline,Game Server Fleet
+Hosted-on,Account Service,AWS Region us-east-1
+Hosted-on,MCP (Matchmaking Control Plane),AWS Region us-east-1
+Hosted-on,Game Server Fleet,AWS Region us-east-1
+Hosted-on,Game Server Fleet,AWS Region eu-west-1
+Hosted-on,Game Server Fleet,AWS Region ap-northeast-1
+Hosted-on,Matchmaking Service,AWS Region us-east-1
+Hosted-on,Player Inventory / Locker,AWS Region us-east-1
+Hosted-on,XMPP Messaging Service,AWS Region us-east-1
+Hosted-on,Memcached Cache Layer,AWS Region us-east-1
+Hosted-on,MongoDB Shard Cluster,AWS Region us-east-1
+Hosted-on,Analytics / Kinesis Pipeline,AWS Region us-east-1

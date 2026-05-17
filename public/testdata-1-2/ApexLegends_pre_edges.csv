@@ -1,0 +1,25 @@
+Type,From,To
+Dependency,EA Account & Auth (OAuth),EA App / Origin Launcher
+Dependency,Apex Game Server,EA App / Origin Launcher
+Dependency,Matchmaking Service,EA App / Origin Launcher
+Dependency,Player Account & Inventory,EA App / Origin Launcher
+Dependency,Anti-Cheat (Easy Anti-Cheat),EA App / Origin Launcher
+Dependency,In-Game Store,EA App / Origin Launcher
+Dependency,EA Novafusion Backend,EA App / Origin Launcher
+Dependency,Matchmaking Service,EA Account & Auth (OAuth)
+Dependency,Player Account & Inventory,EA Account & Auth (OAuth)
+Dependency,Apex Game Server,Matchmaking Service
+Dependency,In-Game Store,Player Account & Inventory
+Dependency,Analytics Service,Apex Game Server
+Dependency,Apex Game Server,Multiplay Orchestration Layer
+Hosted-on,Apex Game Server,Google Compute Engine (GCE)
+Hosted-on,Apex Game Server,AWS Region us-east-1
+Hosted-on,Apex Game Server,Azure Region East US
+Hosted-on,Apex Game Server,Multiplay Bare Metal Data Centers
+Hosted-on,Multiplay Orchestration Layer,Google Compute Engine (GCE)
+Hosted-on,EA Account & Auth (OAuth),AWS Region us-east-1
+Hosted-on,Matchmaking Service,AWS Region us-east-1
+Hosted-on,Player Account & Inventory,AWS Region us-east-1
+Hosted-on,In-Game Store,AWS Region us-east-1
+Hosted-on,EA Novafusion Backend,AWS Region us-east-1
+Hosted-on,Analytics Service,Google Compute Engine (GCE)

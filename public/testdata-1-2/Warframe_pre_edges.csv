@@ -1,0 +1,23 @@
+Type,From,To
+Dependency,Login Server,Warframe Launcher
+Dependency,World State Server (Star Chart),Warframe Launcher
+Dependency,Session / Relay Server,Warframe Launcher
+Dependency,Player Inventory & Progression,Warframe Launcher
+Dependency,Trade & Market Service,Warframe Launcher
+Dependency,Clan & Dojo Service,Warframe Launcher
+Dependency,VoIP Service,Warframe Launcher
+Dependency,Content Delivery / Patch Server,Warframe Launcher
+Dependency,Session / Relay Server,Login Server
+Dependency,Player Inventory & Progression,Login Server
+Dependency,Trade & Market Service,Login Server
+Dependency,Clan & Dojo Service,Login Server
+Dependency,World State Server (Star Chart),Session / Relay Server
+Dependency,Peer-to-Peer Host (Player-Hosted),Session / Relay Server
+Hosted-on,Login Server,Digital Extremes-Owned Data Centers
+Hosted-on,World State Server (Star Chart),Digital Extremes-Owned Data Centers
+Hosted-on,Session / Relay Server,Digital Extremes-Owned Data Centers
+Hosted-on,Player Inventory & Progression,Digital Extremes-Owned Data Centers
+Hosted-on,Trade & Market Service,Digital Extremes-Owned Data Centers
+Hosted-on,Clan & Dojo Service,Digital Extremes-Owned Data Centers
+Hosted-on,VoIP Service,Digital Extremes-Owned Data Centers
+Hosted-on,Content Delivery / Patch Server,Akamai CDN

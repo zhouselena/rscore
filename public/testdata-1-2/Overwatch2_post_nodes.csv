@@ -1,0 +1,14 @@
+Node,Type,ServiceTier
+Battle.net Launcher,Functional,
+Battle.net Authentication Service,Functional,
+Overwatch Game Server,Functional,
+Matchmaking Service,Functional,
+Player Profile & Stats,Functional,
+Battle Pass / Store Service,Functional,
+In-Game Voice Chat,Functional,
+DDoS Mitigation / Shield Service,Functional,
+CDN / Patch Delivery,Functional,
+Blizzard-Owned Data Centers (US),Provider,
+Blizzard-Owned Data Centers (EU),Provider,
+Google Cloud Platform (GCP),Provider,GCE VM (single zone)
+Akamai CDN,Provider,CDN

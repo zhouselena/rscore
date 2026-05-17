@@ -1,0 +1,16 @@
+Node,Type,ServiceTier
+Minecraft Launcher,Functional,
+Microsoft Account Auth (Xbox Live),Functional,
+Minecraft Session Server,Functional,
+Minecraft Realms,Functional,
+Multiplayer Game Server,Functional,
+Player Profile / Skin Service,Functional,
+Marketplace / DLC Service,Functional,
+Azure Kubernetes Service (AKS),Functional,
+Azure Blob Storage (World Data),Provider,
+Azure Cosmos DB (Player Data),Provider,Cosmos DB (single region)
+Azure SQL (Subscription DB),Provider,SQL (General Purpose)
+Azure Traffic Manager,Provider,
+Azure Region East US,Provider,
+Azure Region West Europe,Provider,
+Azure Region Southeast Asia,Provider,
