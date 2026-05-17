@@ -350,20 +350,21 @@ func FindArticulationPoints(g *Graph) []string {
 
 func AlgebraicConnectivity(g *Graph) float64 {
 
-	n := g.NodeCount()
+	// stable index mapping
+	nodeIndex := make(map[string]int)
+	idx := 0
+	for id, node := range g.Nodes {
+		if node.Type == "provider" { continue }
+		nodeIndex[id] = idx
+		idx++
+	}
+
+	n := len(nodeIndex)
 	adjMat := make([][]float64, n)
 	degMat := make([][]float64, n)
 	for i := range adjMat {
 		adjMat[i] = make([]float64, n)
 		degMat[i] = make([]float64, n)
-	}
-
-	// stable index mapping
-	nodeIndex := make(map[string]int)
-	idx := 0
-	for id := range g.Nodes {
-		nodeIndex[id] = idx
-		idx++
 	}
 
 	// process directed graph to undirected (excluding provider nodes and hosted-on edges)
