@@ -1,4 +1,3 @@
 bin/
 .env
 .DS_Store
-public/testresults*
