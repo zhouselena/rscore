@@ -31,6 +31,8 @@ func CalculateGraphResiliency() (float64, string) {
 	c_connectivity := min(AppInfraGraph.FielderValue / math.Log(float64(n)), 1.0) // λ₂ is unbounded
 	c_artpts := 1.0 - (float64(len(AppInfraGraph.ArtPoints)) / float64(n))
 	c_clustering := AppInfraGraph.AvgClustering
+	c_tech := AppInfraGraph.AvgTechScore
+
 	bMax := 0.0
 	for _, bcScore := range AppInfraGraph.Betweenness {
 		if bcScore > bMax {
@@ -40,8 +42,8 @@ func CalculateGraphResiliency() (float64, string) {
 	c_betweenness := 1.0 - bMax
 	c_degree := AppInfraGraph.Entropy
 
-	w1, w2, w3, w4, w5 := 0.30, 0.25, 0.20, 0.15, 0.10
-	rScore := w1 * c_connectivity + w2 * c_artpts + w3 * c_clustering + w4 * c_betweenness + w5 * c_degree
+    w1, w2, w3, w4, w5, w6 := 0.25, 0.20, 0.15, 0.15, 0.10, 0.15
+    rScore := w1*c_connectivity + w2*c_artpts + w3*c_clustering + w4*c_betweenness + w5*c_degree + w6*c_tech
 
 	return rScore, "placeholder for recommendation"
 }
@@ -60,9 +62,10 @@ func CalculateNodeCriticalness() map[string]float64 {
 		}
 		inDeg, outDeg := float64(AppInfraGraph.InDegree(node)), float64(AppInfraGraph.OutDegree(node))
 		k_degreeasym :=  inDeg / (inDeg + outDeg + 1)
+		k_techfragility := 1.0 - AppInfraGraph.Nodes[node].TechScore // low tech score = more critical
 
-		w1, w2, w3 := 0.4, 0.35, 0.25
-		scores[node] = w1 * k_betweenness + w2 * k_artpt + w3 * k_degreeasym
+        w1, w2, w3, w4 := 0.35, 0.30, 0.20, 0.15
+        scores[node] = w1*k_betweenness + w2*k_artpt + w3*k_degreeasym + w4*k_techfragility
 	}
 
 	return scores

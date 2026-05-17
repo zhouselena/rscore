@@ -7,11 +7,11 @@ import (
 
 type Node struct {
 	Name 			string
-	Type 			string // "functional" or "provider"
+	Type 			string 				// "functional" or "provider"
 	OutNeighbours 	map[string]*Node
 	InNeighbours 	map[string]*Node
-	Betweenness 	float64
-	// add further calculated information here
+	ServiceTier		string
+    TechScore    	float64 			// 0.0–1.0, loaded from providers CSV
 }
 
 type Edge struct {
@@ -35,6 +35,7 @@ type Graph struct {
 	AvgClustering 		float64 				// global average clustering coefficient
 	ArtPoints 			[]string 				// articulation points
 	FielderValue		float64					// algebraic connectivity
+    AvgTechScore    	float64 				// weighted average of node TechScores
 }
 
 // Initialise and return new Graph

@@ -383,9 +383,6 @@ func (g *Graph) Print() {
 	for _, name := range nodeNames {
 		node := g.Nodes[name]
 		fmt.Printf("\n  ┌─ %s[%s]%s %s\n", clrYellow, node.Type, clrReset, node.Name)
-		if node.Betweenness > 0 {
-			fmt.Printf("  │  betweenness: %.4f\n", node.Betweenness)
-		}
 		if len(node.OutNeighbours) == 0 {
 			fmt.Printf("  │  (no outgoing edges)\n")
 			continue
