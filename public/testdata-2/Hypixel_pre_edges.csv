@@ -1,0 +1,16 @@
+Type,From,To
+Hosted-on,Lobby & Hub Service,INAP Dedicated Hosting
+Hosted-on,Game Mode Servers,INAP Dedicated Hosting
+Hosted-on,Authentication & Session Service,AWS Database ElastiCache (single node)
+Hosted-on,SkyBlock Economy & Progression,MongoDB Atlas M30+ replica set
+Dependency,Lobby & Hub Service,Authentication & Session Service
+Dependency,Game Mode Servers,Lobby & Hub Service
+Dependency,Game Mode Servers,Authentication & Session Service
+Dependency,Game Mode Servers,Watchdog Anti-Cheat
+Dependency,SkyBlock Economy & Progression,Authentication & Session Service
+Dependency,SkyBlock Economy & Progression,Game Mode Servers
+Dependency,Hypixel Store,Authentication & Session Service
+Dependency,Public API,Authentication & Session Service
+Dependency,Public API,Game Mode Servers
+Dependency,Forums & Community Website,Authentication & Session Service
+Dependency,Watchdog Anti-Cheat,Game Mode Servers

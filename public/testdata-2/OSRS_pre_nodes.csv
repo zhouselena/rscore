@@ -1,0 +1,12 @@
+Node,Type,Service Tier
+Game World Servers,Functional,
+Authentication & Login Server,Functional,
+HiScores Service,Functional,
+RuneScape Web & News,Functional,
+Public API,Functional,
+Grand Exchange Service,Functional,
+Clan & Citadel Service,Functional,
+Patch & Client CDN,Functional,
+External London Data Center (single provider),Provider,
+On-Prem MySQL (single DC),Provider,
+Fastly CDN,Provider,CDN

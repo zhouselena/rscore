@@ -1,0 +1,15 @@
+Node,Type,Service Tier
+Lobby & Room Service,Functional,
+Game Session Server,Functional,
+Platform Authentication,Functional,
+Equipment & Cosmetics Inventory,Functional,
+Leaderboard & Stats,Functional,
+Patch & Asset CDN,Functional,
+GCP Cloud Run,Provider,Cloud Run
+GCP Firestore,Provider,Firestore
+Auth0 B2C,Provider,B2C
+Steam / Valve Infrastructure,Provider,
+PlayStation Network (Azure),Provider,
+Xbox Live (Azure),Provider,
+Fastly CDN (Steam),Provider,CDN
+Cloudflare Business,Provider,Business

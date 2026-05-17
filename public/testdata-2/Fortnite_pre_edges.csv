@@ -1,0 +1,22 @@
+Type,From,To
+Hosted-on,Account Service,MongoDB Atlas M30+ replica set
+Hosted-on,Account Service,AWS Database ElastiCache (single node)
+Hosted-on,Account Service,AWS Compute ECS/EKS (EC2-backed multi-AZ)
+Hosted-on,MCP (Profiles & Inventory),AWS Database RDS Multi-AZ (Standby)
+Hosted-on,Matchmaking Service,AWS Compute ECS/EKS (EC2-backed multi-AZ)
+Hosted-on,Game Server,AWS Compute EC2 M/C/R class (single AZ)
+Hosted-on,Friends & Social Service,AWS Compute ECS/EKS (EC2-backed multi-AZ)
+Hosted-on,Notification Service,AWS Compute ECS/EKS (EC2-backed multi-AZ)
+Hosted-on,Patch & Asset CDN,AWS Networking & Edge CloudFront CDN
+Hosted-on,Epic Games Store,AWS Database RDS Multi-AZ (Standby)
+Dependency,MCP (Profiles & Inventory),Account Service
+Dependency,Matchmaking Service,Account Service
+Dependency,Game Server,Matchmaking Service
+Dependency,Game Server,Account Service
+Dependency,Epic Games Store,Account Service
+Dependency,Epic Games Store,MCP (Profiles & Inventory)
+Dependency,Friends & Social Service,Account Service
+Dependency,Notification Service,Account Service
+Dependency,Notification Service,Matchmaking Service
+Dependency,Account Service,AWS Networking & Edge Application Load Balancer
+Dependency,Account Service,AWS Networking & Edge Route 53 (Standard)

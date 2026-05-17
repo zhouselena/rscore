@@ -1,0 +1,18 @@
+Type,From,To
+Hosted-on,Game World Servers,External London Data Center (single provider)
+Hosted-on,Game World Servers,On-Prem MySQL (single DC)
+Hosted-on,Authentication & Login Server,External London Data Center (single provider)
+Hosted-on,Patch & Client CDN,Fastly CDN
+Dependency,Game World Servers,Authentication & Login Server
+Dependency,HiScores Service,Authentication & Login Server
+Dependency,HiScores Service,Game World Servers
+Dependency,HiScores Service,On-Prem MySQL (single DC)
+Dependency,Grand Exchange Service,Authentication & Login Server
+Dependency,Grand Exchange Service,Game World Servers
+Dependency,Grand Exchange Service,On-Prem MySQL (single DC)
+Dependency,Clan & Citadel Service,Authentication & Login Server
+Dependency,Clan & Citadel Service,Game World Servers
+Dependency,Clan & Citadel Service,On-Prem MySQL (single DC)
+Dependency,Public API,Game World Servers
+Dependency,Public API,HiScores Service
+Dependency,RuneScape Web & News,Authentication & Login Server

@@ -1,0 +1,21 @@
+Type,From,To
+Hosted-on,Game Server,Roblox On-Prem Data Center (Primary)
+Hosted-on,Game Server,Roblox On-Prem Data Center (Secondary geo-distinct)
+Hosted-on,Authentication Service,HashiCorp Vault
+Hosted-on,Asset CDN,Fastly CDN
+Hosted-on,HashiCorp Nomad (upgraded),HashiCorp Consul (multi-cluster upgraded)
+Hosted-on,HashiCorp Vault,HashiCorp Consul (multi-cluster upgraded)
+Hosted-on,HashiCorp Consul (multi-cluster upgraded),Roblox On-Prem Data Center (Secondary geo-distinct)
+Dependency,Game Server,Authentication Service
+Dependency,Game Server,HashiCorp Nomad (upgraded)
+Dependency,Authentication Service,HashiCorp Nomad (upgraded)
+Dependency,Avatar & Catalog Service,Authentication Service
+Dependency,Avatar & Catalog Service,HashiCorp Nomad (upgraded)
+Dependency,Social & Friends Service,Authentication Service
+Dependency,Social & Friends Service,HashiCorp Nomad (upgraded)
+Dependency,Economy & Trading Service,Authentication Service
+Dependency,Economy & Trading Service,HashiCorp Nomad (upgraded)
+Dependency,Public API,Game Server
+Dependency,Public API,HashiCorp Nomad (upgraded)
+Dependency,Analytics & Telemetry,Game Server
+Dependency,Analytics & Telemetry,HashiCorp Consul (multi-cluster upgraded)

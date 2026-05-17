@@ -1,0 +1,17 @@
+Type,From,To
+Hosted-on,Lobby & Room Service,GCP Cloud Run
+Hosted-on,Lobby & Room Service,Cloudflare Business
+Hosted-on,Game Session Server,GCP Cloud Run
+Hosted-on,Platform Authentication,Auth0 B2C
+Hosted-on,Equipment & Cosmetics Inventory,GCP Firestore
+Hosted-on,Leaderboard & Stats,GCP Firestore
+Hosted-on,Patch & Asset CDN,Fastly CDN (Steam)
+Dependency,Platform Authentication,Steam / Valve Infrastructure
+Dependency,Platform Authentication,PlayStation Network (Azure)
+Dependency,Platform Authentication,Xbox Live (Azure)
+Dependency,Game Session Server,Lobby & Room Service
+Dependency,Game Session Server,Platform Authentication
+Dependency,Equipment & Cosmetics Inventory,Platform Authentication
+Dependency,Equipment & Cosmetics Inventory,Game Session Server
+Dependency,Leaderboard & Stats,Platform Authentication
+Dependency,Leaderboard & Stats,Game Session Server

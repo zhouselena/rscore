@@ -1,0 +1,15 @@
+Node,Type,Service Tier
+Game Server,Functional,
+Authentication Service,Functional,
+Avatar & Catalog Service,Functional,
+Social & Friends Service,Functional,
+Economy & Trading Service,Functional,
+Analytics & Telemetry,Functional,
+Asset CDN,Functional,
+Public API,Functional,
+HashiCorp Consul (multi-cluster upgraded),Provider,
+HashiCorp Nomad (upgraded),Provider,
+HashiCorp Vault,Provider,
+Roblox On-Prem Data Center (Primary),Provider,
+Roblox On-Prem Data Center (Secondary geo-distinct),Provider,
+Fastly CDN,Provider,CDN

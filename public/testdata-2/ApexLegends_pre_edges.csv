@@ -1,0 +1,18 @@
+Type,From,To
+Hosted-on,Game Server,AWS Compute EC2 Auto Scaling Group (multi-AZ)
+Hosted-on,EA Account Service,AWS Database RDS Multi-AZ (Standby)
+Hosted-on,EA Account Service,AWS Database ElastiCache (single node)
+Hosted-on,Patch & Asset CDN,AWS Networking & Edge CloudFront CDN
+Dependency,Matchmaking Service,EA Account Service
+Dependency,Game Server,Matchmaking Service
+Dependency,Game Server,EA Account Service
+Dependency,Game Server,Easy Anti-Cheat
+Dependency,Inventory & Cosmetics,EA Account Service
+Dependency,Inventory & Cosmetics,Matchmaking Service
+Dependency,Ranked & Competitive Service,Game Server
+Dependency,Ranked & Competitive Service,EA Account Service
+Dependency,Social & Friends Service,EA Account Service
+Dependency,Telemetry & Observability,Game Server
+Dependency,Telemetry & Observability,Matchmaking Service
+Dependency,EA Account Service,AWS Networking & Edge Application Load Balancer
+Dependency,EA Account Service,AWS Networking & Edge Route 53 (Standard)
