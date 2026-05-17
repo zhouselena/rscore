@@ -367,12 +367,13 @@ func AlgebraicConnectivity(g *Graph) float64 {
 
 	// process directed graph to undirected
 	for i, iNode := range g.Nodes {
-		for j := range g.Nodes {
-			if _, hasJ := iNode.OutNeighbours[j]; hasJ {
-				// find the edge between i and j
-				adjMat[nodeIndex[i]][nodeIndex[j]] = 1
-				adjMat[nodeIndex[j]][nodeIndex[i]] = 1
-			}
+		for j := range iNode.OutNeighbours {
+			adjMat[nodeIndex[i]][nodeIndex[j]] = 1
+			adjMat[nodeIndex[j]][nodeIndex[i]] = 1
+		}
+		for j := range iNode.InNeighbours {
+			adjMat[nodeIndex[i]][nodeIndex[j]] = 1
+			adjMat[nodeIndex[j]][nodeIndex[i]] = 1
 		}
 	}
 
@@ -392,9 +393,18 @@ func AlgebraicConnectivity(g *Graph) float64 {
 	}
 
 	// compute eigenvalues
-	L := mat.NewSymDense(n, subtract)
+	
+	L := mat.NewDense(n, n, subtract)
+
+	// convert to SymDense correctly
+	sym := mat.NewSymDense(n, nil)
+	for i := 0; i < n; i++ {
+		for j := i; j < n; j++ {
+			sym.SetSym(i, j, L.At(i, j))
+		}
+	}
 	var eig mat.EigenSym
-	ok := eig.Factorize(L, false) // false = don't compute eigenvectors
+	ok := eig.Factorize(sym, false) // false = don't compute eigenvectors
 	if !ok {
 		panic("eigendecomp failed")
 	}
@@ -404,7 +414,11 @@ func AlgebraicConnectivity(g *Graph) float64 {
 		return 0.0
 	}
 	sort.Float64s(eigenvalues)
-
-	return eigenvalues[1] // second smallest eigenvalue
-
+	epsilon := 1e-8
+	for _, v := range eigenvalues {
+		if v > epsilon {
+			return v // should be second smallest value
+		}
+	}
+	return 0.0
 }
