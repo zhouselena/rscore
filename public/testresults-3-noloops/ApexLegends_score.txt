@@ -1,0 +1,54 @@
+=== ApexLegends PRE ===
+=== Infrastructure Resilience Score: 0.5442 ===
+  Articulation Points Ratio      0.9333
+  Average Clustering Coefficient 0.3137
+  Average Tech Score             0.8813
+  Overall Betweenness Centrality 0.5055
+  Degree Entropy                 0.5132
+  Bounded Fielder Value          0.2046
+Recommendation: placeholder for recommendation
+
+=== Node Criticality Scores ===
+  Game Server                    0.5288
+  AWS Compute EC2 Auto Scaling Group (multi-AZ) 0.3439
+  Matchmaking Service            0.2971
+  AWS Database RDS Multi-AZ (Standby) 0.2225
+  EA Account Service             0.1934
+  AWS Database ElastiCache (single node) 0.1642
+  AWS Networking & Edge CloudFront CDN 0.1122
+  AWS Networking & Edge Application Load Balancer 0.0967
+  AWS Networking & Edge Route 53 (Standard) 0.0937
+  Patch & Asset CDN              0.0917
+  Ranked & Competitive Service   0.0821
+  Social & Friends Service       0.0676
+  Inventory & Cosmetics          0.0667
+  Telemetry & Observability      0.0667
+  Easy Anti-Cheat                0.0000
+
+=== ApexLegends POST ===
+=== Infrastructure Resilience Score: 0.5464 ===
+  Bounded Fielder Value          0.2248
+  Articulation Points Ratio      0.9375
+  Average Clustering Coefficient 0.2913
+  Average Tech Score             0.9094
+  Overall Betweenness Centrality 0.4968
+  Degree Entropy                 0.4809
+Recommendation: placeholder for recommendation
+
+=== Node Criticality Scores ===
+  Game Server                    0.5300
+  AWS Compute EC2 Auto Scaling Group (multi-AZ) 0.3031
+  Matchmaking Service            0.3000
+  EA Account Service             0.2161
+  AWS Database RDS Multi-AZ Cluster (2 readable standbys) 0.2031
+  AWS Database ElastiCache (cluster mode) 0.1117
+  AWS Networking & Edge CloudFront CDN 0.1108
+  Cloudflare Enterprise          0.1069
+  AWS Networking & Edge Application Load Balancer 0.0967
+  AWS Networking & Edge Route 53 (Standard) 0.0937
+  Patch & Asset CDN              0.0900
+  Ranked & Competitive Service   0.0789
+  Social & Friends Service       0.0683
+  Inventory & Cosmetics          0.0667
+  Telemetry & Observability      0.0667
+  Easy Anti-Cheat + Layered Security 0.0000

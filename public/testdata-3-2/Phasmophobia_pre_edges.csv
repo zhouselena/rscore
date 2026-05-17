@@ -1,0 +1,17 @@
+Type,From,To
+Hosted-on,Lobby & Room Service,Photon Unity Networking (PUN)
+Hosted-on,Game Session Server,Photon Unity Networking (PUN)
+Hosted-on,Steam Authentication,Steam / Valve Infrastructure
+Hosted-on,Equipment & Cosmetics Inventory,VPS UK (single region)
+Hosted-on,Leaderboard & Stats,VPS UK (single region)
+Hosted-on,Patch & Asset CDN,Fastly CDN (Steam)
+Dependency,Steam / Valve Infrastructure,Lobby & Room Service
+Dependency,VPS UK (single region),Game Session Server
+Dependency,Fastly CDN (Steam),Game Session Server
+Dependency,Steam Authentication,Lobby & Room Service
+Dependency,Steam Authentication,Equipment & Cosmetics Inventory
+Dependency,Steam Authentication,Leaderboard & Stats
+Dependency,Lobby & Room Service,Game Session Server
+Dependency,Game Session Server,Equipment & Cosmetics Inventory
+Dependency,Game Session Server,Leaderboard & Stats
+Dependency,Game Session Server,Patch & Asset CDN

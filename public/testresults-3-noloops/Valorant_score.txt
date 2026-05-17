@@ -1,0 +1,52 @@
+=== Valorant PRE ===
+=== Infrastructure Resilience Score: 0.5640 ===
+  Average Tech Score             0.9247
+  Overall Betweenness Centrality 0.5220
+  Degree Entropy                 0.4332
+  Bounded Fielder Value          0.2465
+  Articulation Points Ratio      0.9333
+  Average Clustering Coefficient 0.3694
+Recommendation: placeholder for recommendation
+
+=== Node Criticality Scores ===
+  Game Server                    0.5473
+  AWS Compute EC2 M/C/R class (single AZ) 0.2613
+  Matchmaking Service            0.2112
+  AWS Database RDS Multi-AZ (Standby) 0.1192
+  AWS Networking & Edge CloudFront CDN 0.1026
+  AWS Networking & Edge Route 53 (Standard) 0.0937
+  Patch & Asset CDN              0.0917
+  Telemetry & Observability      0.0744
+  On-Premises Data Center (Brazil) 0.0718
+  On-Premises Data Center (Chile) 0.0718
+  On-Premises Data Center (Las Vegas) 0.0718
+  Inventory & Store              0.0667
+  Social & Friends Service       0.0667
+  Authentication Service         0.0000
+  Vanguard Anti-Cheat            0.0000
+
+=== Valorant POST ===
+=== Infrastructure Resilience Score: 0.6022 ===
+  Bounded Fielder Value          0.1810
+  Articulation Points Ratio      0.9286
+  Average Clustering Coefficient 0.3027
+  Average Tech Score             0.9300
+  Overall Betweenness Centrality 0.7692
+  Degree Entropy                 0.7090
+Recommendation: placeholder for recommendation
+
+=== Node Criticality Scores ===
+  Game Server                    0.4558
+  AWS Compute ECS/EKS (Fargate multi-AZ) 0.2044
+  Matchmaking Service            0.1771
+  AWS Database Aurora Global Database 0.1285
+  AWS Networking & Edge AWS Global Accelerator 0.1195
+  AWS Networking & Edge CloudFront CDN 0.0981
+  AWS Networking & Edge Application Load Balancer 0.0967
+  AWS Networking & Edge Route 53 (Standard) 0.0937
+  Patch & Asset CDN              0.0846
+  Social & Friends Service       0.0667
+  Telemetry & Observability      0.0667
+  Inventory & Store              0.0500
+  Vanguard Anti-Cheat            0.0000
+  Authentication Service         0.0000

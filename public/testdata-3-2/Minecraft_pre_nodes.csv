@@ -1,0 +1,12 @@
+Node,Type,Service Tier
+Mojang Authentication Service,Functional,
+Session Server,Functional,
+Profile & Username Service,Functional,
+Minecraft Launcher Backend,Functional,
+Multiplayer Game Servers,Functional,
+Marketplace & DLC,Functional,
+Patch & Asset CDN,Functional,
+Mojang Auth Server (self-hosted),Provider,
+Azure App Service (Standard+),Provider,App Service (Standard+)
+Azure SQL (General Purpose),Provider,SQL (General Purpose)
+Azure,Provider,

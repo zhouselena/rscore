@@ -1,0 +1,51 @@
+=== SeaOfThieves PRE ===
+=== Infrastructure Resilience Score: 0.5952 ===
+  Bounded Fielder Value          0.3462
+  Articulation Points Ratio      0.9231
+  Average Clustering Coefficient 0.2906
+  Average Tech Score             0.9346
+  Overall Betweenness Centrality 0.4848
+  Degree Entropy                 0.6755
+Recommendation: placeholder for recommendation
+
+=== Node Criticality Scores ===
+  Game World Server              0.5403
+  Azure VM (single instance)     0.2979
+  Matchmaking & Session Service  0.2567
+  Azure SQL (General Purpose)    0.2232
+  Gold & Doubloon Economy        0.1394
+  Inventory & Cosmetics          0.1394
+  Xbox Live Authentication       0.1143
+  Crews & Social Service         0.1013
+  Azure CDN                      0.0958
+  Patch & Asset CDN              0.0958
+  Azure Cache for Redis (single-region) 0.0667
+  Telemetry & Analytics          0.0667
+  Xbox Live / Microsoft Account (Azure) 0.0667
+
+=== SeaOfThieves POST ===
+=== Infrastructure Resilience Score: 0.5656 ===
+  Average Clustering Coefficient 0.2833
+  Average Tech Score             0.9780
+  Overall Betweenness Centrality 0.3516
+  Degree Entropy                 0.5964
+  Bounded Fielder Value          0.3096
+  Articulation Points Ratio      0.9333
+Recommendation: placeholder for recommendation
+
+=== Node Criticality Scores ===
+  Game World Server              0.5936
+  Matchmaking & Session Service  0.2251
+  Azure PlayFab                  0.2097
+  Xbox Live Authentication       0.1606
+  Azure Cosmos DB (multi-region writes) 0.1533
+  Azure Kubernetes Service (AKS) 0.1210
+  Crews & Social Service         0.1010
+  Inventory & Cosmetics          0.0978
+  Gold & Doubloon Economy        0.0978
+  Azure Data Explorer            0.0917
+  Azure CDN                      0.0917
+  Patch & Asset CDN              0.0917
+  Telemetry & Analytics          0.0917
+  Azure Cache for Redis (zone-redundant) 0.0667
+  Xbox Live / Microsoft Account (Azure) 0.0667

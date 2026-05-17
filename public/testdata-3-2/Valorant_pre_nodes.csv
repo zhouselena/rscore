@@ -1,0 +1,16 @@
+Node,Type,Service Tier
+Game Server,Functional,
+Authentication Service,Functional,
+Matchmaking Service,Functional,
+Vanguard Anti-Cheat,Functional,
+Inventory & Store,Functional,
+Social & Friends Service,Functional,
+Telemetry & Observability,Functional,
+Patch & Asset CDN,Functional,
+On-Premises Data Center (Las Vegas),Provider,
+On-Premises Data Center (Chile),Provider,
+On-Premises Data Center (Brazil),Provider,
+AWS Database RDS Multi-AZ (Standby),Provider,RDS Multi-AZ (Standby)
+AWS Compute EC2 M/C/R class (single AZ),Provider,EC2 M/C/R class (single AZ)
+AWS Networking & Edge CloudFront CDN,Provider,CloudFront CDN
+AWS Networking & Edge Route 53 (Standard),Provider,Route 53 (Standard)

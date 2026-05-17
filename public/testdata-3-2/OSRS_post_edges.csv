@@ -1,0 +1,25 @@
+Type,From,To
+Hosted-on,Game World Servers,External Data Center (London Primary)
+Hosted-on,Game World Servers,External Data Center (Secondary UK)
+Hosted-on,Game World Servers,AWS Database RDS Multi-AZ (Standby)
+Hosted-on,Authentication & Login Server,External Data Center (London Primary)
+Hosted-on,Authentication & Login Server,External Data Center (Secondary UK)
+Hosted-on,HiScores Service,AWS Database RDS Multi-AZ (Standby)
+Hosted-on,Grand Exchange Service,AWS Database RDS Multi-AZ (Standby)
+Hosted-on,Clan & Citadel Service,AWS Database RDS Multi-AZ (Standby)
+Hosted-on,RuneScape Web & News,Cloudflare Business
+Hosted-on,Public API,External Data Center (London Primary)
+Hosted-on,Patch & Client CDN,Fastly CDN
+Dependency,External Data Center (London Primary),HiScores Service
+Dependency,External Data Center (London Primary),Grand Exchange Service
+Dependency,External Data Center (London Primary),Clan & Citadel Service
+Dependency,External Data Center (Secondary UK),HiScores Service
+Dependency,Cloudflare Business,Authentication & Login Server
+Dependency,Fastly CDN,Game World Servers
+Dependency,Authentication & Login Server,Game World Servers
+Dependency,Game World Servers,HiScores Service
+Dependency,Game World Servers,Grand Exchange Service
+Dependency,Game World Servers,Clan & Citadel Service
+Dependency,Game World Servers,Public API
+Dependency,Game World Servers,Patch & Client CDN
+Dependency,RuneScape Web & News,Authentication & Login Server

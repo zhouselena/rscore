@@ -1,0 +1,18 @@
+Node,Type,Service Tier
+Account Service,Functional,
+MCP (Profiles & Inventory),Functional,
+Matchmaking Service,Functional,
+Game Server,Functional,
+Epic Games Store,Functional,
+Friends & Social Service,Functional,
+Notification Service,Functional,
+Patch & Asset CDN,Functional,
+MongoDB Atlas Global Clusters,Provider,Global Clusters
+AWS Database ElastiCache (cluster mode),Provider,ElastiCache (cluster mode)
+AWS Compute EC2 Auto Scaling Group (multi-AZ),Provider,EC2 Auto Scaling Group (multi-AZ)
+AWS Compute ECS/EKS (Fargate multi-AZ),Provider,ECS/EKS (Fargate multi-AZ)
+AWS Database Aurora (Provisioned single region),Provider,Aurora (Provisioned single region)
+AWS Networking & Edge CloudFront CDN,Provider,CloudFront CDN
+AWS Networking & Edge Route 53 (Standard),Provider,Route 53 (Standard)
+AWS Networking & Edge Application Load Balancer,Provider,Application Load Balancer
+AWS Messaging & Queuing Kinesis (multi-shard enhanced fanout),Provider,Kinesis (multi-shard enhanced fanout)

@@ -1,0 +1,19 @@
+Type,From,To
+Hosted-on,Microsoft Account Authentication,Azure Active Directory B2C
+Hosted-on,Session Server,Azure Active Directory B2C
+Hosted-on,Profile & Username Service,Azure Cosmos DB (multi-region writes)
+Hosted-on,Profile & Username Service,Azure App Service (Standard+)
+Hosted-on,Minecraft Launcher Backend,Azure App Service (Standard+)
+Hosted-on,Marketplace & DLC,Azure App Service (Standard+)
+Hosted-on,Parental Controls & Family Safety,Azure Active Directory B2C
+Hosted-on,Patch & Asset CDN,Azure
+Dependency,Azure Active Directory B2C,Profile & Username Service
+Dependency,Azure Active Directory B2C,Minecraft Launcher Backend
+Dependency,Azure Active Directory B2C,Marketplace & DLC
+Dependency,Azure Cosmos DB (multi-region writes),Microsoft Account Authentication
+Dependency,Azure App Service (Standard+),Microsoft Account Authentication
+Dependency,Azure,Minecraft Launcher Backend
+Dependency,Microsoft Account Authentication,Session Server
+Dependency,Microsoft Account Authentication,Profile & Username Service
+Dependency,Session Server,Multiplayer Game Servers
+Dependency,Minecraft Launcher Backend,Patch & Asset CDN

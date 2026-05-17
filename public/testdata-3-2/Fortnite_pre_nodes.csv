@@ -1,0 +1,17 @@
+Node,Type,Service Tier
+Account Service,Functional,
+MCP (Profiles & Inventory),Functional,
+Matchmaking Service,Functional,
+Game Server,Functional,
+Epic Games Store,Functional,
+Friends & Social Service,Functional,
+Notification Service,Functional,
+Patch & Asset CDN,Functional,
+MongoDB Atlas M30+ replica set,Provider,M30+ replica set
+AWS Database ElastiCache (single node),Provider,ElastiCache (single node)
+AWS Compute EC2 M/C/R class (single AZ),Provider,EC2 M/C/R class (single AZ)
+AWS Compute ECS/EKS (EC2-backed multi-AZ),Provider,ECS/EKS (EC2-backed multi-AZ)
+AWS Database RDS Multi-AZ (Standby),Provider,RDS Multi-AZ (Standby)
+AWS Networking & Edge CloudFront CDN,Provider,CloudFront CDN
+AWS Networking & Edge Route 53 (Standard),Provider,Route 53 (Standard)
+AWS Networking & Edge Application Load Balancer,Provider,Application Load Balancer

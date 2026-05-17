@@ -1,0 +1,18 @@
+Type,From,To
+Hosted-on,Mojang Authentication Service,Mojang Auth Server (self-hosted)
+Hosted-on,Session Server,Mojang Auth Server (self-hosted)
+Hosted-on,Profile & Username Service,Azure SQL (General Purpose)
+Hosted-on,Profile & Username Service,Azure App Service (Standard+)
+Hosted-on,Minecraft Launcher Backend,Azure App Service (Standard+)
+Hosted-on,Marketplace & DLC,Azure App Service (Standard+)
+Hosted-on,Patch & Asset CDN,Azure
+Dependency,Mojang Auth Server (self-hosted),Profile & Username Service
+Dependency,Mojang Auth Server (self-hosted),Minecraft Launcher Backend
+Dependency,Mojang Auth Server (self-hosted),Marketplace & DLC
+Dependency,Azure SQL (General Purpose),Mojang Authentication Service
+Dependency,Azure App Service (Standard+),Mojang Authentication Service
+Dependency,Azure,Minecraft Launcher Backend
+Dependency,Mojang Authentication Service,Session Server
+Dependency,Mojang Authentication Service,Profile & Username Service
+Dependency,Session Server,Multiplayer Game Servers
+Dependency,Minecraft Launcher Backend,Patch & Asset CDN

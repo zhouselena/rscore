@@ -1,0 +1,47 @@
+=== AmongUs PRE ===
+=== Infrastructure Resilience Score: 0.6167 ===
+  Articulation Points Ratio      0.9000
+  Average Clustering Coefficient 0.3065
+  Average Tech Score             1.0000
+  Overall Betweenness Centrality 0.4722
+  Degree Entropy                 0.6990
+  Bounded Fielder Value          0.4001
+Recommendation: placeholder for recommendation
+
+=== Node Criticality Scores ===
+  Game Session Server            0.5292
+  Lobby & Matchmaking Service    0.3000
+  Custom Hazel .NET Server       0.1036
+  Reporting & Moderation         0.1000
+  In-Game Chat                   0.1000
+  VPS Texas (NA)                 0.0703
+  VPS Germany (EU)               0.0703
+  VPS Japan (Asia)               0.0703
+  Photon Cloud (Exit Games)      0.0667
+  Account & Auth Service         0.0000
+
+=== AmongUs POST ===
+=== Infrastructure Resilience Score: 0.5405 ===
+  Bounded Fielder Value          0.2741
+  Articulation Points Ratio      0.8571
+  Average Clustering Coefficient 0.3686
+  Average Tech Score             0.9336
+  Overall Betweenness Centrality 0.4167
+  Degree Entropy                 0.4272
+Recommendation: placeholder for recommendation
+
+=== Node Criticality Scores ===
+  Lobby & Matchmaking Service    0.5771
+  Game Session Server            0.5708
+  GCP Firestore                  0.1161
+  Auth0 B2C                      0.1087
+  GCP Cloud Run                  0.1070
+  Cloudflare Business            0.1042
+  In-Game Chat                   0.1000
+  Reporting & Moderation         0.1000
+  Analytics & Insights           0.0891
+  VPS Texas (NA)                 0.0740
+  VPS Germany (EU)               0.0740
+  VPS Japan (Asia)               0.0740
+  Photon Cloud (Exit Games)      0.0667
+  Account & Auth Service         0.0000

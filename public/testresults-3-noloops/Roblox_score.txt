@@ -1,0 +1,50 @@
+=== Roblox PRE ===
+=== Infrastructure Resilience Score: 0.6303 ===
+  Bounded Fielder Value          0.2549
+  Articulation Points Ratio      0.9231
+  Average Clustering Coefficient 0.2548
+  Average Tech Score             0.9885
+  Overall Betweenness Centrality 0.8409
+  Degree Entropy                 0.6933
+Recommendation: placeholder for recommendation
+
+=== Node Criticality Scores ===
+  Game Server                    0.3843
+  HashiCorp Nomad                0.1714
+  HashiCorp Consul (single cluster) 0.1333
+  Avatar & Catalog Service       0.1232
+  Fastly CDN                     0.1183
+  Economy & Trading Service      0.1005
+  Public API                     0.1005
+  Social & Friends Service       0.1005
+  Roblox On-Prem Data Center (Primary) 0.0727
+  Analytics & Telemetry          0.0693
+  Asset CDN                      0.0693
+  HashiCorp Vault                0.0667
+  Authentication Service         0.0397
+
+=== Roblox POST ===
+=== Infrastructure Resilience Score: 0.6402 ===
+  Bounded Fielder Value          0.2754
+  Articulation Points Ratio      0.9286
+  Average Clustering Coefficient 0.2374
+  Average Tech Score             0.9893
+  Overall Betweenness Centrality 0.8526
+  Degree Entropy                 0.7374
+Recommendation: placeholder for recommendation
+
+=== Node Criticality Scores ===
+  Game Server                    0.3766
+  HashiCorp Nomad (upgraded)     0.1714
+  HashiCorp Consul (multi-cluster upgraded) 0.1333
+  Avatar & Catalog Service       0.1227
+  Public API                     0.1216
+  Fastly CDN                     0.1161
+  Economy & Trading Service      0.1004
+  Social & Friends Service       0.1004
+  Authentication Service         0.0695
+  Analytics & Telemetry          0.0689
+  Asset CDN                      0.0689
+  HashiCorp Vault                0.0667
+  Roblox On-Prem Data Center (Primary) 0.0587
+  Roblox On-Prem Data Center (Secondary geo-distinct) 0.0567

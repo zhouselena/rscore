@@ -1,0 +1,22 @@
+Type,From,To
+Hosted-on,Game Session Server,GCP Cloud Run
+Hosted-on,Account & Auth Service,Auth0 B2C
+Hosted-on,Analytics & Insights,GCP Firestore
+Hosted-on,Lobby & Matchmaking Service,Photon Cloud (Exit Games)
+Hosted-on,Lobby & Matchmaking Service,Cloudflare Business
+Hosted-on,Game Session Server,VPS Texas (NA)
+Hosted-on,Game Session Server,VPS Germany (EU)
+Hosted-on,Game Session Server,VPS Japan (Asia)
+Dependency,GCP Cloud Run,Lobby & Matchmaking Service
+Dependency,Auth0 B2C,Lobby & Matchmaking Service
+Dependency,GCP Firestore,Game Session Server
+Dependency,Photon Cloud (Exit Games),Game Session Server
+Dependency,Cloudflare Business,Game Session Server
+Dependency,VPS Texas (NA),Lobby & Matchmaking Service
+Dependency,VPS Germany (EU),Lobby & Matchmaking Service
+Dependency,VPS Japan (Asia),Lobby & Matchmaking Service
+Dependency,Account & Auth Service,Lobby & Matchmaking Service
+Dependency,Lobby & Matchmaking Service,Game Session Server
+Dependency,Game Session Server,In-Game Chat
+Dependency,Game Session Server,Reporting & Moderation
+Dependency,Game Session Server,Analytics & Insights

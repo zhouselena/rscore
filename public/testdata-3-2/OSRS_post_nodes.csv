@@ -1,0 +1,14 @@
+Node,Type,Service Tier
+Game World Servers,Functional,
+Authentication & Login Server,Functional,
+HiScores Service,Functional,
+RuneScape Web & News,Functional,
+Public API,Functional,
+Grand Exchange Service,Functional,
+Clan & Citadel Service,Functional,
+Patch & Client CDN,Functional,
+External Data Center (London Primary),Provider,
+External Data Center (Secondary UK),Provider,
+AWS Database RDS Multi-AZ (Standby),Provider,RDS Multi-AZ (Standby)
+Fastly CDN,Provider,CDN
+Cloudflare Business,Provider,Business

@@ -1,0 +1,23 @@
+Type,From,To
+Hosted-on,Lobby & Hub Service,Cloudflare Enterprise
+Hosted-on,Lobby & Hub Service,Managed Dedicated Servers (post-INAP)
+Hosted-on,Game Mode Servers,Managed Dedicated Servers (post-INAP)
+Hosted-on,Authentication & Session Service,Managed Dedicated Servers (post-INAP)
+Hosted-on,Authentication & Session Service,AWS Database ElastiCache (cluster mode)
+Hosted-on,SkyBlock Economy & Progression,Managed Dedicated Servers (post-INAP)
+Hosted-on,SkyBlock Economy & Progression,MongoDB Atlas M30+ replica set
+Hosted-on,Hypixel Store,Managed Dedicated Servers (post-INAP)
+Hosted-on,Public API,Managed Dedicated Servers (post-INAP)
+Hosted-on,Forums & Community Website,Managed Dedicated Servers (post-INAP)
+Hosted-on,Watchdog Anti-Cheat,Managed Dedicated Servers (post-INAP)
+Dependency,Cloudflare Enterprise,Authentication & Session Service
+Dependency,AWS Database ElastiCache (cluster mode),Lobby & Hub Service
+Dependency,MongoDB Atlas M30+ replica set,Game Mode Servers
+Dependency,Authentication & Session Service,Lobby & Hub Service
+Dependency,Authentication & Session Service,Hypixel Store
+Dependency,Authentication & Session Service,Public API
+Dependency,Authentication & Session Service,Forums & Community Website
+Dependency,Lobby & Hub Service,Game Mode Servers
+Dependency,Game Mode Servers,SkyBlock Economy & Progression
+Dependency,Game Mode Servers,Watchdog Anti-Cheat
+Dependency,Game Mode Servers,Public API

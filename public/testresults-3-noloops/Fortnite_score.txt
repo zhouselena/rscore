@@ -1,0 +1,56 @@
+=== Fortnite PRE ===
+=== Infrastructure Resilience Score: 0.5814 ===
+  Bounded Fielder Value          0.1848
+  Articulation Points Ratio      0.9375
+  Average Clustering Coefficient 0.3356
+  Average Tech Score             0.8413
+  Overall Betweenness Centrality 0.7714
+  Degree Entropy                 0.5542
+Recommendation: placeholder for recommendation
+
+=== Node Criticality Scores ===
+  Game Server                    0.4800
+  AWS Compute ECS/EKS (EC2-backed multi-AZ) 0.2370
+  AWS Database RDS Multi-AZ (Standby) 0.1858
+  Matchmaking Service            0.1650
+  AWS Database ElastiCache (single node) 0.1642
+  AWS Compute EC2 M/C/R class (single AZ) 0.1542
+  MongoDB Atlas M30+ replica set 0.1087
+  AWS Networking & Edge Application Load Balancer 0.0967
+  AWS Networking & Edge CloudFront CDN 0.0958
+  AWS Networking & Edge Route 53 (Standard) 0.0937
+  MCP (Profiles & Inventory)     0.0925
+  Patch & Asset CDN              0.0883
+  Notification Service           0.0667
+  Friends & Social Service       0.0667
+  Epic Games Store               0.0508
+  Account Service                0.0000
+
+=== Fortnite POST ===
+=== Infrastructure Resilience Score: 0.5880 ===
+  Articulation Points Ratio      0.9412
+  Average Clustering Coefficient 0.2933
+  Average Tech Score             0.8888
+  Overall Betweenness Centrality 0.7792
+  Degree Entropy                 0.5606
+  Bounded Fielder Value          0.1982
+Recommendation: placeholder for recommendation
+
+=== Node Criticality Scores ===
+  Game Server                    0.4916
+  AWS Compute ECS/EKS (Fargate multi-AZ) 0.2187
+  AWS Database Aurora (Provisioned single region) 0.1663
+  Matchmaking Service            0.1615
+  AWS Compute EC2 Auto Scaling Group (multi-AZ) 0.1246
+  AWS Database ElastiCache (cluster mode) 0.1117
+  AWS Messaging & Queuing Kinesis (multi-shard enhanced fanout) 0.1078
+  AWS Networking & Edge Application Load Balancer 0.0967
+  AWS Networking & Edge CloudFront CDN 0.0950
+  AWS Networking & Edge Route 53 (Standard) 0.0937
+  MCP (Profiles & Inventory)     0.0909
+  Patch & Asset CDN              0.0871
+  MongoDB Atlas Global Clusters  0.0847
+  Friends & Social Service       0.0667
+  Notification Service           0.0515
+  Epic Games Store               0.0507
+  Account Service                0.0000
