@@ -3,7 +3,7 @@ set -eux pipefail
 
 bash run-rscore.sh
 
-TESTDATA_DIR="public/testdata-2"
+TESTDATA_DIR="public/testdata"
 RESULTS_DIR="public/testresults"
 BIN="./bin/rscore"
 
