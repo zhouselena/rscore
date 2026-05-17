@@ -29,7 +29,7 @@ func CalculateGraphResiliency() (float64, string) {
 	n := AppInfraGraph.NodeCount()
 
 	c_connectivity := min(AppInfraGraph.FielderValue / math.Log(float64(n)), 1.0) // λ₂ is unbounded
-	c_artpts := 1.0 - (float64(len(AppInfraGraph.ArtPoints)) / float64(n))
+	c_artpts := 1.0 - (float64(len(AppInfraGraph.ArtPoints)) / float64(n)) // ratio of art pts to overall node count
 	c_clustering := AppInfraGraph.AvgClustering
 	c_tech := AppInfraGraph.AvgTechScore
 
