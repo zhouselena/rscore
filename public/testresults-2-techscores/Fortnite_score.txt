@@ -1,0 +1,44 @@
+=== Fortnite PRE ===
+=== Infrastructure Resilience Score: 0.5292 ===
+Recommendation: placeholder for recommendation
+
+=== Node Criticality Scores ===
+  Account Service                0.4442
+  Game Server                    0.3000
+  AWS Compute ECS/EKS (EC2-backed multi-AZ) 0.2020
+  AWS Database ElastiCache (single node) 0.1975
+  AWS Database RDS Multi-AZ (Standby) 0.1858
+  AWS Compute EC2 M/C/R class (single AZ) 0.1675
+  MongoDB Atlas M30+ replica set 0.1420
+  AWS Networking & Edge Application Load Balancer 0.1300
+  AWS Networking & Edge Route 53 (Standard) 0.1270
+  AWS Networking & Edge CloudFront CDN 0.1225
+  Matchmaking Service            0.0808
+  MCP (Profiles & Inventory)     0.0500
+  Notification Service           0.0000
+  Epic Games Store               0.0000
+  Friends & Social Service       0.0000
+  Patch & Asset CDN              0.0000
+
+=== Fortnite POST ===
+=== Infrastructure Resilience Score: 0.5192 ===
+Recommendation: placeholder for recommendation
+
+=== Node Criticality Scores ===
+  Account Service                0.4394
+  Game Server                    0.3000
+  Notification Service           0.3000
+  AWS Compute ECS/EKS (Fargate multi-AZ) 0.1830
+  AWS Database Aurora (Provisioned single region) 0.1663
+  AWS Database ElastiCache (cluster mode) 0.1450
+  AWS Messaging & Queuing Kinesis (multi-shard enhanced fanout) 0.1375
+  AWS Compute EC2 Auto Scaling Group (multi-AZ) 0.1375
+  AWS Networking & Edge Application Load Balancer 0.1300
+  AWS Networking & Edge Route 53 (Standard) 0.1270
+  AWS Networking & Edge CloudFront CDN 0.1225
+  MongoDB Atlas Global Clusters  0.1180
+  Matchmaking Service            0.0815
+  MCP (Profiles & Inventory)     0.0500
+  Epic Games Store               0.0000
+  Patch & Asset CDN              0.0000
+  Friends & Social Service       0.0000

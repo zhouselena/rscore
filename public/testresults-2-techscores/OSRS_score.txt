@@ -1,0 +1,35 @@
+=== OSRS PRE ===
+=== Infrastructure Resilience Score: 0.5974 ===
+Recommendation: placeholder for recommendation
+
+=== Node Criticality Scores ===
+  Authentication & Login Server  0.4526
+  On-Prem MySQL (single DC)      0.1600
+  External London Data Center (single provider) 0.1333
+  Fastly CDN                     0.1225
+  Game World Servers             0.1136
+  HiScores Service               0.0439
+  Clan & Citadel Service         0.0000
+  Patch & Client CDN             0.0000
+  RuneScape Web & News           0.0000
+  Public API                     0.0000
+  Grand Exchange Service         0.0000
+
+=== OSRS POST ===
+=== Infrastructure Resilience Score: 0.5711 ===
+Recommendation: placeholder for recommendation
+
+=== Node Criticality Scores ===
+  Authentication & Login Server  0.4383
+  RuneScape Web & News           0.3000
+  AWS Database RDS Multi-AZ (Standby) 0.2125
+  Cloudflare Business            0.1375
+  External Data Center (London Primary) 0.1333
+  External Data Center (Secondary UK) 0.1333
+  Fastly CDN                     0.1225
+  Game World Servers             0.1048
+  HiScores Service               0.0427
+  Public API                     0.0000
+  Clan & Citadel Service         0.0000
+  Patch & Client CDN             0.0000
+  Grand Exchange Service         0.0000
