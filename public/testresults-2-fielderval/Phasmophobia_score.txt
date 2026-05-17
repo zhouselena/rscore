@@ -1,0 +1,35 @@
+=== Phasmophobia PRE ===
+=== Infrastructure Resilience Score: 0.5561 ===
+Recommendation: placeholder for recommendation
+
+=== Node Criticality Scores ===
+  Steam Authentication           0.4346
+  Game Session Server            0.3861
+  Photon Unity Networking (PUN)  0.1333
+  VPS UK (single region)         0.1333
+  Fastly CDN (Steam)             0.1225
+  Steam / Valve Infrastructure   0.1000
+  Lobby & Room Service           0.0667
+  Leaderboard & Stats            0.0000
+  Equipment & Cosmetics Inventory 0.0000
+  Patch & Asset CDN              0.0000
+
+=== Phasmophobia POST ===
+=== Infrastructure Resilience Score: 0.5103 ===
+Recommendation: placeholder for recommendation
+
+=== Node Criticality Scores ===
+  Platform Authentication        0.4019
+  Game Session Server            0.3801
+  Lobby & Room Service           0.3567
+  GCP Cloud Run                  0.1663
+  GCP Firestore                  0.1603
+  Auth0 B2C                      0.1420
+  Cloudflare Business            0.1375
+  Fastly CDN (Steam)             0.1225
+  PlayStation Network (Azure)    0.1000
+  Steam / Valve Infrastructure   0.1000
+  Xbox Live (Azure)              0.1000
+  Equipment & Cosmetics Inventory 0.0000
+  Patch & Asset CDN              0.0000
+  Leaderboard & Stats            0.0000

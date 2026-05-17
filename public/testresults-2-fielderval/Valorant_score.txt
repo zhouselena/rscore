@@ -1,0 +1,40 @@
+=== Valorant PRE ===
+=== Infrastructure Resilience Score: 0.5153 ===
+Recommendation: placeholder for recommendation
+
+=== Node Criticality Scores ===
+  Authentication Service         0.4288
+  Game Server                    0.3365
+  AWS Compute EC2 M/C/R class (single AZ) 0.1675
+  AWS Database RDS Multi-AZ (Standby) 0.1525
+  AWS Networking & Edge Route 53 (Standard) 0.1270
+  Matchmaking Service            0.1238
+  AWS Networking & Edge CloudFront CDN 0.1225
+  On-Premises Data Center (Las Vegas) 0.1000
+  On-Premises Data Center (Chile) 0.1000
+  Vanguard Anti-Cheat            0.1000
+  On-Premises Data Center (Brazil) 0.1000
+  Telemetry & Observability      0.0000
+  Inventory & Store              0.0000
+  Social & Friends Service       0.0000
+  Patch & Asset CDN              0.0000
+
+=== Valorant POST ===
+=== Infrastructure Resilience Score: 0.5274 ===
+Recommendation: placeholder for recommendation
+
+=== Node Criticality Scores ===
+  Authentication Service         0.4293
+  Game Server                    0.3398
+  AWS Compute ECS/EKS (Fargate multi-AZ) 0.1663
+  AWS Networking & Edge Application Load Balancer 0.1300
+  AWS Networking & Edge Route 53 (Standard) 0.1270
+  Matchmaking Service            0.1245
+  AWS Networking & Edge CloudFront CDN 0.1225
+  AWS Networking & Edge AWS Global Accelerator 0.1195
+  AWS Database Aurora Global Database 0.1150
+  Vanguard Anti-Cheat            0.1000
+  Inventory & Store              0.0000
+  Social & Friends Service       0.0000
+  Patch & Asset CDN              0.0000
+  Telemetry & Observability      0.0000
