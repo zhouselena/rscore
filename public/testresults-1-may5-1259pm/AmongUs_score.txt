@@ -1,0 +1,30 @@
+=== AmongUs PRE ===
+=== Infrastructure Resilience Score: 0.8213 ===
+Recommendation: placeholder for recommendation
+
+=== Node Criticality Scores ===
+  AWS EC2 (Burstable T-class)    0.2083
+  Among Us Client                0.2083
+  Account / Guest Login Service  0.1000
+  Game Lobby Server              0.0633
+  Matchmaking Service            0.0000
+  Player Cosmetics / Store       0.0000
+  Chat Service                   0.0000
+
+=== AmongUs POST ===
+=== Infrastructure Resilience Score: 0.4660 ===
+Recommendation: placeholder for recommendation
+
+=== Node Criticality Scores ===
+  Among Us Client                0.5643
+  AWS EC2 (Unlimited Mode)       0.5468
+  Game Lobby Server              0.3966
+  DDoS Protection (Cloudflare)   0.3500
+  AWS Region eu-west-1           0.1667
+  AWS Region ap-southeast-1      0.1250
+  Cloudflare                     0.1250
+  AWS Region us-east-1           0.1250
+  Account / Guest Login Service  0.0870
+  Chat Service                   0.0000
+  Player Cosmetics / Store       0.0000
+  Matchmaking Service            0.0000

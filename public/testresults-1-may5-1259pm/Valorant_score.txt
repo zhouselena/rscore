@@ -1,0 +1,43 @@
+=== Valorant PRE ===
+=== Infrastructure Resilience Score: 0.5576 ===
+Recommendation: placeholder for recommendation
+
+=== Node Criticality Scores ===
+  Riot Client                    0.5722
+  RiotSignOn (RSO)               0.4906
+  AWS Region us-east-1           0.2143
+  Riot-Owned Data Centers        0.1667
+  AWS Region ap-southeast-1      0.1250
+  AWS Region eu-west-1           0.1250
+  Player Profile Service         0.0846
+  Valorant Game Server           0.0596
+  Matchmaking Service            0.0468
+  Analytics Pipeline             0.0000
+  Riot Messaging Service (Chat)  0.0000
+  Inventory / Store Service      0.0000
+  Anti-Cheat (Vanguard)          0.0000
+  Patch / CDN Delivery           0.0000
+
+=== Valorant POST ===
+=== Infrastructure Resilience Score: 0.5677 ===
+Recommendation: placeholder for recommendation
+
+=== Node Criticality Scores ===
+  Riot Client                    0.5750
+  AWS Region us-east-1           0.2222
+  AWS Region eu-west-1           0.1875
+  AWS Aurora (Player DB)         0.1667
+  AWS Region sa-east-1           0.1667
+  AWS Region ap-southeast-1      0.1667
+  RiotSignOn (RSO)               0.1205
+  Player Profile Service         0.0877
+  AWS Local Zone (Edge)          0.0638
+  Valorant Game Server           0.0504
+  Matchmaking Service            0.0479
+  AWS EKS Cluster                0.0460
+  DDoS Mitigation Layer          0.0000
+  Patch / CDN Delivery           0.0000
+  Inventory / Store Service      0.0000
+  Anti-Cheat (Vanguard)          0.0000
+  Riot Messaging Service (Chat)  0.0000
+  Analytics Pipeline             0.0000

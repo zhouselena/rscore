@@ -1,0 +1,41 @@
+=== ApexLegends PRE ===
+=== Infrastructure Resilience Score: 0.5482 ===
+Recommendation: placeholder for recommendation
+
+=== Node Criticality Scores ===
+  EA App / Origin Launcher       0.5687
+  Apex Game Server               0.3957
+  AWS Region us-east-1           0.2143
+  Google Compute Engine (GCE)    0.1875
+  Multiplay Bare Metal Data Centers 0.1250
+  Azure Region East US           0.1250
+  EA Account & Auth (OAuth)      0.1000
+  Multiplay Orchestration Layer  0.0833
+  Matchmaking Service            0.0551
+  Player Account & Inventory     0.0526
+  EA Novafusion Backend          0.0000
+  Analytics Service              0.0000
+  In-Game Store                  0.0000
+  Anti-Cheat (Easy Anti-Cheat)   0.0000
+
+=== ApexLegends POST ===
+=== Infrastructure Resilience Score: 0.5655 ===
+Recommendation: placeholder for recommendation
+
+=== Node Criticality Scores ===
+  Player Account & Inventory     0.4057
+  AWS Region us-east-1           0.2222
+  EA App / Origin Launcher       0.2188
+  AWS Region eu-west-1           0.1875
+  AWS Region ap-southeast-1      0.1667
+  AWS Region sa-east-1           0.1667
+  Amazon DynamoDB                0.1250
+  EA Account & Auth (OAuth)      0.0910
+  Apex Game Server               0.0881
+  Server-Side Cheat Detection    0.0777
+  Matchmaking Service            0.0576
+  AWS EKS Orchestration          0.0417
+  EA Novafusion Backend          0.0000
+  Anti-Cheat (Upgraded EAC + Server-Side) 0.0000
+  Analytics Service              0.0000
+  In-Game Store                  0.0000

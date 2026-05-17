@@ -1,0 +1,42 @@
+=== Fortnite PRE ===
+=== Infrastructure Resilience Score: 0.5869 ===
+Recommendation: placeholder for recommendation
+
+=== Node Criticality Scores ===
+  Game Server Fleet              0.4100
+  AWS Region us-east-1           0.2250
+  Epic Games Launcher            0.2083
+  AWS Region ap-northeast-1      0.1250
+  AWS Region eu-west-1           0.1250
+  Account Service                0.1000
+  MCP (Matchmaking Control Plane) 0.0911
+  MongoDB Shard Cluster          0.0833
+  Memcached Cache Layer          0.0833
+  Matchmaking Service            0.0742
+  XMPP Messaging Service         0.0000
+  Analytics / Kinesis Pipeline   0.0000
+  Player Inventory / Locker      0.0000
+
+=== Fortnite POST ===
+=== Infrastructure Resilience Score: 0.4836 ===
+Recommendation: placeholder for recommendation
+
+=== Node Criticality Scores ===
+  MCP (Matchmaking Control Plane) 0.4605
+  DynamoDB Player Data           0.4422
+  Game Server Fleet              0.4250
+  Analytics / Kinesis Pipeline   0.3500
+  AWS Region us-east-1           0.2250
+  Epic Games Launcher            0.2083
+  AWS Region eu-west-1           0.1875
+  AWS Region us-west-2           0.1667
+  Amazon Kinesis                 0.1250
+  AWS DynamoDB                   0.1250
+  AWS Region ap-northeast-1      0.1250
+  Account Service                0.0839
+  AWS EKS Orchestration          0.0833
+  Redis Cache Layer              0.0833
+  Matchmaking Service            0.0564
+  XMPP Messaging Service (Refactored) 0.0000
+  Player Inventory / Locker      0.0000
+  AWS Config Monitoring          0.0000

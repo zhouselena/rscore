@@ -1,0 +1,38 @@
+=== Roblox PRE ===
+=== Infrastructure Resilience Score: 0.5149 ===
+Recommendation: placeholder for recommendation
+
+=== Node Criticality Scores ===
+  Roblox-Owned Data Center (Primary) 0.2273
+  Roblox Client                  0.2143
+  Consul Cluster (Service Discovery) 0.2045
+  Nomad Scheduler                0.0625
+  Roblox-Owned Data Center (Secondary) 0.0000
+  Roblox Chat Service            0.0000
+  Game Server (Place Instance)   0.0000
+  Authentication Service         0.0000
+  Player Inventory / Avatar      0.0000
+  Roblox Marketplace             0.0000
+  Matchmaking / Discovery Service 0.0000
+  Vault (Secrets Management)     0.0000
+  Monitoring / Telemetry         0.0000
+
+=== Roblox POST ===
+=== Infrastructure Resilience Score: 0.6319 ===
+Recommendation: placeholder for recommendation
+
+=== Node Criticality Scores ===
+  Roblox-Owned Data Center (Primary) 0.2250
+  Roblox Client                  0.2143
+  Consul Cluster A (Primary)     0.2058
+  Consul Cluster B (Secondary)   0.1769
+  Roblox-Owned Data Center (Secondary) 0.1667
+  Nomad Scheduler                0.0500
+  Game Server (Place Instance)   0.0447
+  Roblox Marketplace             0.0000
+  Authentication Service         0.0000
+  Matchmaking / Discovery Service 0.0000
+  Player Inventory / Avatar      0.0000
+  Roblox Chat Service            0.0000
+  Vault (Secrets Management)     0.0000
+  Monitoring / Telemetry (Decoupled) 0.0000

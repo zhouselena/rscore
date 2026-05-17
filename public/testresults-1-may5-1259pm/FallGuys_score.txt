@@ -1,0 +1,40 @@
+=== FallGuys PRE ===
+=== Infrastructure Resilience Score: 0.5754 ===
+Recommendation: placeholder for recommendation
+
+=== Node Criticality Scores ===
+  Mediatonic Auth Service        0.4094
+  Mediatonic-Managed Game Servers 0.2188
+  Fall Guys Client (Steam / PS4) 0.2143
+  PlayStation Network            0.1250
+  Steam / Valve Backend          0.1250
+  Player Profile & Kudos         0.0633
+  Matchmaking Service            0.0625
+  Game Session Server            0.0589
+  Cosmetics / Store              0.0000
+  Season Pass Service            0.0000
+  Analytics Service              0.0000
+
+=== FallGuys POST ===
+=== Infrastructure Resilience Score: 0.4891 ===
+Recommendation: placeholder for recommendation
+
+=== Node Criticality Scores ===
+  Epic Online Services (EOS) Auth 0.4247
+  AWS EC2 (EOS Infrastructure)   0.4074
+  Fall Guys Client (All Platforms) 0.2188
+  AWS Region us-east-1           0.2188
+  AWS Region eu-west-1           0.1667
+  AWS Region ap-southeast-1      0.1250
+  PlayStation Network            0.1250
+  Nintendo Network               0.1250
+  Steam / Valve Backend          0.1250
+  Xbox Live                      0.1250
+  Auto-Scaling Group             0.0892
+  Game Session Server            0.0588
+  Player Profile & Kudos         0.0574
+  Matchmaking Service            0.0544
+  Cross-Platform Account Linking 0.0000
+  Season Pass Service            0.0000
+  Cosmetics / Store              0.0000
+  Analytics Service              0.0000
