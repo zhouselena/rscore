@@ -1,0 +1,16 @@
+Node,Type,Service Tier
+Game World Server,Functional,
+Xbox Live Authentication,Functional,
+Matchmaking & Session Service,Functional,
+Inventory & Cosmetics,Functional,
+Gold & Doubloon Economy,Functional,
+Crews & Social Service,Functional,
+Telemetry & Analytics,Functional,
+Patch & Asset CDN,Functional,
+Azure Kubernetes Service (AKS),Provider,Kubernetes Service (AKS)
+Azure PlayFab,Provider,
+Azure Cosmos DB (multi-region writes),Provider,Cosmos DB (multi-region writes)
+Azure Cache for Redis (zone-redundant),Provider,
+Azure Data Explorer,Provider,
+Xbox Live / Microsoft Account (Azure),Provider,
+Azure CDN,Provider,

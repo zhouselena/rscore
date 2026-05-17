@@ -1,0 +1,11 @@
+Node,Type,Service Tier
+Lobby & Matchmaking Service,Functional,
+Game Session Server,Functional,
+Account & Auth Service,Functional,
+In-Game Chat,Functional,
+Reporting & Moderation,Functional,
+Photon Cloud (Exit Games),Provider,
+Custom Hazel .NET Server,Provider,
+VPS Texas (NA),Provider,
+VPS Germany (EU),Provider,
+VPS Japan (Asia),Provider,

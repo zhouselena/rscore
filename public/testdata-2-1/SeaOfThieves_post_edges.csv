@@ -1,0 +1,23 @@
+Type,From,To
+Hosted-on,Game World Server,Azure Kubernetes Service (AKS)
+Hosted-on,Xbox Live Authentication,Xbox Live / Microsoft Account (Azure)
+Hosted-on,Matchmaking & Session Service,Azure PlayFab
+Hosted-on,Matchmaking & Session Service,Azure Cache for Redis (zone-redundant)
+Hosted-on,Inventory & Cosmetics,Azure Cosmos DB (multi-region writes)
+Hosted-on,Gold & Doubloon Economy,Azure Cosmos DB (multi-region writes)
+Hosted-on,Telemetry & Analytics,Azure Data Explorer
+Hosted-on,Patch & Asset CDN,Azure CDN
+Dependency,Game World Server,Xbox Live Authentication
+Dependency,Game World Server,Matchmaking & Session Service
+Dependency,Game World Server,Azure PlayFab
+Dependency,Matchmaking & Session Service,Xbox Live Authentication
+Dependency,Inventory & Cosmetics,Xbox Live Authentication
+Dependency,Inventory & Cosmetics,Game World Server
+Dependency,Gold & Doubloon Economy,Xbox Live Authentication
+Dependency,Gold & Doubloon Economy,Game World Server
+Dependency,Gold & Doubloon Economy,Inventory & Cosmetics
+Dependency,Crews & Social Service,Xbox Live Authentication
+Dependency,Crews & Social Service,Game World Server
+Dependency,Telemetry & Analytics,Game World Server
+Dependency,Telemetry & Analytics,Matchmaking & Session Service
+Dependency,Game World Server,Patch & Asset CDN

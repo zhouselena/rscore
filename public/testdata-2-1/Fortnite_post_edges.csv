@@ -1,0 +1,23 @@
+Type,From,To
+Hosted-on,Account Service,MongoDB Atlas Global Clusters
+Hosted-on,Account Service,AWS Database ElastiCache (cluster mode)
+Hosted-on,Account Service,AWS Compute ECS/EKS (Fargate multi-AZ)
+Hosted-on,MCP (Profiles & Inventory),AWS Database Aurora (Provisioned single region)
+Hosted-on,Matchmaking Service,AWS Compute ECS/EKS (Fargate multi-AZ)
+Hosted-on,Game Server,AWS Compute EC2 Auto Scaling Group (multi-AZ)
+Hosted-on,Friends & Social Service,AWS Compute ECS/EKS (Fargate multi-AZ)
+Hosted-on,Notification Service,AWS Messaging & Queuing Kinesis (multi-shard enhanced fanout)
+Hosted-on,Patch & Asset CDN,AWS Networking & Edge CloudFront CDN
+Hosted-on,Epic Games Store,AWS Database Aurora (Provisioned single region)
+Dependency,MCP (Profiles & Inventory),Account Service
+Dependency,Matchmaking Service,Account Service
+Dependency,Game Server,Matchmaking Service
+Dependency,Game Server,Account Service
+Dependency,Epic Games Store,Account Service
+Dependency,Epic Games Store,MCP (Profiles & Inventory)
+Dependency,Friends & Social Service,Account Service
+Dependency,Notification Service,Account Service
+Dependency,Notification Service,Matchmaking Service
+Dependency,Account Service,AWS Networking & Edge Application Load Balancer
+Dependency,Account Service,AWS Networking & Edge Route 53 (Standard)
+Dependency,Game Server,Patch & Asset CDN

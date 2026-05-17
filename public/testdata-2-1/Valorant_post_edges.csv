@@ -1,0 +1,18 @@
+Type,From,To
+Hosted-on,Game Server,AWS Compute ECS/EKS (Fargate multi-AZ)
+Hosted-on,Game Server,AWS Networking & Edge AWS Global Accelerator
+Hosted-on,Authentication Service,AWS Database Aurora Global Database
+Hosted-on,Authentication Service,AWS Compute ECS/EKS (Fargate multi-AZ)
+Hosted-on,Patch & Asset CDN,AWS Networking & Edge CloudFront CDN
+Dependency,Matchmaking Service,Authentication Service
+Dependency,Game Server,Matchmaking Service
+Dependency,Game Server,Authentication Service
+Dependency,Game Server,Vanguard Anti-Cheat
+Dependency,Inventory & Store,Authentication Service
+Dependency,Inventory & Store,Matchmaking Service
+Dependency,Social & Friends Service,Authentication Service
+Dependency,Telemetry & Observability,Game Server
+Dependency,Telemetry & Observability,Matchmaking Service
+Dependency,Authentication Service,AWS Networking & Edge Application Load Balancer
+Dependency,Authentication Service,AWS Networking & Edge Route 53 (Standard)
+Dependency,Game Server,Patch & Asset CDN

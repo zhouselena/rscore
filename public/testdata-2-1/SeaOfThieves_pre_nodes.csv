@@ -1,0 +1,14 @@
+Node,Type,Service Tier
+Game World Server,Functional,
+Xbox Live Authentication,Functional,
+Matchmaking & Session Service,Functional,
+Inventory & Cosmetics,Functional,
+Gold & Doubloon Economy,Functional,
+Crews & Social Service,Functional,
+Telemetry & Analytics,Functional,
+Patch & Asset CDN,Functional,
+Azure VM (single instance),Provider,VM (single instance)
+Azure SQL (General Purpose),Provider,SQL (General Purpose)
+Azure Cache for Redis (single-region),Provider,
+Xbox Live / Microsoft Account (Azure),Provider,
+Azure CDN,Provider,

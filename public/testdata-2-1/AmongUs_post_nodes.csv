@@ -1,0 +1,15 @@
+Node,Type,Service Tier
+Lobby & Matchmaking Service,Functional,
+Game Session Server,Functional,
+Account & Auth Service,Functional,
+In-Game Chat,Functional,
+Reporting & Moderation,Functional,
+Analytics & Insights,Functional,
+GCP Cloud Run,Provider,Cloud Run
+Auth0 B2C,Provider,B2C
+GCP Firestore,Provider,Firestore
+Photon Cloud (Exit Games),Provider,
+VPS Texas (NA),Provider,
+VPS Germany (EU),Provider,
+VPS Japan (Asia),Provider,
+Cloudflare Business,Provider,Business

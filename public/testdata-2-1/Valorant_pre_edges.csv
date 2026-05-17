@@ -1,0 +1,18 @@
+Type,From,To
+Hosted-on,Game Server,On-Premises Data Center (Las Vegas)
+Hosted-on,Game Server,On-Premises Data Center (Chile)
+Hosted-on,Game Server,On-Premises Data Center (Brazil)
+Hosted-on,Authentication Service,AWS Database RDS Multi-AZ (Standby)
+Hosted-on,Authentication Service,AWS Compute EC2 M/C/R class (single AZ)
+Hosted-on,Patch & Asset CDN,AWS Networking & Edge CloudFront CDN
+Dependency,Matchmaking Service,Authentication Service
+Dependency,Game Server,Matchmaking Service
+Dependency,Game Server,Authentication Service
+Dependency,Game Server,Vanguard Anti-Cheat
+Dependency,Inventory & Store,Authentication Service
+Dependency,Inventory & Store,Matchmaking Service
+Dependency,Social & Friends Service,Authentication Service
+Dependency,Telemetry & Observability,Game Server
+Dependency,Telemetry & Observability,Matchmaking Service
+Dependency,Authentication Service,AWS Networking & Edge Route 53 (Standard)
+Dependency,Game Server,Patch & Asset CDN
