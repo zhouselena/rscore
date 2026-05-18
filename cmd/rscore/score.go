@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 	"slices"
+	"sort"
 
 	"github.com/spf13/cobra"
 	"github.com/zhouselena/rscore"
@@ -51,9 +52,19 @@ func runScoreCommand(cmd *cobra.Command, args []string, nodespath string, edgesp
 
 	// display results
 	fmt.Printf("=== Infrastructure Resilience Score: %.4f ===\n", rScore)
-    for key, val := range normalizedInfo {
-        fmt.Printf("  %-30s %.4f\n", key, val)
+
+    // sort keys alphabetically
+    keys := make([]string, 0, len(normalizedInfo))
+    for key := range normalizedInfo {
+        keys = append(keys, key)
     }
+    sort.Strings(keys)
+
+    // print in sorted order
+    for _, key := range keys {
+        fmt.Printf("  %-30s %.4f\n", key, normalizedInfo[key])
+    }
+
     fmt.Printf("Recommendation: %s\n\n", recommendation)
 
     fmt.Println("=== Node Criticality Scores ===")

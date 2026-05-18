@@ -43,7 +43,7 @@ func CalculateGraphResiliency() (float64, map[string]float64, string) {
 	c_degree := AppInfraGraph.Entropy
 
     w1, w2, w3, w4, w5, w6 := 0.25, 0.20, 0.15, 0.15, 0.10, 0.15
-    rScore := w1*c_connectivity + w2*c_artpts + w3*c_clustering + w4*c_betweenness + w5*c_degree + w6*c_tech
+    rScore := w1*c_tech + w2*c_artpts + w3*c_clustering + w4*c_betweenness + w5*c_degree + w6*c_connectivity
 
 	normalizedInfo := make(map[string]float64)
 	normalizedInfo["Bounded Fielder Value"] = c_connectivity
